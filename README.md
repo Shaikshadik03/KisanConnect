@@ -21,13 +21,13 @@
 
 ```mermaid
 flowchart TD
-    A[👨‍🌾 Farmer] -->|1. Posts Harvest & Price| B[(📁 Produce Listings - JSON)]
-    C[🛒 Consumer / Buyer] -->|2. Searches Crop & District| D[🔍 Search & Ranking Engine]
+    A["👨‍🌾 Farmer"] -->|"1. Posts Harvest & Price"| B[("📁 Produce Listings - JSON")]
+    C["🛒 Consumer / Buyer"] -->|"2. Searches Crop & District"| D["🔍 Search & Ranking Engine"]
     B --> D
-    E[(📁 Mandi / Middleman Benchmark Data)] --> D
-    D -->|3. Calculates Price Savings| F[📦 Direct Deal Cards + Savings Badge]
-    F -->|4. Farmer Contact & Deal| C
-    D -->|5. Analytics Logging| G[📊 Platform Impact & Savings Dashboard]
+    E[("📁 Mandi & Market Benchmark Data")] --> D
+    D -->|"3. Calculates Price Savings"| F["📦 Direct Deal Cards + Savings Badge"]
+    F -->|"4. Farmer Contact & Deal"| C
+    D -->|"5. Analytics Logging"| G["📊 Platform Impact & Savings Dashboard"]
 ```
 
 ---
