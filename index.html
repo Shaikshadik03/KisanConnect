@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KisanConnect — Direct Farmer-to-Consumer Marketplace (SIH26033)</title>
+  <title>KisanConnect — Direct Farm-to-Consumer Organic Marketplace</title>
 
   <!-- Google Fonts & Chart.js CDN -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,7 @@
       <div class="brand" data-view-target="landing-view">
         <div class="brand-icon">🌾</div>
         <div class="brand-text">
-          <h1>KisanConnect <span class="brand-badge">SIH 2026</span></h1>
+          <h1>KisanConnect</h1>
           <p>Direct Farm-to-Consumer Marketplace</p>
         </div>
       </div>
@@ -31,8 +31,7 @@
         <li><button class="nav-btn active" data-view="landing-view">Home</button></li>
         <li><button class="nav-btn" data-view="buy-view">Buy Produce</button></li>
         <li><button class="nav-btn" data-view="sell-view">Sell Produce</button></li>
-        <li><button class="nav-btn" data-view="dashboard-view">Impact Dashboard</button></li>
-        <li><button class="nav-btn nav-btn-highlight" data-view="presentation-view">📊 SIH PPT Deck</button></li>
+        <li><button class="nav-btn nav-btn-highlight" data-view="dashboard-view">📊 Impact & Savings</button></li>
       </ul>
     </div>
   </nav>
@@ -42,17 +41,22 @@
 
     <!-- VIEW 1: LANDING PAGE -->
     <section id="landing-view" class="view-section active">
-      <div class="hero-section">
-        <div class="hero-tag">🏛️ Ministry of Consumer Affairs & Food • Problem ID: SIH26033</div>
-        <h1 class="hero-title">Fair Prices for <span>Farmers</span>.<br>Fresh Produce for <span>You</span>.</h1>
-        <p class="hero-desc">
-          Eliminating multiple layers of middlemen to give Indian farmers up to 50% higher profits and consumers 30% cheaper farm-fresh groceries with total price transparency.
-        </p>
+      <div class="hero-banner-wrap">
+        <div>
+          <div class="hero-tag">🌱 Direct Farm Trade Platform</div>
+          <h1 class="hero-title">Fair Prices for <span>Farmers</span>.<br>Fresh Produce for <span>You</span>.</h1>
+          <p class="hero-desc">
+            Eliminating middleman markups to give Indian farmers up to 50% higher profits and consumers 30% cheaper farm-fresh groceries with total price transparency.
+          </p>
 
-        <div class="hero-actions">
-          <button class="btn btn-primary" data-view-target="buy-view">🛒 I'm a Buyer / Consumer</button>
-          <button class="btn btn-accent" data-view-target="sell-view">👨‍🌾 I'm a Farmer (Sell Direct)</button>
-          <button class="btn btn-secondary" data-view-target="presentation-view">🏆 View SIH Presentation</button>
+          <div class="hero-actions">
+            <button class="btn btn-primary" data-view-target="buy-view">🛒 Buy Farm Produce</button>
+            <button class="btn btn-accent" data-view-target="sell-view">👨‍🌾 Sell My Harvest</button>
+          </div>
+        </div>
+
+        <div>
+          <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?w=800&auto=format&fit=crop&q=80" alt="Fresh Harvest" class="hero-img-main">
         </div>
       </div>
 
@@ -60,38 +64,19 @@
       <div class="stats-banner">
         <div class="stat-item">
           <div class="stat-num">0%</div>
-          <div class="stat-label">Middleman Cut</div>
+          <div class="stat-label">Middleman Commission</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">+42%</div>
+          <div class="stat-num">+44.8%</div>
           <div class="stat-label">Higher Farmer Earnings</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">~30%</div>
+          <div class="stat-num">~32%</div>
           <div class="stat-label">Direct Consumer Savings</div>
         </div>
         <div class="stat-item">
           <div class="stat-num">100%</div>
           <div class="stat-label">Live Price Transparency</div>
-        </div>
-      </div>
-
-      <!-- Value Props -->
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">💰</div>
-          <h3>Live Price Comparison Engine</h3>
-          <p>Every harvest listing clearly displays the middleman mandi benchmark vs the direct farmer price so consumers visibly see their savings on every kilogram.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🚜</div>
-          <h3>Direct Farm-Gate Connection</h3>
-          <p>Connect straight to verified local growers for bulk grain, fresh vegetables, pulses, and organic seasonal fruits with simulated proximity ranking.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📊</div>
-          <h3>Transparent Earnings Analytics</h3>
-          <p>Farmers can track their total revenue gains compared to traditional wholesale exploitation via interactive visual dashboards.</p>
         </div>
       </div>
     </section>
@@ -120,7 +105,6 @@
               <option value="Pulses">Pulses & Dals</option>
               <option value="Spices">Spices & Chillies</option>
               <option value="Fruits">Fruits & Mangoes</option>
-              <option value="Oilseeds">Oilseeds & Mustard</option>
             </select>
           </div>
 
@@ -149,17 +133,17 @@
           </div>
 
           <div id="produce-listings-container" class="produce-grid">
-            <!-- Rendered dynamically by app.js -->
+            <!-- Rendered dynamically -->
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- VIEW 3: SELL PRODUCE (FARMER LISTING FORM) -->
+    <!-- VIEW 3: SELL PRODUCE -->
     <section id="sell-view" class="view-section">
       <div class="sell-form-card">
-        <div class="section-header" style="text-align:center; margin-bottom:2rem;">
+        <div style="text-align:center; margin-bottom:2rem;">
           <h2 style="font-size:1.8rem; font-weight:800;">👨‍🌾 List Your Harvest Direct to Buyers</h2>
           <p style="color:#576550;">Get fair prices for your hard work • No mandi cuts • Zero commission</p>
         </div>
@@ -185,7 +169,6 @@
                 <option value="Pulses">Pulses & Dals</option>
                 <option value="Spices">Spices</option>
                 <option value="Fruits">Fruits</option>
-                <option value="Oilseeds">Oilseeds</option>
               </select>
             </div>
             <div class="form-group">
@@ -231,8 +214,8 @@
           </div>
 
           <div class="form-group">
-            <label for="sell-desc">Produce Quality Notes</label>
-            <textarea id="sell-desc" class="form-control" rows="3" placeholder="Describe quality, moisture, packaging, and farm location..."></textarea>
+            <label for="sell-desc">Produce Notes & Farm Location</label>
+            <textarea id="sell-desc" class="form-control" rows="3" placeholder="Describe quality, freshness, and farm location..."></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary" style="width:100%; padding:1rem;">✅ Publish Direct Farm Listing</button>
@@ -242,7 +225,7 @@
 
     <!-- VIEW 4: IMPACT DASHBOARD -->
     <section id="dashboard-view" class="view-section">
-      <div class="section-header" style="text-align:left; margin-bottom:2rem;">
+      <div style="margin-bottom:2rem;">
         <h2 style="font-size:1.8rem; font-weight:800;">📊 Agricultural Impact & Savings Analytics</h2>
         <p style="color:#576550;">Measuring direct economic gains created by cutting out intermediary markups</p>
       </div>
@@ -252,7 +235,7 @@
           <div class="kpi-icon green">👨‍🌾</div>
           <div class="kpi-info">
             <h4>Active Farmers</h4>
-            <div class="kpi-value" id="dash-total-farmers">20</div>
+            <div class="kpi-value" id="dash-total-farmers">23</div>
           </div>
         </div>
 
@@ -260,7 +243,7 @@
           <div class="kpi-icon amber">🛒</div>
           <div class="kpi-info">
             <h4>Direct Buyers</h4>
-            <div class="kpi-value" id="dash-total-buyers">340+</div>
+            <div class="kpi-value" id="dash-total-buyers">420+</div>
           </div>
         </div>
 
@@ -268,7 +251,7 @@
           <div class="kpi-icon blue">💰</div>
           <div class="kpi-info">
             <h4>Markup Saved</h4>
-            <div class="kpi-value" id="dash-markup-eliminated">₹4.8 Lakhs</div>
+            <div class="kpi-value" id="dash-markup-eliminated">₹6.2 Lakhs</div>
           </div>
         </div>
 
@@ -276,7 +259,7 @@
           <div class="kpi-icon purple">📈</div>
           <div class="kpi-info">
             <h4>Avg Extra Farmer Gain</h4>
-            <div class="kpi-value" id="dash-avg-gain">+42.5%</div>
+            <div class="kpi-value" id="dash-avg-gain">+44.8%</div>
           </div>
         </div>
       </div>
@@ -294,162 +277,19 @@
       </div>
     </section>
 
-    <!-- VIEW 5: SIH PRESENTATION SLIDE DECK -->
-    <section id="presentation-view" class="view-section">
-      <div class="slide-deck-container">
-        
-        <div class="slide-header">
-          <span>🏆 Smart India Hackathon 2026 Pitch Deck</span>
-          <span id="slide-counter">Slide 1 of 6</span>
-        </div>
-
-        <div class="slide-screen">
-
-          <!-- Slide 1: Title -->
-          <div class="slide-content active">
-            <div class="slide-title-tag">SIH26033 • Ministry of Consumer Affairs & Food</div>
-            <h2 class="slide-heading">KisanConnect 🌾</h2>
-            <h3 style="color:var(--primary); font-size:1.4rem; font-weight:700; margin-bottom:1.5rem;">Fair Prices for Farmers, Fresh Produce for You</h3>
-            <p style="font-size:1.1rem; color:var(--text-muted);">A Direct Farm-to-Consumer Marketplace with Real-Time Middleman Price Transparency.</p>
-            <div style="margin-top:2rem; padding:1rem; background:var(--bg-alt); border-radius:8px; display:inline-block; font-size:0.9rem;">
-              <strong>Team:</strong> Antigravity Innovators • <strong>Track:</strong> Agri-Tech / Supply Chain
-            </div>
-          </div>
-
-          <!-- Slide 2: The Problem -->
-          <div class="slide-content">
-            <div class="slide-title-tag">The Challenge</div>
-            <h2 class="slide-heading">Intermediaries Squeeze Both Farmers & Consumers</h2>
-            <ul class="slide-body-points">
-              <li>
-                <span>🔴</span>
-                <div><strong>Farmer Underpayment:</strong> Indian farmers receive only 20–30% of the retail price paid by end consumers.</div>
-              </li>
-              <li>
-                <span>🔴</span>
-                <div><strong>3–4 Layers of Intermediaries:</strong> Village aggregators, commission agents, mandi wholesalers, and retailers take cumulative 50–70% margins.</div>
-              </li>
-              <li>
-                <span>🔴</span>
-                <div><strong>Lose-Lose Supply Chain:</strong> Consumers pay inflated food prices while farmers remain trapped in agrarian debt.</div>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Slide 3: The Gap in Existing Solutions -->
-          <div class="slide-content">
-            <div class="slide-title-tag">Market Gap</div>
-            <h2 class="slide-heading">Why Existing Agri-Portals Fall Short</h2>
-            <ul class="slide-body-points">
-              <li>
-                <span>⚠️</span>
-                <div><strong>Complex & English-Heavy:</strong> Most agri apps are difficult for rural farmers to navigate on basic mobile devices.</div>
-              </li>
-              <li>
-                <span>⚠️</span>
-                <div><strong>No Price Transparency:</strong> Current portals fail to show the direct markup contrast between mandi rates and consumer retail.</div>
-              </li>
-              <li>
-                <span>⚠️</span>
-                <div><strong>Lack of Localized Match:</strong> Consumers cannot discover and buy directly from nearby growers within their own district.</div>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Slide 4: Our Solution -->
-          <div class="slide-content">
-            <div class="slide-title-tag">Proposed Solution</div>
-            <h2 class="slide-heading">Transparent Direct Market & Price Comparison</h2>
-            <ul class="slide-body-points">
-              <li>
-                <span>✅</span>
-                <div><strong>Live Price Comparison Badges:</strong> Transparently shows Farmer Price vs Mandi Wholesale vs Supermarket Retail for every crop.</div>
-              </li>
-              <li>
-                <span>✅</span>
-                <div><strong>Direct Connection:</strong> Zero commission platform connects bulk buyers and households directly to the harvest source.</div>
-              </li>
-              <li>
-                <span>✅</span>
-                <div><strong>Smart Proximity Discovery:</strong> Ranks produce by nearby distance and freshness date.</div>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Slide 5: Tech Stack & Architecture -->
-          <div class="slide-content">
-            <div class="slide-title-tag">Technical Details</div>
-            <h2 class="slide-heading">High Performance & Mobile-First Architecture</h2>
-            <ul class="slide-body-points">
-              <li>
-                <span>💻</span>
-                <div><strong>Frontend:</strong> Clean semantic HTML5, Custom CSS, and ES6 JavaScript optimized for 3G/4G networks.</div>
-              </li>
-              <li>
-                <span>⚙️</span>
-                <div><strong>Pricing Engine:</strong> Real-time savings and extra-margin calculation formulas executing client-side.</div>
-              </li>
-              <li>
-                <span>📊</span>
-                <div><strong>Analytics:</strong> Interactive Chart.js graphs displaying farmer revenue expansion vs traditional mandi losses.</div>
-              </li>
-              <li>
-                <span>📁</span>
-                <div><strong>Data Tier:</strong> Modular JSON datasets (`listings.json`, `market_prices.json`) and LocalStorage persistence.</div>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Slide 6: Social Impact & Future Roadmap -->
-          <div class="slide-content">
-            <div class="slide-title-tag">Future Scope</div>
-            <h2 class="slide-heading">Empowering India's Agricultural Backbone</h2>
-            <ul class="slide-body-points">
-              <li>
-                <span>🚀</span>
-                <div><strong>Social Impact:</strong> Increases net farmer income by +40% while lowering household food inflation.</div>
-              </li>
-              <li>
-                <span>🚀</span>
-                <div><strong>e-NAM & Agmarknet APIs:</strong> Dynamic synchronization with real-time national mandi benchmark prices.</div>
-              </li>
-              <li>
-                <span>🚀</span>
-                <div><strong>Farm-Gate Logistics Aggregation:</strong> Partnering with rural EV freight logistics for consolidated doorstep delivery.</div>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-
-        <!-- Slide Controls -->
-        <div class="slide-nav-bar">
-          <button class="btn btn-secondary" id="slide-prev-btn" style="padding:0.45rem 1.1rem; font-size:0.85rem;">◀ Previous</button>
-          
-          <div class="slide-dots">
-            <span class="slide-dot active" onclick="jumpToSlide(0)"></span>
-            <span class="slide-dot" onclick="jumpToSlide(1)"></span>
-            <span class="slide-dot" onclick="jumpToSlide(2)"></span>
-            <span class="slide-dot" onclick="jumpToSlide(3)"></span>
-            <span class="slide-dot" onclick="jumpToSlide(4)"></span>
-            <span class="slide-dot" onclick="jumpToSlide(5)"></span>
-          </div>
-
-          <button class="btn btn-primary" id="slide-next-btn" style="padding:0.45rem 1.1rem; font-size:0.85rem;">Next ▶</button>
-        </div>
-
-      </div>
-    </section>
-
   </main>
 
   <!-- Contact Farmer Modal -->
   <div id="contact-modal" class="modal-overlay">
     <div class="modal-box">
       <button class="modal-close" onclick="closeContactModal()">✕</button>
-      <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">👨‍🌾</div>
-      <h3 id="modal-farmer-name" style="font-size: 1.3rem; margin-bottom: 0.25rem;">Farmer Name</h3>
-      <p id="modal-crop-name" style="color: var(--primary); font-weight: 700; margin-bottom: 1rem;">Crop Name</p>
+      <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
+        <img id="modal-farmer-img" src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=150&auto=format&fit=crop&q=80" style="width:60px; height:60px; border-radius:50%; object-fit:cover;">
+        <div>
+          <h3 id="modal-farmer-name" style="font-size: 1.25rem; font-weight:800;">Farmer Name</h3>
+          <p id="modal-crop-name" style="color: var(--primary); font-weight: 700;">Crop Name</p>
+        </div>
+      </div>
       
       <div style="background: var(--bg-alt); padding: 1rem; border-radius: 8px; margin-bottom: 1.25rem;">
         <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">

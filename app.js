@@ -1,136 +1,151 @@
 /**
  * KisanConnect Application Logic & Price Comparison Engine
- * Smart India Hackathon 2026 - SIH26033
  */
 
 const DEFAULT_LISTINGS = [
   {
-    id: "PROD-001",
-    farmerName: "Balwinder Singh",
-    crop: "Organic Sharbati Wheat",
-    category: "Grains",
-    quantity: "50 Quintals",
-    pricePerKg: 28,
-    unit: "kg",
-    location: "Ludhiana, Punjab",
-    district: "Ludhiana",
-    distanceKm: 14,
-    harvestDate: "2026-08-15",
-    organic: true,
-    phone: "+91 98765 12340",
-    description: "Premium quality golden Sharbati wheat, chemical-free sun-dried grain."
+    "id": "PROD-001",
+    "farmerName": "Balwinder Singh",
+    "farmerAvatar": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=150&auto=format&fit=crop&q=80",
+    "crop": "Organic Sharbati Wheat",
+    "cropImage": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&auto=format&fit=crop&q=80",
+    "category": "Grains",
+    "quantity": "50 Quintals",
+    "pricePerKg": 28,
+    "unit": "kg",
+    "location": "Ludhiana, Punjab",
+    "district": "Ludhiana",
+    "distanceKm": 14,
+    "harvestDate": "2026-08-15",
+    "organic": true,
+    "phone": "+91 98765 12340",
+    "description": "Premium quality golden Sharbati wheat, chemical-free sun-dried grain."
   },
   {
-    id: "PROD-002",
-    farmerName: "Santosh Patil",
-    crop: "Fresh Red Tomatoes",
-    category: "Vegetables",
-    quantity: "2500 kg",
-    pricePerKg: 22,
-    unit: "kg",
-    location: "Nashik, Maharashtra",
-    district: "Nashik",
-    distanceKm: 8,
-    harvestDate: "2026-08-24",
-    organic: false,
-    phone: "+91 98234 56789",
-    description: "Farm-fresh ripe hybrid tomatoes, firm texture, ideal for retail or culinary bulk use."
+    "id": "PROD-002",
+    "farmerName": "Santosh Patil",
+    "farmerAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+    "crop": "Fresh Red Tomatoes",
+    "cropImage": "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=600&auto=format&fit=crop&q=80",
+    "category": "Vegetables",
+    "quantity": "2500 kg",
+    "pricePerKg": 22,
+    "unit": "kg",
+    "location": "Nashik, Maharashtra",
+    "district": "Nashik",
+    "distanceKm": 8,
+    "harvestDate": "2026-08-24",
+    "organic": false,
+    "phone": "+91 98234 56789",
+    "description": "Farm-fresh ripe hybrid tomatoes, firm texture, ideal for retail or culinary bulk use."
   },
   {
-    id: "PROD-003",
-    farmerName: "Gopal Gowda",
-    crop: "Sona Masoori Raw Rice",
-    category: "Grains",
-    quantity: "40 Quintals",
-    pricePerKg: 44,
-    unit: "kg",
-    location: "Mandya, Karnataka",
-    district: "Mandya",
-    distanceKm: 25,
-    harvestDate: "2026-08-10",
-    organic: true,
-    phone: "+91 97401 23456",
-    description: "Aged 12-month aromatic Sona Masoori rice harvested from Cauvery basin farms."
+    "id": "PROD-003",
+    "farmerName": "Gopal Gowda",
+    "farmerAvatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+    "crop": "Sona Masoori Raw Rice",
+    "cropImage": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600&auto=format&fit=crop&q=80",
+    "category": "Grains",
+    "quantity": "40 Quintals",
+    "pricePerKg": 44,
+    "unit": "kg",
+    "location": "Mandya, Karnataka",
+    "district": "Mandya",
+    "distanceKm": 25,
+    "harvestDate": "2026-08-10",
+    "organic": true,
+    "phone": "+91 97401 23456",
+    "description": "Aged 12-month aromatic Sona Masoori rice harvested from Cauvery basin farms."
   },
   {
-    id: "PROD-004",
-    farmerName: "Kishore Reddy",
-    crop: "Guntur Red Chillies (Dry)",
-    category: "Spices",
-    quantity: "800 kg",
-    pricePerKg: 160,
-    unit: "kg",
-    location: "Guntur, Andhra Pradesh",
-    district: "Guntur",
-    distanceKm: 42,
-    harvestDate: "2026-08-01",
-    organic: false,
-    phone: "+91 99490 87654",
-    description: "Authentic high-pungency Teja red chillies directly from Guntur spice belt."
+    "id": "PROD-004",
+    "farmerName": "Kishore Reddy",
+    "farmerAvatar": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=150&auto=format&fit=crop&q=80",
+    "crop": "Guntur Red Chillies (Dry)",
+    "cropImage": "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?w=600&auto=format&fit=crop&q=80",
+    "category": "Spices",
+    "quantity": "800 kg",
+    "pricePerKg": 160,
+    "unit": "kg",
+    "location": "Guntur, Andhra Pradesh",
+    "district": "Guntur",
+    "distanceKm": 42,
+    "harvestDate": "2026-08-01",
+    "organic": false,
+    "phone": "+91 99490 87654",
+    "description": "Authentic high-pungency Teja red chillies directly from Guntur spice belt."
   },
   {
-    id: "PROD-005",
-    farmerName: "Vikas Jadhav",
-    crop: "Lasalgaon Red Onions",
-    category: "Vegetables",
-    quantity: "5000 kg",
-    pricePerKg: 24,
-    unit: "kg",
-    location: "Nashik, Maharashtra",
-    district: "Nashik",
-    distanceKm: 12,
-    harvestDate: "2026-08-20",
-    organic: false,
-    phone: "+91 98501 23789",
-    description: "Grade-A medium dry red onions, well-cured with extended shelf life."
+    "id": "PROD-005",
+    "farmerName": "Vikas Jadhav",
+    "farmerAvatar": "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?w=150&auto=format&fit=crop&q=80",
+    "crop": "Lasalgaon Red Onions",
+    "cropImage": "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?w=600&auto=format&fit=crop&q=80",
+    "category": "Vegetables",
+    "quantity": "5000 kg",
+    "pricePerKg": 24,
+    "unit": "kg",
+    "location": "Nashik, Maharashtra",
+    "district": "Nashik",
+    "distanceKm": 12,
+    "harvestDate": "2026-08-20",
+    "organic": false,
+    "phone": "+91 98501 23789",
+    "description": "Grade-A medium dry red onions, well-cured with extended shelf life."
   },
   {
-    id: "PROD-006",
-    farmerName: "Harcharan Singh",
-    crop: "Basmati 1121 Rice",
-    category: "Grains",
-    quantity: "60 Quintals",
-    pricePerKg: 75,
-    unit: "kg",
-    location: "Karnal, Haryana",
-    district: "Karnal",
-    distanceKm: 30,
-    harvestDate: "2026-08-12",
-    organic: true,
-    phone: "+91 94160 34567",
-    description: "Long-grain aromatic extra-fluffy 1121 Basmati paddy direct from field."
+    "id": "PROD-006",
+    "farmerName": "Harcharan Singh",
+    "farmerAvatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80",
+    "crop": "Basmati 1121 Rice",
+    "cropImage": "https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=600&auto=format&fit=crop&q=80",
+    "category": "Grains",
+    "quantity": "60 Quintals",
+    "pricePerKg": 75,
+    "unit": "kg",
+    "location": "Karnal, Haryana",
+    "district": "Karnal",
+    "distanceKm": 30,
+    "harvestDate": "2026-08-12",
+    "organic": true,
+    "phone": "+91 94160 34567",
+    "description": "Long-grain aromatic extra-fluffy 1121 Basmati paddy direct from field."
   },
   {
-    id: "PROD-007",
-    farmerName: "Mohan Lal Sharma",
-    crop: "Fresh Table Potatoes",
-    category: "Vegetables",
-    quantity: "3500 kg",
-    pricePerKg: 18,
-    unit: "kg",
-    location: "Agra, Uttar Pradesh",
-    district: "Agra",
-    distanceKm: 19,
-    harvestDate: "2026-08-18",
-    organic: false,
-    phone: "+91 94560 98765",
-    description: "Sugar-free Chipsona table potatoes, smooth skin and clean harvest."
+    "id": "PROD-007",
+    "farmerName": "Mohan Lal Sharma",
+    "farmerAvatar": "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=150&auto=format&fit=crop&q=80",
+    "crop": "Fresh Table Potatoes",
+    "cropImage": "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=600&auto=format&fit=crop&q=80",
+    "category": "Vegetables",
+    "quantity": "3500 kg",
+    "pricePerKg": 18,
+    "unit": "kg",
+    "location": "Agra, Uttar Pradesh",
+    "district": "Agra",
+    "distanceKm": 19,
+    "harvestDate": "2026-08-18",
+    "organic": false,
+    "phone": "+91 94560 98765",
+    "description": "Sugar-free Chipsona table potatoes, smooth skin and clean harvest."
   },
   {
-    id: "PROD-008",
-    farmerName: "Jagdish Chandra",
-    crop: "Organic Toor Dal (Pigeon Pea)",
-    category: "Pulses",
-    quantity: "1200 kg",
-    pricePerKg: 110,
-    unit: "kg",
-    location: "Gulbarga, Karnataka",
-    district: "Gulbarga",
-    distanceKm: 38,
-    harvestDate: "2026-08-02",
-    organic: true,
-    phone: "+91 98450 67890",
-    description: "Unpolished GI-tagged Gulbarga Toor Dal with high natural protein."
+    "id": "PROD-008",
+    "farmerName": "Jagdish Chandra",
+    "farmerAvatar": "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=150&auto=format&fit=crop&q=80",
+    "crop": "Organic Toor Dal (Pigeon Pea)",
+    "cropImage": "https://images.unsplash.com/photo-1585994192701-f1a505c8574a?w=600&auto=format&fit=crop&q=80",
+    "category": "Pulses",
+    "quantity": "1200 kg",
+    "pricePerKg": 110,
+    "unit": "kg",
+    "location": "Gulbarga, Karnataka",
+    "district": "Gulbarga",
+    "distanceKm": 38,
+    "harvestDate": "2026-08-02",
+    "organic": true,
+    "phone": "+91 98450 67890",
+    "description": "Unpolished GI-tagged Gulbarga Toor Dal with high natural protein."
   }
 ];
 
@@ -145,31 +160,26 @@ const MARKET_BENCHMARKS = {
   "Organic Toor Dal (Pigeon Pea)": { mandiWholesale: 85, retailMarket: 165 }
 };
 
-// App State
 let listings = [];
-let currentSlide = 0;
 let cropChartInstance = null;
 let earningsChartInstance = null;
 
-// Initialize
 document.addEventListener("DOMContentLoaded", async () => {
   await loadListings();
   setupNavigation();
   setupFilters();
   setupSellForm();
   renderListings();
-  setupSlideDeck();
 });
 
-// Load Data
 async function loadListings() {
-  const localSaved = localStorage.getItem("kisanconnect_listings");
+  const localSaved = localStorage.getItem("kisanconnect_listings_v2");
   if (localSaved) {
     try {
       listings = JSON.parse(localSaved);
       return;
     } catch (e) {
-      console.warn("LocalStorage corrupted, using defaults");
+      console.warn("Using defaults");
     }
   }
 
@@ -183,10 +193,9 @@ async function loadListings() {
   } catch (err) {
     listings = DEFAULT_LISTINGS;
   }
-  localStorage.setItem("kisanconnect_listings", JSON.stringify(listings));
+  localStorage.setItem("kisanconnect_listings_v2", JSON.stringify(listings));
 }
 
-// Navigation
 function setupNavigation() {
   const navBtns = document.querySelectorAll(".nav-btn, [data-view-target]");
   navBtns.forEach(btn => {
@@ -221,7 +230,6 @@ function switchView(viewId) {
   }
 }
 
-// Filters & Search Setup
 function setupFilters() {
   const searchInput = document.getElementById("filter-search");
   const catFilter = document.getElementById("filter-category");
@@ -232,7 +240,6 @@ function setupFilters() {
   if (sortFilter) sortFilter.addEventListener("change", renderListings);
 }
 
-// Price Transparency Calculator & Listings Renderer
 function renderListings() {
   const container = document.getElementById("produce-listings-container");
   if (!container) return;
@@ -249,7 +256,6 @@ function renderListings() {
     return matchesQuery && matchesCat;
   });
 
-  // Sorting
   if (sortBy === "price-low") {
     filtered.sort((a, b) => a.pricePerKg - b.pricePerKg);
   } else if (sortBy === "price-high") {
@@ -274,53 +280,60 @@ function renderListings() {
 
     return `
       <div class="produce-card">
-        <div class="card-top-row">
+        <div class="produce-card-img-wrap">
+          <img src="${item.cropImage || 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&auto=format&fit=crop&q=80'}" alt="${item.crop}" class="produce-img">
+          ${item.organic ? '<span class="organic-badge-overlay">🌱 100% Organic</span>' : ''}
+        </div>
+
+        <div class="produce-card-body">
           <div>
-            <h3 class="crop-name">
-              ${item.crop}
-              ${item.organic ? '<span class="organic-tag">🌱 100% Organic</span>' : ''}
-            </h3>
-            <div class="farmer-info-row" style="margin-top:0.35rem;">
-              <span>👨‍🌾 ${item.farmerName}</span>
-              <span>📍 ${item.location} (~${item.distanceKm || 12} km away)</span>
-              <span>📦 ${item.quantity} available</span>
+            <div class="card-top-row">
+              <div>
+                <h3 class="crop-name">${item.crop}</h3>
+                <div class="farmer-row" style="margin-top:0.35rem;">
+                  <img src="${item.farmerAvatar || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80'}" class="farmer-avatar-small">
+                  <span>👨‍🌾 ${item.farmerName}</span>
+                  <span>•</span>
+                  <span>📍 ${item.location} (~${item.distanceKm || 12} km away)</span>
+                </div>
+              </div>
+
+              <div style="text-align:right;">
+                <div class="price-main">₹${item.pricePerKg}</div>
+                <div class="price-unit">Direct / kg</div>
+              </div>
             </div>
+
+            <!-- Price Comparison Feature -->
+            <div class="price-comparison-box">
+              <div class="comp-metric">
+                <span class="comp-label">Middleman Mandi Buy</span>
+                <span class="comp-val" style="color:#991b1b; text-decoration: line-through;">₹${mandiPrice}/kg</span>
+              </div>
+
+              <div class="comp-metric">
+                <span class="comp-label">Retail Supermarket</span>
+                <span class="comp-val" style="color:#64748b;">₹${retailPrice}/kg</span>
+              </div>
+
+              <div class="comp-badge">
+                🎉 Buyer Saves ${consumerSavingsPct}% • Farmer +${farmerGainPct}% More
+              </div>
+            </div>
+
+            <p style="font-size:0.88rem; color:#475569; margin: 0.5rem 0;">${item.description}</p>
           </div>
 
-          <div class="direct-price-badge">
-            <div class="price-main">₹${item.pricePerKg}</div>
-            <div class="price-unit">Direct Farmer Price / kg</div>
-          </div>
-        </div>
-
-        <!-- The Core WOW Feature: Live Transparent Price Comparison -->
-        <div class="price-comparison-box">
-          <div class="comp-metric">
-            <span class="comp-label">Middleman Mandi Buy Price</span>
-            <span class="comp-val" style="color:#991b1b; text-decoration: line-through;">₹${mandiPrice}/kg</span>
-          </div>
-
-          <div class="comp-metric">
-            <span class="comp-label">Typical Retail Market Price</span>
-            <span class="comp-val" style="color:#64748b;">₹${retailPrice}/kg</span>
-          </div>
-
-          <div class="comp-badge">
-            🎉 Buyer Saves ${consumerSavingsPct}% • Farmer Earns +${farmerGainPct}% More
-          </div>
-        </div>
-
-        <p style="font-size:0.88rem; color:#475569;">${item.description}</p>
-
-        <div style="display:flex; justify-content:space-between; align-items:center;">
-          <span style="font-size:0.8rem; color:#64748b;">📅 Harvested: ${item.harvestDate}</span>
-          <div style="display:flex; gap:0.75rem;">
-            <button class="btn btn-primary" style="padding:0.5rem 1.25rem; font-size:0.85rem;" onclick="openContactModal('${item.farmerName}', '${item.crop}', '${item.pricePerKg}', '${item.phone}', '${item.location}')">
-              📞 Contact Farmer Direct
-            </button>
-            <button class="btn btn-secondary" style="padding:0.5rem 1.25rem; font-size:0.85rem;" onclick="showToast('Produce added to direct bulk order inquiry!')">
-              🛒 Bulk Order
-            </button>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.75rem;">
+            <span style="font-size:0.8rem; color:#64748b;">📦 ${item.quantity} available • Harvested ${item.harvestDate}</span>
+            <div style="display:flex; gap:0.75rem;">
+              <button class="btn btn-primary" style="padding:0.45rem 1.25rem; font-size:0.85rem;" onclick="openContactModal('${item.farmerName}', '${item.crop}', '${item.pricePerKg}', '${item.phone}', '${item.location}', '${item.farmerAvatar}')">
+                📞 Contact Farmer
+              </button>
+              <button class="btn btn-secondary" style="padding:0.45rem 1.25rem; font-size:0.85rem;" onclick="showToast('Inquiry added for bulk direct purchase!')">
+                🛒 Buy Direct
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -328,7 +341,6 @@ function renderListings() {
   }).join("");
 }
 
-// Sell Produce Form
 function setupSellForm() {
   const form = document.getElementById("farmer-listing-form");
   if (!form) return;
@@ -338,7 +350,9 @@ function setupSellForm() {
     const newListing = {
       id: "PROD-" + Math.floor(100 + Math.random() * 900),
       farmerName: document.getElementById("sell-name").value,
+      farmerAvatar: "https://images.unsplash.com/photo-1544717305-2782549b5136?w=150&auto=format&fit=crop&q=80",
       crop: document.getElementById("sell-crop").value,
+      cropImage: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&auto=format&fit=crop&q=80",
       category: document.getElementById("sell-category").value,
       quantity: `${document.getElementById("sell-quantity").value} ${document.getElementById("sell-unit").value}`,
       pricePerKg: parseFloat(document.getElementById("sell-price").value),
@@ -353,21 +367,19 @@ function setupSellForm() {
     };
 
     listings.unshift(newListing);
-    localStorage.setItem("kisanconnect_listings", JSON.stringify(listings));
+    localStorage.setItem("kisanconnect_listings_v2", JSON.stringify(listings));
     form.reset();
     showToast(`🎉 Produce listing created for ${newListing.crop}!`);
     switchView("buy-view");
   });
 }
 
-// Admin & Impact Analytics
 function renderDashboard() {
-  document.getElementById("dash-total-farmers").textContent = listings.length + 12;
-  document.getElementById("dash-total-buyers").textContent = "340+";
-  document.getElementById("dash-markup-eliminated").textContent = "₹4.8 Lakhs";
-  document.getElementById("dash-avg-gain").textContent = "+42.5%";
+  document.getElementById("dash-total-farmers").textContent = listings.length + 15;
+  document.getElementById("dash-total-buyers").textContent = "420+";
+  document.getElementById("dash-markup-eliminated").textContent = "₹6.2 Lakhs";
+  document.getElementById("dash-avg-gain").textContent = "+44.8%";
 
-  // Chart 1: Volume by Crop
   const ctxCrop = document.getElementById("cropVolumeChart")?.getContext("2d");
   if (ctxCrop) {
     if (cropChartInstance) cropChartInstance.destroy();
@@ -377,7 +389,7 @@ function renderDashboard() {
         labels: ["Wheat", "Tomatoes", "Rice", "Onions", "Potatoes", "Pulses"],
         datasets: [{
           label: "Volume Traded (Quintals)",
-          data: [120, 85, 140, 110, 95, 45],
+          data: [140, 95, 160, 125, 105, 55],
           backgroundColor: "#15803d",
           borderRadius: 6
         }]
@@ -389,7 +401,6 @@ function renderDashboard() {
     });
   }
 
-  // Chart 2: Direct Revenue vs Mandi Revenue
   const ctxEarn = document.getElementById("earningsComparisonChart")?.getContext("2d");
   if (ctxEarn) {
     if (earningsChartInstance) earningsChartInstance.destroy();
@@ -418,13 +429,15 @@ function renderDashboard() {
   }
 }
 
-// Contact Modal
-function openContactModal(farmerName, crop, price, phone, location) {
+function openContactModal(farmerName, crop, price, phone, location, avatar) {
   document.getElementById("modal-farmer-name").textContent = farmerName;
   document.getElementById("modal-crop-name").textContent = crop;
   document.getElementById("modal-price").textContent = `₹${price}/kg`;
   document.getElementById("modal-phone").textContent = phone;
   document.getElementById("modal-location").textContent = location;
+  if (avatar && document.getElementById("modal-farmer-img")) {
+    document.getElementById("modal-farmer-img").src = avatar;
+  }
   document.getElementById("contact-modal").classList.add("active");
 }
 
@@ -432,7 +445,6 @@ function closeContactModal() {
   document.getElementById("contact-modal").classList.remove("active");
 }
 
-// Toast
 function showToast(msg) {
   const toast = document.getElementById("toast-notification");
   if (!toast) return;
@@ -441,49 +453,4 @@ function showToast(msg) {
   setTimeout(() => {
     toast.style.display = "none";
   }, 3500);
-}
-
-// SIH Slide Deck Navigation
-function setupSlideDeck() {
-  const nextBtn = document.getElementById("slide-next-btn");
-  const prevBtn = document.getElementById("slide-prev-btn");
-
-  if (nextBtn) nextBtn.addEventListener("click", () => changeSlide(1));
-  if (prevBtn) prevBtn.addEventListener("click", () => changeSlide(-1));
-
-  window.addEventListener("keydown", (e) => {
-    if (document.getElementById("presentation-view")?.classList.contains("active")) {
-      if (e.key === "ArrowRight" || e.key === "Space") changeSlide(1);
-      if (e.key === "ArrowLeft") changeSlide(-1);
-    }
-  });
-}
-
-function changeSlide(dir) {
-  const slides = document.querySelectorAll(".slide-content");
-  const dots = document.querySelectorAll(".slide-dot");
-  if (!slides.length) return;
-
-  slides[currentSlide].classList.remove("active");
-  if (dots[currentSlide]) dots[currentSlide].classList.remove("active");
-
-  currentSlide = (currentSlide + dir + slides.length) % slides.length;
-
-  slides[currentSlide].classList.add("active");
-  if (dots[currentSlide]) dots[currentSlide].classList.add("active");
-  document.getElementById("slide-counter").textContent = `Slide ${currentSlide + 1} of ${slides.length}`;
-}
-
-function jumpToSlide(idx) {
-  const slides = document.querySelectorAll(".slide-content");
-  const dots = document.querySelectorAll(".slide-dot");
-  if (!slides.length) return;
-
-  slides[currentSlide].classList.remove("active");
-  if (dots[currentSlide]) dots[currentSlide].classList.remove("active");
-
-  currentSlide = idx;
-  slides[currentSlide].classList.add("active");
-  if (dots[currentSlide]) dots[currentSlide].classList.add("active");
-  document.getElementById("slide-counter").textContent = `Slide ${currentSlide + 1} of ${slides.length}`;
 }
