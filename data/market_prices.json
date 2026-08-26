@@ -1,0 +1,13 @@
+{
+  "Organic Sharbati Wheat": { "farmerAvg": 28, "mandiWholesale": 21, "retailMarket": 42, "unit": "kg" },
+  "Fresh Red Tomatoes": { "farmerAvg": 22, "mandiWholesale": 14, "retailMarket": 38, "unit": "kg" },
+  "Sona Masoori Raw Rice": { "farmerAvg": 44, "mandiWholesale": 33, "retailMarket": 62, "unit": "kg" },
+  "Guntur Red Chillies (Dry)": { "farmerAvg": 160, "mandiWholesale": 120, "retailMarket": 240, "unit": "kg" },
+  "Lasalgaon Red Onions": { "farmerAvg": 24, "mandiWholesale": 15, "retailMarket": 40, "unit": "kg" },
+  "Basmati 1121 Rice": { "farmerAvg": 75, "mandiWholesale": 58, "retailMarket": 115, "unit": "kg" },
+  "Fresh Table Potatoes": { "farmerAvg": 18, "mandiWholesale": 11, "retailMarket": 30, "unit": "kg" },
+  "Organic Alphonso Mangoes (Pulp)": { "farmerAvg": 180, "mandiWholesale": 130, "retailMarket": 290, "unit": "kg" },
+  "Organic Toor Dal (Pigeon Pea)": { "farmerAvg": 110, "mandiWholesale": 85, "retailMarket": 165, "unit": "kg" },
+  "Pure Yellow Mustard Seeds": { "farmerAvg": 70, "mandiWholesale": 52, "retailMarket": 105, "unit": "kg" },
+  "Default": { "markupRatio": 1.45, "mandiRatio": 0.72 }
+}
