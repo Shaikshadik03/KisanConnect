@@ -5,33 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KisanConnect — Direct Farm-to-Consumer Organic Marketplace</title>
 
-  <!-- Google Fonts & Chart.js CDN -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Top Navigation -->
+  <!-- Organic Editorial Navbar -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="brand" data-view-target="landing-view">
         <div class="brand-icon">🌾</div>
-        <div class="brand-text">
-          <h1>KisanConnect</h1>
-          <p>Direct Farm-to-Consumer Marketplace</p>
-        </div>
+        <h1>KisanConnect</h1>
       </div>
 
       <ul class="nav-links">
         <li><button class="nav-btn active" data-view="landing-view">Home</button></li>
-        <li><button class="nav-btn" data-view="buy-view">Buy Produce</button></li>
-        <li><button class="nav-btn" data-view="sell-view">Sell Produce</button></li>
-        <li><button class="nav-btn nav-btn-highlight" data-view="dashboard-view">📊 Impact & Savings</button></li>
+        <li><button class="nav-btn" data-view="buy-view">Marketplace</button></li>
+        <li><button class="nav-btn" data-view="sell-view">Farmer Portal</button></li>
+        <li><button class="nav-btn" data-view="dashboard-view">Impact Analytics</button></li>
       </ul>
     </div>
   </nav>
@@ -39,65 +30,72 @@
   <!-- Main Container -->
   <main>
 
-    <!-- VIEW 1: LANDING PAGE -->
+    <!-- VIEW 1: BENTO HERO & STATS -->
     <section id="landing-view" class="view-section active">
-      <div class="hero-banner-wrap">
-        <div>
-          <div class="hero-tag">🌱 Direct Farm Trade Platform</div>
-          <h1 class="hero-title">Fair Prices for <span>Farmers</span>.<br>Fresh Produce for <span>You</span>.</h1>
-          <p class="hero-desc">
-            Eliminating middleman markups to give Indian farmers up to 50% higher profits and consumers 30% cheaper farm-fresh groceries with total price transparency.
+      <div class="bento-hero-grid">
+        <div class="bento-card-main">
+          <div class="organic-tag">🌱 Direct Farm-Gate Trade • Zero Intermediaries</div>
+          <h1 class="bento-title">Fair Prices for <em>Growers</em>.<br>Fresh Produce for <em>Families</em>.</h1>
+          <p class="bento-desc">
+            Bypassing 3–4 layers of middlemen markups to ensure Indian farmers receive up to 50% higher profits while consumers enjoy fresh, premium harvests at wholesale rates.
           </p>
 
-          <div class="hero-actions">
-            <button class="btn btn-primary" data-view-target="buy-view">🛒 Buy Farm Produce</button>
-            <button class="btn btn-accent" data-view-target="sell-view">👨‍🌾 Sell My Harvest</button>
+          <div class="bento-actions">
+            <button class="btn btn-forest" data-view-target="buy-view">🛒 Explore Farm Harvests</button>
+            <button class="btn btn-terracotta" data-view-target="sell-view">👨‍🌾 List My Produce</button>
           </div>
         </div>
 
-        <div>
-          <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?w=800&auto=format&fit=crop&q=80" alt="Fresh Harvest" class="hero-img-main">
+        <div class="bento-card-photo">
+          <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?w=800&auto=format&fit=crop&q=80" alt="Fresh Harvest" class="bento-hero-img">
+          <div class="floating-bento-badge">
+            <div>
+              <div style="font-weight:900; color:var(--forest-900);">100% Farm-Fresh</div>
+              <div style="font-size:0.75rem; color:var(--text-muted);">Direct harvest from village farms</div>
+            </div>
+            <span style="background:var(--forest-100); color:var(--forest-900); font-weight:800; font-size:0.75rem; padding:0.25rem 0.6rem; border-radius:999px;">Transparent</span>
+          </div>
         </div>
       </div>
 
-      <!-- Trust Metrics -->
-      <div class="stats-banner">
-        <div class="stat-item">
-          <div class="stat-num">0%</div>
-          <div class="stat-label">Middleman Commission</div>
+      <!-- Bento Stats Row -->
+      <div class="bento-stats-row">
+        <div class="bento-stat-card">
+          <div class="bento-stat-num">0%</div>
+          <div class="bento-stat-lbl">Intermediary Commission</div>
         </div>
-        <div class="stat-item">
-          <div class="stat-num">+44.8%</div>
-          <div class="stat-label">Higher Farmer Earnings</div>
+        <div class="bento-stat-card">
+          <div class="bento-stat-num">+44.8%</div>
+          <div class="bento-stat-lbl">Average Farmer Gain</div>
         </div>
-        <div class="stat-item">
-          <div class="stat-num">~32%</div>
-          <div class="stat-label">Direct Consumer Savings</div>
+        <div class="bento-stat-card">
+          <div class="bento-stat-num">~32%</div>
+          <div class="bento-stat-lbl">Direct Consumer Savings</div>
         </div>
-        <div class="stat-item">
-          <div class="stat-num">100%</div>
-          <div class="stat-label">Live Price Transparency</div>
+        <div class="bento-stat-card">
+          <div class="bento-stat-num">100%</div>
+          <div class="bento-stat-lbl">Live Mandi Price Transparency</div>
         </div>
       </div>
     </section>
 
     <!-- VIEW 2: BUY PRODUCE & LIVE SEARCH -->
     <section id="buy-view" class="view-section">
-      <div class="market-split">
+      <div class="bento-market-split">
 
         <!-- Left: Filters Panel -->
-        <div class="filter-panel">
-          <h2 style="font-size:1.25rem; font-weight:800; margin-bottom:1.25rem; border-bottom:1px solid #e2e8da; padding-bottom:0.75rem;">
-            🔍 Search Farm Produce
+        <div class="bento-filter-card">
+          <h2 style="font-family:var(--font-serif); font-size:1.4rem; font-weight:900; margin-bottom:1.25rem; color:var(--forest-900);">
+            🔍 Filter Harvests
           </h2>
 
           <div class="form-group">
-            <label for="filter-search">Search Crop or District</label>
+            <label>Search Crop or District</label>
             <input type="text" id="filter-search" class="form-control" placeholder="e.g. Wheat, Tomatoes, Nashik...">
           </div>
 
           <div class="form-group">
-            <label for="filter-category">Crop Category</label>
+            <label>Crop Category</label>
             <select id="filter-category" class="form-control">
               <option value="all">All Categories</option>
               <option value="Grains">Grains (Wheat, Rice)</option>
@@ -109,7 +107,7 @@
           </div>
 
           <div class="form-group">
-            <label for="filter-sort">Sort By</label>
+            <label>Sort By</label>
             <select id="filter-sort" class="form-control">
               <option value="nearest">Nearest Farm First</option>
               <option value="price-low">Lowest Price First</option>
@@ -117,23 +115,23 @@
             </select>
           </div>
 
-          <button class="btn btn-primary" style="width:100%; margin-top:0.5rem;" onclick="renderListings()">
+          <button class="btn btn-forest" style="width:100%; margin-top:0.5rem;" onclick="renderListings()">
             ⚡ Apply Filters
           </button>
         </div>
 
-        <!-- Right: Produce Listings with Middleman Price Comparison -->
+        <!-- Right: Bento Produce Listings -->
         <div>
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; padding-bottom:0.75rem; border-bottom:1px solid #e2e8da;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
             <div>
-              <h2 style="font-size:1.35rem; font-weight:800;" id="listings-count-label">Direct Farm Listings</h2>
-              <p style="font-size:0.85rem; color:#576550;">Comparing Direct Farmer Rate vs Mandi Wholesale & Retail Market Prices</p>
+              <h2 style="font-family:var(--font-serif); font-size:1.5rem; font-weight:900; color:var(--forest-900);" id="listings-count-label">Direct Farm Harvests</h2>
+              <p style="font-size:0.85rem; color:var(--text-muted);">Comparing Direct Farmer Price vs Mandi Wholesale & Retail Supermarket Rates</p>
             </div>
-            <span class="brand-badge" style="background:#dcfce7; color:#14532d;">Middleman Eliminated</span>
+            <span class="organic-tag" style="margin:0;">Middleman Bypassed</span>
           </div>
 
-          <div id="produce-listings-container" class="produce-grid">
-            <!-- Rendered dynamically -->
+          <div id="produce-listings-container" class="produce-bento-grid">
+            <!-- Populated dynamically -->
           </div>
         </div>
 
@@ -142,27 +140,27 @@
 
     <!-- VIEW 3: SELL PRODUCE -->
     <section id="sell-view" class="view-section">
-      <div class="sell-form-card">
+      <div class="bento-card-main" style="max-width:760px; margin:0 auto;">
         <div style="text-align:center; margin-bottom:2rem;">
-          <h2 style="font-size:1.8rem; font-weight:800;">👨‍🌾 List Your Harvest Direct to Buyers</h2>
-          <p style="color:#576550;">Get fair prices for your hard work • No mandi cuts • Zero commission</p>
+          <h2 style="font-family:var(--font-serif); font-size:2rem; font-weight:900; color:var(--forest-900);">👨‍🌾 List Your Harvest Direct to Buyers</h2>
+          <p style="color:var(--text-muted); font-size:0.95rem;">Fair farm-gate prices • Zero deductions • Instant buyer inquiries</p>
         </div>
 
         <form id="farmer-listing-form">
-          <div class="form-row">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
             <div class="form-group">
-              <label for="sell-name">Farmer / Farm Name</label>
+              <label>Farmer / Farm Name</label>
               <input type="text" id="sell-name" class="form-control" placeholder="e.g. Gurpreet Singh" required>
             </div>
             <div class="form-group">
-              <label for="sell-crop">Crop / Produce Name</label>
+              <label>Crop / Produce Name</label>
               <input type="text" id="sell-crop" class="form-control" placeholder="e.g. Fresh Organic Cauliflower" required>
             </div>
           </div>
 
-          <div class="form-row">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
             <div class="form-group">
-              <label for="sell-category">Category</label>
+              <label>Category</label>
               <select id="sell-category" class="form-control" required>
                 <option value="Vegetables">Vegetables</option>
                 <option value="Grains">Grains & Cereals</option>
@@ -172,18 +170,18 @@
               </select>
             </div>
             <div class="form-group">
-              <label for="sell-location">Village & District</label>
+              <label>Village & District</label>
               <input type="text" id="sell-location" class="form-control" placeholder="e.g. Nashik, Maharashtra" required>
             </div>
           </div>
 
-          <div class="form-row">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
             <div class="form-group">
-              <label for="sell-quantity">Available Quantity</label>
+              <label>Available Quantity</label>
               <input type="number" id="sell-quantity" class="form-control" placeholder="e.g. 1000" required>
             </div>
             <div class="form-group">
-              <label for="sell-unit">Unit</label>
+              <label>Unit</label>
               <select id="sell-unit" class="form-control" required>
                 <option value="kg">Kilograms (kg)</option>
                 <option value="Quintals">Quintals</option>
@@ -192,33 +190,33 @@
             </div>
           </div>
 
-          <div class="form-row">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
             <div class="form-group">
-              <label for="sell-price">Your Direct Price per kg (₹)</label>
+              <label>Direct Price per kg (₹)</label>
               <input type="number" id="sell-price" class="form-control" placeholder="e.g. 25" required>
             </div>
             <div class="form-group">
-              <label for="sell-date">Harvest Date</label>
+              <label>Harvest Date</label>
               <input type="date" id="sell-date" class="form-control" required value="2026-08-26">
             </div>
           </div>
 
           <div class="form-group">
-            <label for="sell-phone">WhatsApp / Phone Number</label>
+            <label>WhatsApp / Phone Number</label>
             <input type="tel" id="sell-phone" class="form-control" placeholder="+91 98765 43210" required>
           </div>
 
           <div class="form-group" style="display:flex; align-items:center; gap:0.5rem;">
             <input type="checkbox" id="sell-organic" style="width:18px; height:18px;">
-            <label for="sell-organic" style="margin:0; font-size:0.9rem; font-weight:700;">🌱 This is 100% Certified Organic Produce</label>
+            <label for="sell-organic" style="margin:0; font-size:0.9rem; font-weight:700;">🌱 100% Certified Organic Produce</label>
           </div>
 
           <div class="form-group">
-            <label for="sell-desc">Produce Notes & Farm Location</label>
+            <label>Produce Notes & Farm Location</label>
             <textarea id="sell-desc" class="form-control" rows="3" placeholder="Describe quality, freshness, and farm location..."></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary" style="width:100%; padding:1rem;">✅ Publish Direct Farm Listing</button>
+          <button type="submit" class="btn btn-forest" style="width:100%; padding:1rem;">✅ Publish Direct Farm Listing</button>
         </form>
       </div>
     </section>
@@ -226,52 +224,37 @@
     <!-- VIEW 4: IMPACT DASHBOARD -->
     <section id="dashboard-view" class="view-section">
       <div style="margin-bottom:2rem;">
-        <h2 style="font-size:1.8rem; font-weight:800;">📊 Agricultural Impact & Savings Analytics</h2>
-        <p style="color:#576550;">Measuring direct economic gains created by cutting out intermediary markups</p>
+        <h2 style="font-family:var(--font-serif); font-size:2rem; font-weight:900; color:var(--forest-900);">📊 Agricultural Impact & Savings</h2>
+        <p style="color:var(--text-muted);">Measuring economic gains created by direct farm-gate commerce</p>
       </div>
 
-      <div class="dashboard-kpis">
-        <div class="kpi-card">
-          <div class="kpi-icon green">👨‍🌾</div>
-          <div class="kpi-info">
-            <h4>Active Farmers</h4>
-            <div class="kpi-value" id="dash-total-farmers">23</div>
-          </div>
+      <div class="bento-stats-row" style="margin-bottom:2rem;">
+        <div class="bento-stat-card">
+          <div class="bento-stat-num" id="dash-total-farmers">23</div>
+          <div class="bento-stat-lbl">Active Farmers</div>
         </div>
-
-        <div class="kpi-card">
-          <div class="kpi-icon amber">🛒</div>
-          <div class="kpi-info">
-            <h4>Direct Buyers</h4>
-            <div class="kpi-value" id="dash-total-buyers">420+</div>
-          </div>
+        <div class="bento-stat-card">
+          <div class="bento-stat-num" id="dash-total-buyers">420+</div>
+          <div class="bento-stat-lbl">Direct Buyers</div>
         </div>
-
-        <div class="kpi-card">
-          <div class="kpi-icon blue">💰</div>
-          <div class="kpi-info">
-            <h4>Markup Saved</h4>
-            <div class="kpi-value" id="dash-markup-eliminated">₹6.2 Lakhs</div>
-          </div>
+        <div class="bento-stat-card">
+          <div class="bento-stat-num" id="dash-markup-eliminated">₹6.2 L</div>
+          <div class="bento-stat-lbl">Middleman Cuts Saved</div>
         </div>
-
-        <div class="kpi-card">
-          <div class="kpi-icon purple">📈</div>
-          <div class="kpi-info">
-            <h4>Avg Extra Farmer Gain</h4>
-            <div class="kpi-value" id="dash-avg-gain">+44.8%</div>
-          </div>
+        <div class="bento-stat-card">
+          <div class="bento-stat-num" id="dash-avg-gain">+44.8%</div>
+          <div class="bento-stat-lbl">Farmer Income Rise</div>
         </div>
       </div>
 
-      <div class="charts-grid">
-        <div class="chart-card">
-          <h3>📦 Produce Volume Traded (Quintals)</h3>
+      <div style="display:grid; grid-template-columns:1.3fr 1fr; gap:1.75rem;">
+        <div class="bento-card-main" style="padding:2rem;">
+          <h3 style="font-family:var(--font-serif); font-size:1.25rem; font-weight:900; color:var(--forest-900); margin-bottom:1rem;">📦 Volume Traded by Crop (Quintals)</h3>
           <canvas id="cropVolumeChart" height="180"></canvas>
         </div>
 
-        <div class="chart-card">
-          <h3>💰 Direct Farmer Revenue vs Middleman Route (₹)</h3>
+        <div class="bento-card-main" style="padding:2rem;">
+          <h3 style="font-family:var(--font-serif); font-size:1.25rem; font-weight:900; color:var(--forest-900); margin-bottom:1rem;">💰 Direct vs Mandi Revenue (₹)</h3>
           <canvas id="earningsComparisonChart" height="180"></canvas>
         </div>
       </div>
@@ -279,41 +262,40 @@
 
   </main>
 
-  <!-- Contact Farmer Modal -->
+  <!-- Contact Modal -->
   <div id="contact-modal" class="modal-overlay">
     <div class="modal-box">
       <button class="modal-close" onclick="closeContactModal()">✕</button>
-      <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
-        <img id="modal-farmer-img" src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=150&auto=format&fit=crop&q=80" style="width:60px; height:60px; border-radius:50%; object-fit:cover;">
+      <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1.25rem;">
+        <img id="modal-farmer-img" src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=150&auto=format&fit=crop&q=80" style="width:58px; height:58px; border-radius:50%; object-fit:cover;">
         <div>
-          <h3 id="modal-farmer-name" style="font-size: 1.25rem; font-weight:800;">Farmer Name</h3>
-          <p id="modal-crop-name" style="color: var(--primary); font-weight: 700;">Crop Name</p>
+          <h3 id="modal-farmer-name" style="font-family:var(--font-serif); font-size:1.3rem; font-weight:900; color:var(--forest-900);">Farmer Name</h3>
+          <p id="modal-crop-name" style="color:var(--terracotta); font-weight:800; font-size:0.9rem;">Crop Name</p>
         </div>
       </div>
       
-      <div style="background: var(--bg-alt); padding: 1rem; border-radius: 8px; margin-bottom: 1.25rem;">
+      <div style="background:var(--cream-bg); padding:1rem; border-radius:14px; margin-bottom:1.25rem; border:1px solid var(--border-organic);">
         <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
-          <span style="color:var(--text-muted);">Direct Price:</span>
-          <strong id="modal-price" style="color:var(--primary); font-size:1.1rem;">₹28/kg</strong>
+          <span style="color:var(--text-muted); font-size:0.85rem;">Direct Price:</span>
+          <strong id="modal-price" style="color:var(--forest-900); font-size:1.1rem;">₹28/kg</strong>
         </div>
         <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
-          <span style="color:var(--text-muted);">Farm Location:</span>
+          <span style="color:var(--text-muted); font-size:0.85rem;">Farm Location:</span>
           <strong id="modal-location">Ludhiana, Punjab</strong>
         </div>
         <div style="display:flex; justify-content:space-between;">
-          <span style="color:var(--text-muted);">Direct Contact:</span>
+          <span style="color:var(--text-muted); font-size:0.85rem;">Direct Contact:</span>
           <strong id="modal-phone">+91 98765 12340</strong>
         </div>
       </div>
 
       <div style="display: flex; gap: 0.75rem;">
-        <button class="btn btn-primary" style="flex:1;" onclick="showToast('Initiating direct call to farmer...'); closeContactModal();">📞 Call Farmer</button>
-        <button class="btn btn-secondary" style="flex:1;" onclick="showToast('Opening WhatsApp for produce order...'); closeContactModal();">💬 WhatsApp</button>
+        <button class="btn btn-forest" style="flex:1;" onclick="showToast('Calling farmer directly...'); closeContactModal();">📞 Call Farmer</button>
+        <button class="btn btn-terracotta" style="flex:1;" onclick="showToast('Opening WhatsApp order chat...'); closeContactModal();">💬 WhatsApp</button>
       </div>
     </div>
   </div>
 
-  <!-- Toast Notification -->
   <div id="toast-notification" class="toast-msg">
     <span>Notification message</span>
   </div>

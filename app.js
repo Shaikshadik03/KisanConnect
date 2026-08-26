@@ -1,5 +1,5 @@
 /**
- * KisanConnect Application Logic & Price Comparison Engine
+ * KisanConnect Application Logic & Bento Price Comparison Engine
  */
 
 const DEFAULT_LISTINGS = [
@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 async function loadListings() {
-  const localSaved = localStorage.getItem("kisanconnect_listings_v2");
+  const localSaved = localStorage.getItem("kisanconnect_listings_v3");
   if (localSaved) {
     try {
       listings = JSON.parse(localSaved);
@@ -193,7 +193,7 @@ async function loadListings() {
   } catch (err) {
     listings = DEFAULT_LISTINGS;
   }
-  localStorage.setItem("kisanconnect_listings_v2", JSON.stringify(listings));
+  localStorage.setItem("kisanconnect_listings_v3", JSON.stringify(listings));
 }
 
 function setupNavigation() {
@@ -264,7 +264,7 @@ function renderListings() {
     filtered.sort((a, b) => (a.distanceKm || 10) - (b.distanceKm || 10));
   }
 
-  document.getElementById("listings-count-label").textContent = `Showing ${filtered.length} Direct Farm Listings`;
+  document.getElementById("listings-count-label").textContent = `Showing ${filtered.length} Direct Farm Harvests`;
 
   container.innerHTML = filtered.map(item => {
     const benchmark = MARKET_BENCHMARKS[item.crop] || {
@@ -279,45 +279,43 @@ function renderListings() {
     const farmerGainPct = Math.round(((item.pricePerKg - mandiPrice) / mandiPrice) * 100);
 
     return `
-      <div class="produce-card">
-        <div class="produce-card-img-wrap">
-          <img src="${item.cropImage || 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&auto=format&fit=crop&q=80'}" alt="${item.crop}" class="produce-img">
-          ${item.organic ? '<span class="organic-badge-overlay">🌱 100% Organic</span>' : ''}
+      <div class="bento-produce-card">
+        <div class="produce-img-wrap">
+          <img src="${item.cropImage || 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&auto=format&fit=crop&q=80'}" alt="${item.crop}" class="produce-photo">
         </div>
 
-        <div class="produce-card-body">
+        <div class="produce-body">
           <div>
-            <div class="card-top-row">
+            <div class="crop-header">
               <div>
-                <h3 class="crop-name">${item.crop}</h3>
-                <div class="farmer-row" style="margin-top:0.35rem;">
-                  <img src="${item.farmerAvatar || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80'}" class="farmer-avatar-small">
-                  <span>👨‍🌾 ${item.farmerName}</span>
-                  <span>•</span>
-                  <span>📍 ${item.location} (~${item.distanceKm || 12} km away)</span>
+                <h3 class="crop-title">${item.crop}</h3>
+                <div style="display:flex; align-items:center; gap:0.6rem; margin-top:0.4rem;">
+                  <img src="${item.farmerAvatar || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80'}" class="farmer-avatar-img">
+                  <span style="font-weight:700; font-size:0.85rem;">👨‍🌾 ${item.farmerName}</span>
+                  <span style="color:#5c6855; font-size:0.85rem;">• 📍 ${item.location} (~${item.distanceKm || 12} km away)</span>
                 </div>
               </div>
 
               <div style="text-align:right;">
-                <div class="price-main">₹${item.pricePerKg}</div>
-                <div class="price-unit">Direct / kg</div>
+                <div class="price-tag-big">₹${item.pricePerKg}</div>
+                <div style="font-size:0.72rem; color:#5c6855; font-weight:700;">Direct / kg</div>
               </div>
             </div>
 
-            <!-- Price Comparison Feature -->
-            <div class="price-comparison-box">
-              <div class="comp-metric">
-                <span class="comp-label">Middleman Mandi Buy</span>
-                <span class="comp-val" style="color:#991b1b; text-decoration: line-through;">₹${mandiPrice}/kg</span>
+            <!-- Price Comparison Contrast -->
+            <div class="price-contrast-box">
+              <div>
+                <span style="font-size:0.72rem; font-weight:800; text-transform:uppercase; color:#92400e;">Mandi Trader Rate</span>
+                <div style="font-size:1.05rem; font-weight:800; color:#991b1b; text-decoration:line-through;">₹${mandiPrice}/kg</div>
               </div>
 
-              <div class="comp-metric">
-                <span class="comp-label">Retail Supermarket</span>
-                <span class="comp-val" style="color:#64748b;">₹${retailPrice}/kg</span>
+              <div>
+                <span style="font-size:0.72rem; font-weight:800; text-transform:uppercase; color:#5c6855;">Supermarket Retail</span>
+                <div style="font-size:1.05rem; font-weight:800; color:#5c6855;">₹${retailPrice}/kg</div>
               </div>
 
-              <div class="comp-badge">
-                🎉 Buyer Saves ${consumerSavingsPct}% • Farmer +${farmerGainPct}% More
+              <div class="contrast-badge">
+                You Save ${consumerSavingsPct}% • Farmer +${farmerGainPct}%
               </div>
             </div>
 
@@ -325,12 +323,12 @@ function renderListings() {
           </div>
 
           <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.75rem;">
-            <span style="font-size:0.8rem; color:#64748b;">📦 ${item.quantity} available • Harvested ${item.harvestDate}</span>
+            <span style="font-size:0.8rem; color:#5c6855; font-weight:700;">📦 ${item.quantity} • Harvested ${item.harvestDate}</span>
             <div style="display:flex; gap:0.75rem;">
-              <button class="btn btn-primary" style="padding:0.45rem 1.25rem; font-size:0.85rem;" onclick="openContactModal('${item.farmerName}', '${item.crop}', '${item.pricePerKg}', '${item.phone}', '${item.location}', '${item.farmerAvatar}')">
-                📞 Contact Farmer
+              <button class="btn btn-forest" style="padding:0.5rem 1.3rem; font-size:0.85rem;" onclick="openContactModal('${item.farmerName}', '${item.crop}', '${item.pricePerKg}', '${item.phone}', '${item.location}', '${item.farmerAvatar}')">
+                📞 Connect to Farmer
               </button>
-              <button class="btn btn-secondary" style="padding:0.45rem 1.25rem; font-size:0.85rem;" onclick="showToast('Inquiry added for bulk direct purchase!')">
+              <button class="btn btn-terracotta" style="padding:0.5rem 1.3rem; font-size:0.85rem;" onclick="showToast('Produce added to bulk farm pickup!')">
                 🛒 Buy Direct
               </button>
             </div>
@@ -363,13 +361,13 @@ function setupSellForm() {
       harvestDate: document.getElementById("sell-date").value,
       organic: document.getElementById("sell-organic").checked,
       phone: document.getElementById("sell-phone").value,
-      description: document.getElementById("sell-desc").value || "Fresh farm direct harvest with no middleman markup."
+      description: document.getElementById("sell-desc").value || "Fresh farm harvest direct from the grower."
     };
 
     listings.unshift(newListing);
-    localStorage.setItem("kisanconnect_listings_v2", JSON.stringify(listings));
+    localStorage.setItem("kisanconnect_listings_v3", JSON.stringify(listings));
     form.reset();
-    showToast(`🎉 Produce listing created for ${newListing.crop}!`);
+    showToast(`🎉 Produce listing published for ${newListing.crop}!`);
     switchView("buy-view");
   });
 }
@@ -390,7 +388,7 @@ function renderDashboard() {
         datasets: [{
           label: "Volume Traded (Quintals)",
           data: [140, 95, 160, 125, 105, 55],
-          backgroundColor: "#15803d",
+          backgroundColor: "#14532d",
           borderRadius: 6
         }]
       },
@@ -412,10 +410,10 @@ function renderDashboard() {
           {
             label: "Direct Farmer Income (KisanConnect)",
             data: [28000, 22000, 44000, 48000],
-            backgroundColor: "#15803d"
+            backgroundColor: "#14532d"
           },
           {
-            label: "Traditional Middleman Route Income",
+            label: "Traditional Mandi Intermediary Route",
             data: [21000, 14000, 33000, 30000],
             backgroundColor: "#dc2626"
           }
