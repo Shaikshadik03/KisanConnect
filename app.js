@@ -1,7 +1,9 @@
 /**
  * KisanConnect Application Logic & Bento Price Comparison Engine
+ * Self-contained: No external JSON fetch required! Works directly on double-click.
  */
 
+// All Farm Produce Listings Embedded Directly
 const DEFAULT_LISTINGS = [
   {
     "id": "PROD-001",
@@ -149,6 +151,7 @@ const DEFAULT_LISTINGS = [
   }
 ];
 
+// Mandi Wholesale and Retail Benchmarks Embedded Directly
 const MARKET_BENCHMARKS = {
   "Organic Sharbati Wheat": { mandiWholesale: 21, retailMarket: 42 },
   "Fresh Red Tomatoes": { mandiWholesale: 14, retailMarket: 38 },
@@ -164,16 +167,17 @@ let listings = [];
 let cropChartInstance = null;
 let earningsChartInstance = null;
 
-document.addEventListener("DOMContentLoaded", async () => {
-  await loadListings();
+// Initialize on Load - Fully Offline Compatible!
+document.addEventListener("DOMContentLoaded", () => {
+  loadListings();
   setupNavigation();
   setupFilters();
   setupSellForm();
   renderListings();
 });
 
-async function loadListings() {
-  const localSaved = localStorage.getItem("kisanconnect_listings_v3");
+function loadListings() {
+  const localSaved = localStorage.getItem("kisanconnect_listings_simple");
   if (localSaved) {
     try {
       listings = JSON.parse(localSaved);
@@ -182,18 +186,9 @@ async function loadListings() {
       console.warn("Using defaults");
     }
   }
-
-  try {
-    const res = await fetch("data/listings.json");
-    if (res.ok) {
-      listings = await res.json();
-    } else {
-      listings = DEFAULT_LISTINGS;
-    }
-  } catch (err) {
-    listings = DEFAULT_LISTINGS;
-  }
-  localStorage.setItem("kisanconnect_listings_v3", JSON.stringify(listings));
+  // Load default embedded dataset
+  listings = [...DEFAULT_LISTINGS];
+  localStorage.setItem("kisanconnect_listings_simple", JSON.stringify(listings));
 }
 
 function setupNavigation() {
@@ -264,7 +259,10 @@ function renderListings() {
     filtered.sort((a, b) => (a.distanceKm || 10) - (b.distanceKm || 10));
   }
 
-  document.getElementById("listings-count-label").textContent = `Showing ${filtered.length} Direct Farm Harvests`;
+  const countLabel = document.getElementById("listings-count-label");
+  if (countLabel) {
+    countLabel.textContent = `Showing ${filtered.length} Direct Farm Harvests`;
+  }
 
   container.innerHTML = filtered.map(item => {
     const benchmark = MARKET_BENCHMARKS[item.crop] || {
@@ -365,7 +363,7 @@ function setupSellForm() {
     };
 
     listings.unshift(newListing);
-    localStorage.setItem("kisanconnect_listings_v3", JSON.stringify(listings));
+    localStorage.setItem("kisanconnect_listings_simple", JSON.stringify(listings));
     form.reset();
     showToast(`🎉 Produce listing published for ${newListing.crop}!`);
     switchView("buy-view");
@@ -373,10 +371,8 @@ function setupSellForm() {
 }
 
 function renderDashboard() {
-  document.getElementById("dash-total-farmers").textContent = listings.length + 15;
-  document.getElementById("dash-total-buyers").textContent = "420+";
-  document.getElementById("dash-markup-eliminated").textContent = "₹6.2 Lakhs";
-  document.getElementById("dash-avg-gain").textContent = "+44.8%";
+  const fCount = document.getElementById("dash-total-farmers");
+  if (fCount) fCount.textContent = listings.length + 15;
 
   const ctxCrop = document.getElementById("cropVolumeChart")?.getContext("2d");
   if (ctxCrop) {
