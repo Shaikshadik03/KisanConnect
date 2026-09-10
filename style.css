@@ -1,39 +1,52 @@
 /* ==========================================================================
-   KisanConnect: Nordic-Organic Bento Agricultural Marketplace
-   Distinct Theme: Cream Canvas (#fcfaf6), Forest Emerald (#14532d), Terracotta & Amber
+   KisanConnect: Ultra-Aesthetic Nordic-Organic Bento Agricultural Marketplace
+   Theme: Cream Canvas (#fcfbf7), Deep Forest Emerald (#064e3b), Terracotta & Amber
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&display=swap');
 
 :root {
-  --forest-900: #14532d;
-  --forest-800: #166534;
-  --forest-700: #15803d;
-  --forest-50: #f0fdf4;
-  --forest-100: #dcfce7;
+  --forest-950: #062817;
+  --forest-900: #064e3b;
+  --forest-800: #047857;
+  --forest-700: #059669;
+  --forest-600: #10b981;
+  --forest-100: #d1fae5;
+  --forest-50: #ecfdf5;
 
-  --terracotta: #ea580c;
-  --terracotta-light: #ffedd5;
+  --terracotta-600: #ea580c;
+  --terracotta-500: #f97316;
+  --terracotta-100: #ffedd5;
+
+  --amber-600: #d97706;
   --amber-500: #f59e0b;
   --amber-100: #fef3c7;
+  --amber-50: #fffbeb;
 
-  --cream-bg: #fbf9f4;
+  --cream-bg: #fcfbf7;
   --card-bg: #ffffff;
-  --card-alt: #f5f2eb;
+  --card-alt: #f6f4ee;
+  
+  --text-main: #132213;
+  --text-muted: #52634f;
+  --text-light: #7b8e78;
 
-  --text-main: #1c2817;
-  --text-muted: #5c6855;
+  --border-organic: #e6e2d6;
+  --border-subtle: #f0ece1;
 
-  --border-organic: #e8e3d8;
-
-  --radius-bento: 24px;
-  --radius-sm: 12px;
+  --radius-bento: 26px;
+  --radius-md: 16px;
+  --radius-sm: 10px;
   --radius-pill: 9999px;
 
-  --shadow-organic: 0 10px 28px rgba(20, 83, 45, 0.06), 0 2px 6px rgba(0, 0, 0, 0.02);
+  --shadow-sm: 0 2px 8px rgba(6, 78, 59, 0.04);
+  --shadow-md: 0 12px 30px rgba(6, 78, 59, 0.08), 0 2px 6px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 22px 48px rgba(6, 78, 59, 0.12), 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-glow: 0 0 25px rgba(5, 150, 105, 0.2);
 
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'DM Sans', sans-serif;
+  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 *, *::before, *::after {
@@ -45,24 +58,33 @@
 body {
   font-family: var(--font-sans);
   background-color: var(--cream-bg);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(5, 150, 105, 0.04) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(245, 158, 11, 0.04) 0px, transparent 50%);
   color: var(--text-main);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  line-height: 1.6;
 }
 
-/* Organic Editorial Navbar */
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+
 .navbar {
-  background: rgba(251, 249, 244, 0.94);
-  backdrop-filter: blur(12px);
+  background: rgba(252, 251, 247, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1.5px solid var(--border-organic);
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 4px 20px rgba(6, 78, 59, 0.03);
 }
 
 .nav-container {
-  max-width: 1240px;
+  max-width: 1260px;
   margin: 0 auto;
   padding: 0.9rem 1.5rem;
   display: flex;
@@ -75,30 +97,39 @@ body {
   align-items: center;
   gap: 0.75rem;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .brand-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  background: var(--forest-900);
-  color: #86efac;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--forest-900), var(--forest-700));
+  color: #a7f3d0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.35rem;
+  font-size: 1.4rem;
+  box-shadow: 0 4px 12px rgba(6, 78, 59, 0.2);
 }
 
 .brand h1 {
   font-family: var(--font-serif);
-  font-size: 1.45rem;
+  font-size: 1.5rem;
   font-weight: 900;
   color: var(--forest-900);
   letter-spacing: -0.01em;
 }
 
+.brand-sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 0.4rem;
   list-style: none;
 }
@@ -110,65 +141,112 @@ body {
   font-size: 0.92rem;
   font-weight: 700;
   color: var(--text-muted);
-  padding: 0.5rem 1.1rem;
+  padding: 0.55rem 1.15rem;
   border-radius: var(--radius-pill);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--transition);
 }
 
 .nav-btn:hover {
   color: var(--forest-900);
-  background: rgba(220, 252, 231, 0.6);
+  background: var(--forest-100);
 }
 
 .nav-btn.active {
   color: #ffffff;
   background: var(--forest-900);
+  box-shadow: 0 4px 12px rgba(6, 78, 59, 0.2);
 }
 
-/* Main Container */
+.nav-cta-btn {
+  background: linear-gradient(135deg, var(--terracotta-600), var(--terracotta-500)) !important;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.25) !important;
+}
+
+.nav-cta-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(234, 88, 12, 0.35) !important;
+}
+
+/* ==========================================================================
+   MAIN LAYOUT & ANIMATIONS
+   ========================================================================== */
+
 main {
   flex: 1;
-  max-width: 1240px;
+  max-width: 1260px;
   width: 100%;
-  margin: 2rem auto 4rem;
+  margin: 1.75rem auto 4rem;
   padding: 0 1.5rem;
 }
 
 .view-section {
   display: none;
-  animation: fadeIn 0.3s ease forwards;
+  animation: bentoFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .view-section.active {
   display: block;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
+@keyframes bentoFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 /* ==========================================================================
-   VIEW 1: BENTO HERO & EDITORIAL SHOWCASE
+   BUTTONS & BADGES
    ========================================================================== */
 
-.bento-hero-grid {
-  display: grid;
-  grid-template-columns: 1.3fr 0.9fr;
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
+.btn {
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  border: none;
 }
 
-.bento-card-main {
+.btn-forest {
+  background: linear-gradient(135deg, var(--forest-900), var(--forest-800));
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(6, 78, 59, 0.25);
+}
+
+.btn-forest:hover {
+  background: linear-gradient(135deg, var(--forest-800), var(--forest-700));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(6, 78, 59, 0.32);
+}
+
+.btn-terracotta {
+  background: linear-gradient(135deg, var(--terracotta-600), var(--terracotta-500));
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(234, 88, 12, 0.25);
+}
+
+.btn-terracotta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(234, 88, 12, 0.35);
+}
+
+.btn-outline {
   background: #ffffff;
+  color: var(--forest-900);
   border: 1.5px solid var(--border-organic);
-  border-radius: var(--radius-bento);
-  padding: 3.5rem 3rem;
-  box-shadow: var(--shadow-organic);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+}
+
+.btn-outline:hover {
+  border-color: var(--forest-700);
+  background: var(--forest-50);
 }
 
 .organic-tag {
@@ -181,8 +259,43 @@ main {
   border-radius: var(--radius-pill);
   font-size: 0.82rem;
   font-weight: 800;
-  margin-bottom: 1.25rem;
   width: fit-content;
+}
+
+/* ==========================================================================
+   VIEW 1: BENTO HERO SECTION
+   ========================================================================== */
+
+.bento-hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.bento-card-main {
+  background: #ffffff;
+  border: 1.5px solid var(--border-organic);
+  border-radius: var(--radius-bento);
+  padding: 3.5rem 3rem;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-card-main::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(5, 150, 105, 0.1), transparent 70%);
+  pointer-events: none;
 }
 
 .bento-title {
@@ -191,12 +304,13 @@ main {
   font-weight: 900;
   line-height: 1.12;
   color: var(--forest-900);
+  margin-top: 1rem;
   margin-bottom: 1.25rem;
 }
 
 .bento-title em {
   font-style: italic;
-  color: var(--terracotta);
+  color: var(--terracotta-600);
 }
 
 .bento-desc {
@@ -209,77 +323,52 @@ main {
 .bento-actions {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
-.btn {
-  font-family: inherit;
-  font-size: 0.95rem;
-  font-weight: 800;
-  padding: 0.85rem 1.75rem;
-  border-radius: var(--radius-pill);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
-}
-
-.btn-forest {
-  background: var(--forest-900);
-  color: #ffffff;
-  border: none;
-  box-shadow: 0 6px 18px rgba(20, 83, 45, 0.25);
-}
-
-.btn-forest:hover {
-  background: var(--forest-800);
-  transform: translateY(-2px);
-}
-
-.btn-terracotta {
-  background: var(--terracotta);
-  color: #ffffff;
-  border: none;
-}
-
-.btn-terracotta:hover {
-  background: #c2410c;
-  transform: translateY(-2px);
-}
-
-.bento-card-photo {
+.bento-hero-photo-wrap {
   background: #ffffff;
   border: 1.5px solid var(--border-organic);
   border-radius: var(--radius-bento);
   overflow: hidden;
-  box-shadow: var(--shadow-organic);
+  box-shadow: var(--shadow-md);
   position: relative;
+  height: 100%;
+  min-height: 420px;
 }
 
 .bento-hero-img {
   width: 100%;
   height: 100%;
-  min-height: 380px;
   object-fit: cover;
+  transition: transform 0.6s ease;
 }
 
-.floating-bento-badge {
+.bento-hero-photo-wrap:hover .bento-hero-img {
+  transform: scale(1.03);
+}
+
+.floating-bento-card {
   position: absolute;
   bottom: 20px;
   left: 20px;
   right: 20px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 1rem 1.25rem;
-  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1rem 1.35rem;
+  border-radius: var(--radius-md);
   border: 1px solid var(--border-organic);
+  box-shadow: var(--shadow-md);
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
-/* Stats Row */
+/* ==========================================================================
+   STATS TICKER BAR
+   ========================================================================== */
+
 .bento-stats-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -290,15 +379,22 @@ main {
 .bento-stat-card {
   background: #ffffff;
   border: 1.5px solid var(--border-organic);
-  border-radius: var(--radius-bento);
-  padding: 1.75rem 2rem;
+  border-radius: var(--radius-md);
+  padding: 1.6rem;
   text-align: center;
-  box-shadow: var(--shadow-organic);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.bento-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--forest-700);
 }
 
 .bento-stat-num {
   font-family: var(--font-serif);
-  font-size: 2.4rem;
+  font-size: 2.3rem;
   font-weight: 900;
   color: var(--forest-900);
   line-height: 1;
@@ -312,12 +408,214 @@ main {
 }
 
 /* ==========================================================================
-   VIEW 2: BENTO BUY PRODUCE & PRICE COMPARISON
+   POPULAR CATEGORIES WITH RICH PHOTOS
+   ========================================================================== */
+
+.section-head-wrap {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-head-title {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--forest-900);
+}
+
+.section-head-sub {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.category-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 3.5rem;
+}
+
+.cat-bento-card {
+  background: #ffffff;
+  border: 1.5px solid var(--border-organic);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  text-align: left;
+}
+
+.cat-bento-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--forest-700);
+  box-shadow: var(--shadow-md);
+}
+
+.cat-bento-img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.cat-bento-card:hover .cat-bento-img {
+  transform: scale(1.06);
+}
+
+.cat-bento-info {
+  padding: 0.9rem 1rem;
+}
+
+.cat-bento-name {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--forest-900);
+}
+
+.cat-bento-tag {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   3-STEP "HOW IT WORKS" VISUAL SECTION
+   ========================================================================== */
+
+.steps-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.step-photo-card {
+  background: #ffffff;
+  border: 1.5px solid var(--border-organic);
+  border-radius: var(--radius-bento);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.step-photo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--forest-700);
+}
+
+.step-img-box {
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+}
+
+.step-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.step-photo-card:hover .step-img {
+  transform: scale(1.05);
+}
+
+.step-num-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--forest-900);
+  color: #a7f3d0;
+  font-size: 0.8rem;
+  font-weight: 900;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.step-content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.step-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--forest-900);
+  margin-bottom: 0.5rem;
+}
+
+.step-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   INTERACTIVE PRICE CALCULATOR SHOWCASE
+   ========================================================================== */
+
+.calc-showcase-box {
+  background: linear-gradient(135deg, #ffffff 0%, var(--amber-50) 100%);
+  border: 1.5px solid #fde68a;
+  border-radius: var(--radius-bento);
+  padding: 2.5rem;
+  margin-bottom: 4rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.calc-pill-display {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.calc-price-col {
+  background: #ffffff;
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  border: 1px solid var(--border-organic);
+  text-align: center;
+}
+
+.calc-price-col.active-kisan {
+  background: var(--forest-50);
+  border: 2px solid var(--forest-700);
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.15);
+}
+
+.calc-price-num {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+/* ==========================================================================
+   VIEW 2: MARKETPLACE & FILTERS
    ========================================================================== */
 
 .bento-market-split {
   display: grid;
-  grid-template-columns: 340px 1fr;
+  grid-template-columns: 320px 1fr;
   gap: 2rem;
   align-items: start;
 }
@@ -327,9 +625,9 @@ main {
   border: 1.5px solid var(--border-organic);
   border-radius: var(--radius-bento);
   padding: 2rem;
-  box-shadow: var(--shadow-organic);
+  box-shadow: var(--shadow-sm);
   position: sticky;
-  top: 90px;
+  top: 86px;
 }
 
 .form-group {
@@ -353,16 +651,17 @@ main {
   border: 1.5px solid var(--border-organic);
   border-radius: var(--radius-sm);
   color: var(--text-main);
-  transition: all 0.2s ease;
+  transition: var(--transition);
 }
 
 .form-control:focus {
   outline: none;
-  border-color: var(--forest-900);
+  border-color: var(--forest-700);
   background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
 }
 
-/* Produce Bento Cards */
+/* Produce Bento Cards with Real Photos */
 .produce-bento-grid {
   display: flex;
   flex-direction: column;
@@ -374,28 +673,48 @@ main {
   border: 1.5px solid var(--border-organic);
   border-radius: var(--radius-bento);
   overflow: hidden;
-  box-shadow: var(--shadow-organic);
+  box-shadow: var(--shadow-sm);
   display: grid;
-  grid-template-columns: 240px 1fr;
-  transition: all 0.22s ease;
+  grid-template-columns: 260px 1fr;
+  transition: var(--transition);
 }
 
 .bento-produce-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 36px rgba(20, 83, 45, 0.12);
+  box-shadow: var(--shadow-md);
   border-color: var(--forest-700);
 }
 
 .produce-img-wrap {
   height: 100%;
-  min-height: 220px;
+  min-height: 230px;
   position: relative;
+  overflow: hidden;
 }
 
 .produce-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.bento-produce-card:hover .produce-photo {
+  transform: scale(1.05);
+}
+
+.organic-badge-overlay {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(6, 78, 59, 0.92);
+  color: #a7f3d0;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .produce-body {
@@ -413,23 +732,23 @@ main {
 
 .crop-title {
   font-family: var(--font-serif);
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   font-weight: 900;
   color: var(--forest-900);
 }
 
 .price-tag-big {
   font-family: var(--font-serif);
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   font-weight: 900;
   color: var(--forest-900);
   line-height: 1;
 }
 
-/* Middleman Price Contrast Pill */
+/* Price Contrast Pill */
 .price-contrast-box {
-  background: #fffbeb;
-  border: 1.5px dashed #f59e0b;
+  background: var(--amber-50);
+  border: 1.5px dashed var(--amber-500);
   border-radius: var(--radius-sm);
   padding: 0.85rem 1.25rem;
   display: flex;
@@ -440,7 +759,7 @@ main {
 
 .contrast-badge {
   background: var(--forest-900);
-  color: #86efac;
+  color: #a7f3d0;
   font-size: 0.82rem;
   font-weight: 800;
   padding: 0.35rem 0.85rem;
@@ -448,18 +767,61 @@ main {
 }
 
 .farmer-avatar-img {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* Modal */
+/* ==========================================================================
+   COMMUNITY TESTIMONIALS SECTION
+   ========================================================================== */
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.testimonial-card {
+  background: #ffffff;
+  border: 1.5px solid var(--border-organic);
+  border-radius: var(--radius-bento);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testi-user-row {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 1.25rem;
+}
+
+.testi-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--forest-100);
+}
+
+/* ==========================================================================
+   MODAL & TOAST
+   ========================================================================== */
+
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(20, 40, 23, 0.6);
-  backdrop-filter: blur(6px);
+  background: rgba(6, 40, 23, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: none;
   align-items: center;
   justify-content: center;
@@ -474,11 +836,17 @@ main {
 .modal-box {
   background: #ffffff;
   width: 100%;
-  max-width: 440px;
+  max-width: 460px;
   border-radius: var(--radius-bento);
   padding: 2.25rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shadow-lg);
   position: relative;
+  animation: modalPop 0.25s ease forwards;
+}
+
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 .modal-close {
@@ -487,7 +855,7 @@ main {
   right: 1.25rem;
   background: transparent;
   border: none;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   cursor: pointer;
   color: var(--text-muted);
 }
@@ -496,18 +864,20 @@ main {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background: var(--forest-900);
+  background: var(--forest-950);
   color: #ffffff;
-  padding: 0.85rem 1.4rem;
+  padding: 0.9rem 1.5rem;
   border-radius: var(--radius-pill);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   font-weight: 700;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-lg);
   display: none;
   z-index: 1000;
+  border: 1px solid var(--forest-700);
 }
 
-@media (max-width: 860px) {
+/* Responsive */
+@media (max-width: 880px) {
   .bento-hero-grid {
     grid-template-columns: 1fr;
   }
@@ -518,9 +888,15 @@ main {
     grid-template-columns: 1fr;
   }
   .produce-img-wrap {
-    height: 180px;
+    height: 200px;
+  }
+  .calc-grid {
+    grid-template-columns: 1fr;
   }
   .bento-title {
     font-size: 2.3rem;
+  }
+  .bento-card-main {
+    padding: 2.25rem 1.5rem;
   }
 }

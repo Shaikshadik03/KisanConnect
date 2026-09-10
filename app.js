@@ -1,9 +1,9 @@
 /**
  * KisanConnect Application Logic & Bento Price Comparison Engine
- * Self-contained: No external JSON fetch required! Works directly on double-click.
+ * Self-contained: No external JSON fetch required! Works directly on double-click or server.
  */
 
-// All Farm Produce Listings Embedded Directly
+// All Farm Produce Listings with High-Res Photos & Farmer Avatars
 const DEFAULT_LISTINGS = [
   {
     "id": "PROD-001",
@@ -18,10 +18,10 @@ const DEFAULT_LISTINGS = [
     "location": "Ludhiana, Punjab",
     "district": "Ludhiana",
     "distanceKm": 14,
-    "harvestDate": "2026-08-15",
+    "harvestDate": "2026-09-05",
     "organic": true,
     "phone": "+91 98765 12340",
-    "description": "Premium quality golden Sharbati wheat, chemical-free sun-dried grain."
+    "description": "Premium quality golden Sharbati wheat, 100% chemical-free, naturally sun-dried grain."
   },
   {
     "id": "PROD-002",
@@ -36,10 +36,10 @@ const DEFAULT_LISTINGS = [
     "location": "Nashik, Maharashtra",
     "district": "Nashik",
     "distanceKm": 8,
-    "harvestDate": "2026-08-24",
+    "harvestDate": "2026-09-08",
     "organic": false,
     "phone": "+91 98234 56789",
-    "description": "Farm-fresh ripe hybrid tomatoes, firm texture, ideal for retail or culinary bulk use."
+    "description": "Farm-fresh ripe hybrid tomatoes, firm texture, ideal for retail grocery or restaurant bulk use."
   },
   {
     "id": "PROD-003",
@@ -54,10 +54,10 @@ const DEFAULT_LISTINGS = [
     "location": "Mandya, Karnataka",
     "district": "Mandya",
     "distanceKm": 25,
-    "harvestDate": "2026-08-10",
+    "harvestDate": "2026-09-01",
     "organic": true,
     "phone": "+91 97401 23456",
-    "description": "Aged 12-month aromatic Sona Masoori rice harvested from Cauvery basin farms."
+    "description": "Aged 12-month aromatic Sona Masoori rice harvested from fertile Cauvery basin farms."
   },
   {
     "id": "PROD-004",
@@ -72,10 +72,10 @@ const DEFAULT_LISTINGS = [
     "location": "Guntur, Andhra Pradesh",
     "district": "Guntur",
     "distanceKm": 42,
-    "harvestDate": "2026-08-01",
+    "harvestDate": "2026-08-28",
     "organic": false,
     "phone": "+91 99490 87654",
-    "description": "Authentic high-pungency Teja red chillies directly from Guntur spice belt."
+    "description": "Authentic high-pungency Teja red chillies directly from the famous Guntur spice belt."
   },
   {
     "id": "PROD-005",
@@ -90,10 +90,10 @@ const DEFAULT_LISTINGS = [
     "location": "Nashik, Maharashtra",
     "district": "Nashik",
     "distanceKm": 12,
-    "harvestDate": "2026-08-20",
+    "harvestDate": "2026-09-06",
     "organic": false,
     "phone": "+91 98501 23789",
-    "description": "Grade-A medium dry red onions, well-cured with extended shelf life."
+    "description": "Grade-A medium dry red onions, well-cured with extended shelf life and natural pungency."
   },
   {
     "id": "PROD-006",
@@ -108,7 +108,7 @@ const DEFAULT_LISTINGS = [
     "location": "Karnal, Haryana",
     "district": "Karnal",
     "distanceKm": 30,
-    "harvestDate": "2026-08-12",
+    "harvestDate": "2026-09-02",
     "organic": true,
     "phone": "+91 94160 34567",
     "description": "Long-grain aromatic extra-fluffy 1121 Basmati paddy direct from field."
@@ -126,10 +126,10 @@ const DEFAULT_LISTINGS = [
     "location": "Agra, Uttar Pradesh",
     "district": "Agra",
     "distanceKm": 19,
-    "harvestDate": "2026-08-18",
+    "harvestDate": "2026-09-04",
     "organic": false,
     "phone": "+91 94560 98765",
-    "description": "Sugar-free Chipsona table potatoes, smooth skin and clean harvest."
+    "description": "Sugar-free Chipsona table potatoes, smooth skin, clean harvest, zero cold-storage spoilage."
   },
   {
     "id": "PROD-008",
@@ -144,14 +144,14 @@ const DEFAULT_LISTINGS = [
     "location": "Gulbarga, Karnataka",
     "district": "Gulbarga",
     "distanceKm": 38,
-    "harvestDate": "2026-08-02",
+    "harvestDate": "2026-08-26",
     "organic": true,
     "phone": "+91 98450 67890",
-    "description": "Unpolished GI-tagged Gulbarga Toor Dal with high natural protein."
+    "description": "Unpolished GI-tagged Gulbarga Toor Dal with high natural protein and uncompromised aroma."
   }
 ];
 
-// Mandi Wholesale and Retail Benchmarks Embedded Directly
+// Mandi Wholesale and Retail Benchmarks
 const MARKET_BENCHMARKS = {
   "Organic Sharbati Wheat": { mandiWholesale: 21, retailMarket: 42 },
   "Fresh Red Tomatoes": { mandiWholesale: 14, retailMarket: 38 },
@@ -167,17 +167,18 @@ let listings = [];
 let cropChartInstance = null;
 let earningsChartInstance = null;
 
-// Initialize on Load - Fully Offline Compatible!
+// Initialize on Load
 document.addEventListener("DOMContentLoaded", () => {
   loadListings();
   setupNavigation();
   setupFilters();
   setupSellForm();
+  updatePriceCalculator();
   renderListings();
 });
 
 function loadListings() {
-  const localSaved = localStorage.getItem("kisanconnect_listings_simple");
+  const localSaved = localStorage.getItem("kisanconnect_listings_v4");
   if (localSaved) {
     try {
       listings = JSON.parse(localSaved);
@@ -186,9 +187,8 @@ function loadListings() {
       console.warn("Using defaults");
     }
   }
-  // Load default embedded dataset
   listings = [...DEFAULT_LISTINGS];
-  localStorage.setItem("kisanconnect_listings_simple", JSON.stringify(listings));
+  localStorage.setItem("kisanconnect_listings_v4", JSON.stringify(listings));
 }
 
 function setupNavigation() {
@@ -223,6 +223,49 @@ function switchView(viewId) {
   } else if (viewId === "dashboard-view") {
     renderDashboard();
   }
+}
+
+function filterByCategory(cat) {
+  switchView("buy-view");
+  const catSelect = document.getElementById("filter-category");
+  if (catSelect) {
+    catSelect.value = cat;
+  }
+  renderListings();
+}
+
+function scrollToCalculator() {
+  const el = document.getElementById("price-calc-anchor");
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
+function updatePriceCalculator() {
+  const cropSelect = document.getElementById("calc-crop-select");
+  if (!cropSelect) return;
+
+  const cropName = cropSelect.value;
+  const benchmark = MARKET_BENCHMARKS[cropName] || { mandiWholesale: 20, retailMarket: 40 };
+
+  const matchedListing = listings.find(l => l.crop === cropName) || { pricePerKg: Math.round((benchmark.mandiWholesale + benchmark.retailMarket) / 2) };
+  const directPrice = matchedListing.pricePerKg;
+
+  const mandiEl = document.getElementById("calc-mandi-price");
+  const kisanEl = document.getElementById("calc-kisan-price");
+  const retailEl = document.getElementById("calc-retail-price");
+  const gainEl = document.getElementById("calc-farmer-gain");
+  const savingsEl = document.getElementById("calc-buyer-savings");
+
+  if (mandiEl) mandiEl.textContent = `₹${benchmark.mandiWholesale}/kg`;
+  if (kisanEl) kisanEl.textContent = `₹${directPrice}/kg`;
+  if (retailEl) retailEl.textContent = `₹${benchmark.retailMarket}/kg`;
+
+  const farmerGainPct = Math.round(((directPrice - benchmark.mandiWholesale) / benchmark.mandiWholesale) * 100);
+  const buyerSavingsPct = Math.round(((benchmark.retailMarket - directPrice) / benchmark.retailMarket) * 100);
+
+  if (gainEl) gainEl.textContent = `+${farmerGainPct}% Extra Farmer Profit`;
+  if (savingsEl) savingsEl.textContent = `Buyer Saves ${buyerSavingsPct}%`;
 }
 
 function setupFilters() {
@@ -264,6 +307,18 @@ function renderListings() {
     countLabel.textContent = `Showing ${filtered.length} Direct Farm Harvests`;
   }
 
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div style="background:#ffffff; border:1.5px solid var(--border-organic); border-radius:var(--radius-bento); padding:3.5rem 2rem; text-align:center;">
+        <div style="font-size:3rem; margin-bottom:1rem;">🌾</div>
+        <h3 style="font-family:var(--font-serif); font-size:1.4rem; color:var(--forest-900);">No Harvests Found</h3>
+        <p style="color:var(--text-muted); margin-top:0.5rem;">Try clearing your search filters or select "All Categories".</p>
+        <button class="btn btn-forest" style="margin-top:1.25rem;" onclick="filterByCategory('all')">View All Harvests</button>
+      </div>
+    `;
+    return;
+  }
+
   container.innerHTML = filtered.map(item => {
     const benchmark = MARKET_BENCHMARKS[item.crop] || {
       mandiWholesale: Math.round(item.pricePerKg * 0.7),
@@ -280,6 +335,7 @@ function renderListings() {
       <div class="bento-produce-card">
         <div class="produce-img-wrap">
           <img src="${item.cropImage || 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&auto=format&fit=crop&q=80'}" alt="${item.crop}" class="produce-photo">
+          ${item.organic ? '<span class="organic-badge-overlay">🌱 100% Certified Organic</span>' : '<span class="organic-badge-overlay" style="background:rgba(20,83,45,0.85);">🚜 Farm-Fresh Batch</span>'}
         </div>
 
         <div class="produce-body">
@@ -289,14 +345,14 @@ function renderListings() {
                 <h3 class="crop-title">${item.crop}</h3>
                 <div style="display:flex; align-items:center; gap:0.6rem; margin-top:0.4rem;">
                   <img src="${item.farmerAvatar || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80'}" class="farmer-avatar-img">
-                  <span style="font-weight:700; font-size:0.85rem;">👨‍🌾 ${item.farmerName}</span>
+                  <span style="font-weight:700; font-size:0.88rem; color:var(--forest-900);">👨‍🌾 ${item.farmerName}</span>
                   <span style="color:#5c6855; font-size:0.85rem;">• 📍 ${item.location} (~${item.distanceKm || 12} km away)</span>
                 </div>
               </div>
 
               <div style="text-align:right;">
                 <div class="price-tag-big">₹${item.pricePerKg}</div>
-                <div style="font-size:0.72rem; color:#5c6855; font-weight:700;">Direct / kg</div>
+                <div style="font-size:0.75rem; color:#5c6855; font-weight:700;">Direct / kg</div>
               </div>
             </div>
 
@@ -313,20 +369,20 @@ function renderListings() {
               </div>
 
               <div class="contrast-badge">
-                You Save ${consumerSavingsPct}% • Farmer +${farmerGainPct}%
+                You Save ${consumerSavingsPct}% • Farmer +${farmerGainPct}% More
               </div>
             </div>
 
-            <p style="font-size:0.88rem; color:#475569; margin: 0.5rem 0;">${item.description}</p>
+            <p style="font-size:0.9rem; color:#475569; margin: 0.5rem 0;">${item.description}</p>
           </div>
 
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.75rem;">
-            <span style="font-size:0.8rem; color:#5c6855; font-weight:700;">📦 ${item.quantity} • Harvested ${item.harvestDate}</span>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.75rem; flex-wrap:wrap; gap:0.5rem;">
+            <span style="font-size:0.82rem; color:#5c6855; font-weight:700;">📦 ${item.quantity} available • Harvested ${item.harvestDate}</span>
             <div style="display:flex; gap:0.75rem;">
               <button class="btn btn-forest" style="padding:0.5rem 1.3rem; font-size:0.85rem;" onclick="openContactModal('${item.farmerName}', '${item.crop}', '${item.pricePerKg}', '${item.phone}', '${item.location}', '${item.farmerAvatar}')">
                 📞 Connect to Farmer
               </button>
-              <button class="btn btn-terracotta" style="padding:0.5rem 1.3rem; font-size:0.85rem;" onclick="showToast('Produce added to bulk farm pickup!')">
+              <button class="btn btn-terracotta" style="padding:0.5rem 1.3rem; font-size:0.85rem;" onclick="showToast('Produce added to bulk farm order inquiry!')">
                 🛒 Buy Direct
               </button>
             </div>
@@ -359,11 +415,11 @@ function setupSellForm() {
       harvestDate: document.getElementById("sell-date").value,
       organic: document.getElementById("sell-organic").checked,
       phone: document.getElementById("sell-phone").value,
-      description: document.getElementById("sell-desc").value || "Fresh farm harvest direct from the grower."
+      description: document.getElementById("sell-desc").value || "Fresh farm harvest direct from the grower with zero middleman markup."
     };
 
     listings.unshift(newListing);
-    localStorage.setItem("kisanconnect_listings_simple", JSON.stringify(listings));
+    localStorage.setItem("kisanconnect_listings_v4", JSON.stringify(listings));
     form.reset();
     showToast(`🎉 Produce listing published for ${newListing.crop}!`);
     switchView("buy-view");
@@ -384,7 +440,7 @@ function renderDashboard() {
         datasets: [{
           label: "Volume Traded (Quintals)",
           data: [140, 95, 160, 125, 105, 55],
-          backgroundColor: "#14532d",
+          backgroundColor: "#064e3b",
           borderRadius: 6
         }]
       },
@@ -406,7 +462,7 @@ function renderDashboard() {
           {
             label: "Direct Farmer Income (KisanConnect)",
             data: [28000, 22000, 44000, 48000],
-            backgroundColor: "#14532d"
+            backgroundColor: "#064e3b"
           },
           {
             label: "Traditional Mandi Intermediary Route",
