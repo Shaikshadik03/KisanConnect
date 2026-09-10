@@ -1,12 +1,12 @@
 /* ==========================================================================
-   KisanConnect: Ultra-Aesthetic Nordic-Organic Bento Agricultural Marketplace
-   Theme: Cream Canvas (#fcfbf7), Deep Forest Emerald (#064e3b), Terracotta & Amber
+   KisanConnect: Ultimate Nordic-Organic Bento Agricultural Marketplace
+   Theme: Cream Canvas (#fcfbf7), Deep Forest Emerald (#064e3b), Terracotta & Golden Amber
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&display=swap');
 
 :root {
-  --forest-950: #062817;
+  --forest-950: #042113;
   --forest-900: #064e3b;
   --forest-800: #047857;
   --forest-700: #059669;
@@ -42,7 +42,6 @@
   --shadow-sm: 0 2px 8px rgba(6, 78, 59, 0.04);
   --shadow-md: 0 12px 30px rgba(6, 78, 59, 0.08), 0 2px 6px rgba(0, 0, 0, 0.02);
   --shadow-lg: 0 22px 48px rgba(6, 78, 59, 0.12), 0 4px 12px rgba(0, 0, 0, 0.03);
-  --shadow-glow: 0 0 25px rgba(5, 150, 105, 0.2);
 
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'DM Sans', sans-serif;
@@ -69,11 +68,63 @@ body {
 }
 
 /* ==========================================================================
-   NAVIGATION
+   1. LIVE MANDI PRICE TICKER BAR
+   ========================================================================== */
+
+.mandi-ticker-wrap {
+  background: var(--forest-950);
+  color: #a7f3d0;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 1px solid rgba(167, 243, 208, 0.2);
+  display: flex;
+  align-items: center;
+}
+
+.mandi-ticker-label {
+  background: var(--terracotta-600);
+  color: white;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 900;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.mandi-ticker-track {
+  display: inline-block;
+  animation: tickerSlide 35s linear infinite;
+  white-space: nowrap;
+}
+
+.mandi-ticker-track span {
+  margin-right: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.mandi-up { color: #86efac; }
+.mandi-down { color: #fca5a5; }
+
+@keyframes tickerSlide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ==========================================================================
+   2. NAVIGATION
    ========================================================================== */
 
 .navbar {
-  background: rgba(252, 251, 247, 0.92);
+  background: rgba(252, 251, 247, 0.94);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1.5px solid var(--border-organic);
@@ -170,7 +221,7 @@ body {
 }
 
 /* ==========================================================================
-   MAIN LAYOUT & ANIMATIONS
+   3. MAIN LAYOUT
    ========================================================================== */
 
 main {
@@ -196,7 +247,7 @@ main {
 }
 
 /* ==========================================================================
-   BUTTONS & BADGES
+   4. BUTTONS & BADGES
    ========================================================================== */
 
 .btn {
@@ -263,7 +314,7 @@ main {
 }
 
 /* ==========================================================================
-   VIEW 1: BENTO HERO SECTION
+   5. BENTO HERO & CAROUSEL SECTION
    ========================================================================== */
 
 .bento-hero-grid {
@@ -322,7 +373,7 @@ main {
 
 .bento-actions {
   display: flex;
-  gap: 1rem;
+  gap: 0.9rem;
   flex-wrap: wrap;
 }
 
@@ -366,7 +417,7 @@ main {
 }
 
 /* ==========================================================================
-   STATS TICKER BAR
+   6. STATS ROW
    ========================================================================== */
 
 .bento-stats-row {
@@ -408,7 +459,7 @@ main {
 }
 
 /* ==========================================================================
-   POPULAR CATEGORIES WITH RICH PHOTOS
+   7. 8-CATEGORY PHOTO GRID
    ========================================================================== */
 
 .section-head-wrap {
@@ -431,7 +482,7 @@ main {
 
 .category-photo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 1.25rem;
   margin-bottom: 3.5rem;
 }
@@ -454,35 +505,184 @@ main {
   box-shadow: var(--shadow-md);
 }
 
+.cat-bento-img-wrap {
+  position: relative;
+  height: 140px;
+  overflow: hidden;
+}
+
 .cat-bento-img {
   width: 100%;
-  height: 130px;
+  height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.5s ease;
 }
 
 .cat-bento-card:hover .cat-bento-img {
-  transform: scale(1.06);
+  transform: scale(1.08);
+}
+
+.cat-count-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(6, 40, 23, 0.85);
+  color: #a7f3d0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(4px);
 }
 
 .cat-bento-info {
-  padding: 0.9rem 1rem;
+  padding: 1rem 1.15rem;
 }
 
 .cat-bento-name {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 800;
   color: var(--forest-900);
+  margin-bottom: 0.2rem;
 }
 
 .cat-bento-tag {
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
   font-weight: 600;
 }
 
 /* ==========================================================================
-   3-STEP "HOW IT WORKS" VISUAL SECTION
+   8. COMMUNITY GROUP BUYING POOL FEATURE
+   ========================================================================== */
+
+.group-buying-section {
+  background: #ffffff;
+  border: 1.5px solid var(--border-organic);
+  border-radius: var(--radius-bento);
+  padding: 2.5rem;
+  margin-bottom: 4rem;
+  box-shadow: var(--shadow-md);
+}
+
+.group-pool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.group-pool-card {
+  background: var(--cream-bg);
+  border: 1.5px solid var(--border-organic);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+
+.group-pool-card:hover {
+  border-color: var(--forest-700);
+  box-shadow: var(--shadow-sm);
+}
+
+.pool-header-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.pool-crop-img {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.progress-track {
+  height: 10px;
+  background: #e2e8da;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  margin: 0.75rem 0 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--forest-700), #22c55e);
+  border-radius: var(--radius-pill);
+  transition: width 0.4s ease;
+}
+
+/* ==========================================================================
+   9. ROUTE & TRANSIT ESTIMATOR CALCULATOR
+   ========================================================================== */
+
+.route-calc-box {
+  background: linear-gradient(135deg, #ffffff 0%, var(--forest-50) 100%);
+  border: 1.5px solid #a7f3d0;
+  border-radius: var(--radius-bento);
+  padding: 2.5rem;
+  margin-bottom: 4rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.route-calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.route-results-pill {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-organic);
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.route-metric-val {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--forest-900);
+  line-height: 1.2;
+}
+
+/* ==========================================================================
+   10. SEASONAL HARVEST CALENDAR
+   ========================================================================== */
+
+.harvest-cal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 4rem;
+}
+
+.cal-card {
+  background: #ffffff;
+  border: 1.5px solid var(--border-organic);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  border-left: 5px solid var(--forest-700);
+  box-shadow: var(--shadow-sm);
+}
+
+.cal-card.upcoming {
+  border-left-color: var(--amber-500);
+}
+
+/* ==========================================================================
+   11. 3-STEP "HOW IT WORKS" SECTION
    ========================================================================== */
 
 .steps-photo-grid {
@@ -562,7 +762,7 @@ main {
 }
 
 /* ==========================================================================
-   INTERACTIVE PRICE CALCULATOR SHOWCASE
+   12. PRICE CALCULATOR SHOWCASE
    ========================================================================== */
 
 .calc-showcase-box {
@@ -610,7 +810,7 @@ main {
 }
 
 /* ==========================================================================
-   VIEW 2: MARKETPLACE & FILTERS
+   13. MARKETPLACE & FILTERS
    ========================================================================== */
 
 .bento-market-split {
@@ -776,7 +976,7 @@ main {
 }
 
 /* ==========================================================================
-   COMMUNITY TESTIMONIALS SECTION
+   14. COMMUNITY TESTIMONIALS
    ========================================================================== */
 
 .testimonials-grid {
@@ -813,7 +1013,7 @@ main {
 }
 
 /* ==========================================================================
-   MODAL & TOAST
+   15. MODAL & TOAST
    ========================================================================== */
 
 .modal-overlay {
@@ -890,7 +1090,7 @@ main {
   .produce-img-wrap {
     height: 200px;
   }
-  .calc-grid {
+  .calc-grid, .route-calc-grid {
     grid-template-columns: 1fr;
   }
   .bento-title {

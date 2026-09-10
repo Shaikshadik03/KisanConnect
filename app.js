@@ -3,7 +3,7 @@
  * Self-contained: No external JSON fetch required! Works directly on double-click or server.
  */
 
-// All Farm Produce Listings with High-Res Photos & Farmer Avatars
+// 12+ Diverse Farm Produce Listings Spanning All 8 Categories
 const DEFAULT_LISTINGS = [
   {
     "id": "PROD-001",
@@ -21,7 +21,7 @@ const DEFAULT_LISTINGS = [
     "harvestDate": "2026-09-05",
     "organic": true,
     "phone": "+91 98765 12340",
-    "description": "Premium quality golden Sharbati wheat, 100% chemical-free, naturally sun-dried grain."
+    "description": "Premium quality golden Sharbati wheat, 100% chemical-free, naturally sun-dried grain with high protein."
   },
   {
     "id": "PROD-002",
@@ -39,7 +39,7 @@ const DEFAULT_LISTINGS = [
     "harvestDate": "2026-09-08",
     "organic": false,
     "phone": "+91 98234 56789",
-    "description": "Farm-fresh ripe hybrid tomatoes, firm texture, ideal for retail grocery or restaurant bulk use."
+    "description": "Farm-fresh ripe hybrid tomatoes, firm texture, ideal for retail grocery or restaurant bulk culinary use."
   },
   {
     "id": "PROD-003",
@@ -57,7 +57,7 @@ const DEFAULT_LISTINGS = [
     "harvestDate": "2026-09-01",
     "organic": true,
     "phone": "+91 97401 23456",
-    "description": "Aged 12-month aromatic Sona Masoori rice harvested from fertile Cauvery basin farms."
+    "description": "Aged 12-month aromatic Sona Masoori rice harvested directly from fertile Cauvery basin paddy fields."
   },
   {
     "id": "PROD-004",
@@ -93,7 +93,7 @@ const DEFAULT_LISTINGS = [
     "harvestDate": "2026-09-06",
     "organic": false,
     "phone": "+91 98501 23789",
-    "description": "Grade-A medium dry red onions, well-cured with extended shelf life and natural pungency."
+    "description": "Grade-A medium dry red onions, well-cured with extended shelf life and natural aroma."
   },
   {
     "id": "PROD-006",
@@ -148,6 +148,78 @@ const DEFAULT_LISTINGS = [
     "organic": true,
     "phone": "+91 98450 67890",
     "description": "Unpolished GI-tagged Gulbarga Toor Dal with high natural protein and uncompromised aroma."
+  },
+  {
+    "id": "PROD-009",
+    "farmerName": "Ghulam Nabi Wani",
+    "farmerAvatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80",
+    "crop": "Kashmiri Red Delicious Apples",
+    "cropImage": "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=600&auto=format&fit=crop&q=80",
+    "category": "Fruits",
+    "quantity": "1500 kg",
+    "pricePerKg": 85,
+    "unit": "kg",
+    "location": "Sopore, Kashmir",
+    "district": "Baramulla",
+    "distanceKm": 48,
+    "harvestDate": "2026-09-07",
+    "organic": true,
+    "phone": "+91 94190 55443",
+    "description": "Tree-ripened, naturally sweet Red Delicious apples hand-plucked from high-altitude Sopore orchards."
+  },
+  {
+    "id": "PROD-010",
+    "farmerName": "Rameshwar Choudhary",
+    "farmerAvatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80",
+    "crop": "Wood-Pressed Yellow Mustard Oil",
+    "cropImage": "https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?w=600&auto=format&fit=crop&q=80",
+    "category": "Oils",
+    "quantity": "600 Litres",
+    "pricePerKg": 165,
+    "unit": "Litre",
+    "location": "Bharatpur, Rajasthan",
+    "district": "Bharatpur",
+    "distanceKm": 32,
+    "harvestDate": "2026-09-03",
+    "organic": true,
+    "phone": "+91 94140 88776",
+    "description": "Kachi Ghani single cold-pressed virgin yellow mustard oil, rich pungent aroma and zero chemical filtering."
+  },
+  {
+    "id": "PROD-011",
+    "farmerName": "Nandkishore Verma",
+    "farmerAvatar": "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=150&auto=format&fit=crop&q=80",
+    "crop": "Raw Wild Forest Honey",
+    "cropImage": "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=600&auto=format&fit=crop&q=80",
+    "category": "Dairy",
+    "quantity": "350 kg",
+    "pricePerKg": 420,
+    "unit": "kg",
+    "location": "Nilgiris, Tamil Nadu",
+    "district": "Nilgiris",
+    "distanceKm": 45,
+    "harvestDate": "2026-08-30",
+    "organic": true,
+    "phone": "+91 94430 11223",
+    "description": "Unpasteurized multi-flora wild honey ethically harvested by tribal beekeeping cooperatives in the Western Ghats."
+  },
+  {
+    "id": "PROD-012",
+    "farmerName": "Devendra Joshi",
+    "farmerAvatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+    "crop": "Organic Pure Ashwagandha Root",
+    "cropImage": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=600&auto=format&fit=crop&q=80",
+    "category": "Herbs",
+    "quantity": "400 kg",
+    "pricePerKg": 290,
+    "unit": "kg",
+    "location": "Neemuch, Madhya Pradesh",
+    "district": "Neemuch",
+    "distanceKm": 50,
+    "harvestDate": "2026-09-02",
+    "organic": true,
+    "phone": "+91 98270 33445",
+    "description": "Sun-dried grade-A Nagori Ashwagandha roots with certified high withanolide alkaloid content."
   }
 ];
 
@@ -160,7 +232,11 @@ const MARKET_BENCHMARKS = {
   "Lasalgaon Red Onions": { mandiWholesale: 15, retailMarket: 40 },
   "Basmati 1121 Rice": { mandiWholesale: 58, retailMarket: 115 },
   "Fresh Table Potatoes": { mandiWholesale: 11, retailMarket: 30 },
-  "Organic Toor Dal (Pigeon Pea)": { mandiWholesale: 85, retailMarket: 165 }
+  "Organic Toor Dal (Pigeon Pea)": { mandiWholesale: 85, retailMarket: 165 },
+  "Kashmiri Red Delicious Apples": { mandiWholesale: 55, retailMarket: 140 },
+  "Wood-Pressed Yellow Mustard Oil": { mandiWholesale: 130, retailMarket: 225 },
+  "Raw Wild Forest Honey": { mandiWholesale: 280, retailMarket: 650 },
+  "Organic Pure Ashwagandha Root": { mandiWholesale: 210, retailMarket: 480 }
 };
 
 let listings = [];
@@ -174,11 +250,12 @@ document.addEventListener("DOMContentLoaded", () => {
   setupFilters();
   setupSellForm();
   updatePriceCalculator();
+  calculateRoute();
   renderListings();
 });
 
 function loadListings() {
-  const localSaved = localStorage.getItem("kisanconnect_listings_v4");
+  const localSaved = localStorage.getItem("kisanconnect_listings_v6");
   if (localSaved) {
     try {
       listings = JSON.parse(localSaved);
@@ -188,7 +265,7 @@ function loadListings() {
     }
   }
   listings = [...DEFAULT_LISTINGS];
-  localStorage.setItem("kisanconnect_listings_v4", JSON.stringify(listings));
+  localStorage.setItem("kisanconnect_listings_v6", JSON.stringify(listings));
 }
 
 function setupNavigation() {
@@ -234,13 +311,14 @@ function filterByCategory(cat) {
   renderListings();
 }
 
-function scrollToCalculator() {
-  const el = document.getElementById("price-calc-anchor");
+function scrollToElement(elemId) {
+  const el = document.getElementById(elemId);
   if (el) {
     el.scrollIntoView({ behavior: "smooth" });
   }
 }
 
+// 1. Interactive Price Comparison Calculator
 function updatePriceCalculator() {
   const cropSelect = document.getElementById("calc-crop-select");
   if (!cropSelect) return;
@@ -266,6 +344,78 @@ function updatePriceCalculator() {
 
   if (gainEl) gainEl.textContent = `+${farmerGainPct}% Extra Farmer Profit`;
   if (savingsEl) savingsEl.textContent = `Buyer Saves ${buyerSavingsPct}%`;
+}
+
+// 2. Interactive Route & Freshness Transit Calculator
+function calculateRoute() {
+  const origin = document.getElementById("route-origin-select")?.value || "Mandya";
+  const dest = document.getElementById("route-dest-select")?.value || "Bengaluru";
+
+  const routeMap = {
+    "Mandya-Bengaluru": { dist: "98 km", time: "~2.5 Hrs", savedDays: "12 Days" },
+    "Mandya-Mumbai": { dist: "980 km", time: "~18 Hrs", savedDays: "15 Days" },
+    "Mandya-Delhi": { dist: "2,150 km", time: "~38 Hrs", savedDays: "20 Days" },
+    "Mandya-Hyderabad": { dist: "670 km", time: "~11 Hrs", savedDays: "14 Days" },
+    "Mandya-Chennai": { dist: "410 km", time: "~7.5 Hrs", savedDays: "14 Days" },
+
+    "Nashik-Mumbai": { dist: "165 km", time: "~3.5 Hrs", savedDays: "10 Days" },
+    "Nashik-Bengaluru": { dist: "1,010 km", time: "~19 Hrs", savedDays: "16 Days" },
+    "Nashik-Delhi": { dist: "1,220 km", time: "~22 Hrs", savedDays: "18 Days" },
+    "Nashik-Hyderabad": { dist: "710 km", time: "~13 Hrs", savedDays: "14 Days" },
+    "Nashik-Chennai": { dist: "1,240 km", time: "~24 Hrs", savedDays: "16 Days" },
+
+    "Ludhiana-Delhi": { dist: "310 km", time: "~5.5 Hrs", savedDays: "12 Days" },
+    "Ludhiana-Mumbai": { dist: "1,690 km", time: "~29 Hrs", savedDays: "18 Days" },
+    "Ludhiana-Bengaluru": { dist: "2,460 km", time: "~42 Hrs", savedDays: "22 Days" },
+    "Ludhiana-Hyderabad": { dist: "1,880 km", time: "~33 Hrs", savedDays: "20 Days" },
+    "Ludhiana-Chennai": { dist: "2,520 km", time: "~44 Hrs", savedDays: "22 Days" },
+
+    "Guntur-Hyderabad": { dist: "270 km", time: "~5.0 Hrs", savedDays: "12 Days" },
+    "Guntur-Chennai": { dist: "385 km", time: "~7.0 Hrs", savedDays: "14 Days" },
+    "Guntur-Bengaluru": { dist: "590 km", time: "~10.5 Hrs", savedDays: "14 Days" },
+    "Guntur-Mumbai": { dist: "970 km", time: "~17 Hrs", savedDays: "16 Days" },
+    "Guntur-Delhi": { dist: "1,780 km", time: "~31 Hrs", savedDays: "20 Days" },
+
+    "Agra-Delhi": { dist: "210 km", time: "~3.5 Hrs", savedDays: "10 Days" },
+    "Agra-Mumbai": { dist: "1,200 km", time: "~21 Hrs", savedDays: "16 Days" },
+    "Agra-Bengaluru": { dist: "1,940 km", time: "~34 Hrs", savedDays: "20 Days" },
+    "Agra-Hyderabad": { dist: "1,350 km", time: "~23 Hrs", savedDays: "18 Days" },
+    "Agra-Chennai": { dist: "1,990 km", time: "~35 Hrs", savedDays: "20 Days" }
+  };
+
+  const key = `${origin}-${dest}`;
+  const data = routeMap[key] || { dist: "450 km", time: "~8 Hrs", savedDays: "14 Days" };
+
+  const distEl = document.getElementById("route-distance-val");
+  const timeEl = document.getElementById("route-time-val");
+  const spoilEl = document.getElementById("route-spoilage-val");
+
+  if (distEl) distEl.textContent = data.dist;
+  if (timeEl) timeEl.textContent = data.time;
+  if (spoilEl) spoilEl.textContent = data.savedDays;
+}
+
+// 3. Community Group Buying Pledge
+const poolState = {
+  pool1: { current: 750, target: 1000, pledgeStep: 25, unit: "kg" },
+  pool2: { current: 420, target: 500, pledgeStep: 10, unit: "kg" },
+  pool3: { current: 890, target: 1200, pledgeStep: 50, unit: "kg" }
+};
+
+function joinGroupPool(poolId, cropName) {
+  const pool = poolState[poolId];
+  if (!pool) return;
+
+  pool.current = Math.min(pool.target, pool.current + pool.pledgeStep);
+  const pct = Math.round((pool.current / pool.target) * 100);
+
+  const statusEl = document.getElementById(`${poolId}-status`);
+  const barEl = document.getElementById(`${poolId}-bar`);
+
+  if (statusEl) statusEl.textContent = `${pool.current} / ${pool.target} ${pool.unit} (${pct}%)`;
+  if (barEl) barEl.style.width = `${pct}%`;
+
+  showToast(`🎉 You pledged ${pool.pledgeStep} ${pool.unit} to the ${cropName} neighborhood pool!`);
 }
 
 function setupFilters() {
@@ -352,7 +502,7 @@ function renderListings() {
 
               <div style="text-align:right;">
                 <div class="price-tag-big">₹${item.pricePerKg}</div>
-                <div style="font-size:0.75rem; color:#5c6855; font-weight:700;">Direct / kg</div>
+                <div style="font-size:0.75rem; color:#5c6855; font-weight:700;">Direct / ${item.unit || 'kg'}</div>
               </div>
             </div>
 
@@ -360,12 +510,12 @@ function renderListings() {
             <div class="price-contrast-box">
               <div>
                 <span style="font-size:0.72rem; font-weight:800; text-transform:uppercase; color:#92400e;">Mandi Trader Rate</span>
-                <div style="font-size:1.05rem; font-weight:800; color:#991b1b; text-decoration:line-through;">₹${mandiPrice}/kg</div>
+                <div style="font-size:1.05rem; font-weight:800; color:#991b1b; text-decoration:line-through;">₹${mandiPrice}/${item.unit || 'kg'}</div>
               </div>
 
               <div>
                 <span style="font-size:0.72rem; font-weight:800; text-transform:uppercase; color:#5c6855;">Supermarket Retail</span>
-                <div style="font-size:1.05rem; font-weight:800; color:#5c6855;">₹${retailPrice}/kg</div>
+                <div style="font-size:1.05rem; font-weight:800; color:#5c6855;">₹${retailPrice}/${item.unit || 'kg'}</div>
               </div>
 
               <div class="contrast-badge">
@@ -382,7 +532,7 @@ function renderListings() {
               <button class="btn btn-forest" style="padding:0.5rem 1.3rem; font-size:0.85rem;" onclick="openContactModal('${item.farmerName}', '${item.crop}', '${item.pricePerKg}', '${item.phone}', '${item.location}', '${item.farmerAvatar}')">
                 📞 Connect to Farmer
               </button>
-              <button class="btn btn-terracotta" style="padding:0.5rem 1.3rem; font-size:0.85rem;" onclick="showToast('Produce added to bulk farm order inquiry!')">
+              <button class="btn btn-terracotta" style="padding:0.5rem 1.3rem; font-size:0.85rem;" onclick="showToast('Produce added to direct farm order!')">
                 🛒 Buy Direct
               </button>
             </div>
@@ -408,7 +558,7 @@ function setupSellForm() {
       category: document.getElementById("sell-category").value,
       quantity: `${document.getElementById("sell-quantity").value} ${document.getElementById("sell-unit").value}`,
       pricePerKg: parseFloat(document.getElementById("sell-price").value),
-      unit: "kg",
+      unit: document.getElementById("sell-unit").value || "kg",
       location: document.getElementById("sell-location").value,
       district: document.getElementById("sell-location").value.split(",")[0],
       distanceKm: Math.floor(5 + Math.random() * 25),
@@ -419,7 +569,7 @@ function setupSellForm() {
     };
 
     listings.unshift(newListing);
-    localStorage.setItem("kisanconnect_listings_v4", JSON.stringify(listings));
+    localStorage.setItem("kisanconnect_listings_v6", JSON.stringify(listings));
     form.reset();
     showToast(`🎉 Produce listing published for ${newListing.crop}!`);
     switchView("buy-view");
@@ -428,7 +578,7 @@ function setupSellForm() {
 
 function renderDashboard() {
   const fCount = document.getElementById("dash-total-farmers");
-  if (fCount) fCount.textContent = listings.length + 15;
+  if (fCount) fCount.textContent = listings.length + 16;
 
   const ctxCrop = document.getElementById("cropVolumeChart")?.getContext("2d");
   if (ctxCrop) {
@@ -436,10 +586,10 @@ function renderDashboard() {
     cropChartInstance = new Chart(ctxCrop, {
       type: "bar",
       data: {
-        labels: ["Wheat", "Tomatoes", "Rice", "Onions", "Potatoes", "Pulses"],
+        labels: ["Wheat", "Tomatoes", "Rice", "Onions", "Potatoes", "Pulses", "Apples", "Mustard Oil"],
         datasets: [{
           label: "Volume Traded (Quintals)",
-          data: [140, 95, 160, 125, 105, 55],
+          data: [140, 95, 160, 125, 105, 55, 45, 30],
           backgroundColor: "#064e3b",
           borderRadius: 6
         }]
@@ -457,16 +607,16 @@ function renderDashboard() {
     earningsChartInstance = new Chart(ctxEarn, {
       type: "bar",
       data: {
-        labels: ["Wheat (10 Q)", "Tomatoes (1000 kg)", "Rice (10 Q)", "Onions (2000 kg)"],
+        labels: ["Wheat (10 Q)", "Tomatoes (1000 kg)", "Rice (10 Q)", "Apples (1000 kg)"],
         datasets: [
           {
             label: "Direct Farmer Income (KisanConnect)",
-            data: [28000, 22000, 44000, 48000],
+            data: [28000, 22000, 44000, 85000],
             backgroundColor: "#064e3b"
           },
           {
             label: "Traditional Mandi Intermediary Route",
-            data: [21000, 14000, 33000, 30000],
+            data: [21000, 14000, 33000, 55000],
             backgroundColor: "#dc2626"
           }
         ]

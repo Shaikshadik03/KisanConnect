@@ -11,19 +11,36 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <!-- Custom Stylesheet (with cache-buster) -->
-  <link rel="stylesheet" href="style.css?v=5.0">
+  <!-- Custom Stylesheet with cache-buster -->
+  <link rel="stylesheet" href="style.css?v=6.0">
 </head>
 <body>
 
-  <!-- Organic Editorial Navbar -->
+  <!-- 1. LIVE MANDI PRICE TICKER BAR -->
+  <div class="mandi-ticker-wrap">
+    <div class="mandi-ticker-label">⚡ LIVE MANDI BENCHMARK</div>
+    <div class="mandi-ticker-track">
+      <span>🌾 <b>Sharbati Wheat:</b> ₹2,800/Q <strong class="mandi-up">(+2.4%)</strong></span>
+      <span>🍅 <b>Nashik Tomatoes:</b> ₹2,200/Q <strong class="mandi-up">(+5.1%)</strong></span>
+      <span>🍚 <b>Sona Masoori Rice:</b> ₹4,400/Q <strong class="mandi-up">(+1.8%)</strong></span>
+      <span>🧅 <b>Lasalgaon Onions:</b> ₹2,400/Q <strong class="mandi-down">(-1.2%)</strong></span>
+      <span>🥔 <b>Agra Potatoes:</b> ₹1,800/Q <strong class="mandi-up">(+0.9%)</strong></span>
+      <span>🌶️ <b>Guntur Chillies:</b> ₹16,000/Q <strong class="mandi-up">(+4.2%)</strong></span>
+      <span>🫘 <b>Gulbarga Toor Dal:</b> ₹11,000/Q <strong class="mandi-up">(+3.0%)</strong></span>
+      <span>🌾 <b>Basmati 1121:</b> ₹7,500/Q <strong class="mandi-up">(+1.5%)</strong></span>
+      <span>🍯 <b>Raw Forest Honey:</b> ₹480/kg <strong class="mandi-up">(+6.0%)</strong></span>
+      <span>🌻 <b>Yellow Mustard Oil:</b> ₹175/L <strong class="mandi-down">(-0.5%)</strong></span>
+    </div>
+  </div>
+
+  <!-- 2. ORGANIC EDITORIAL NAVBAR -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="brand" data-view-target="landing-view">
         <div class="brand-icon">🌾</div>
         <div>
           <h1>KisanConnect</h1>
-          <div class="brand-sub">Direct Farm-Gate Marketplace</div>
+          <div class="brand-sub">Direct Farm-Gate Agricultural Network</div>
         </div>
       </div>
 
@@ -37,25 +54,26 @@
     </div>
   </nav>
 
-  <!-- Main Container -->
+  <!-- MAIN CONTAINER -->
   <main>
 
-    <!-- VIEW 1: BENTO HERO & SHOWCASE -->
+    <!-- VIEW 1: BENTO HERO & ALL EXPANDED FEATURES -->
     <section id="landing-view" class="view-section active">
       
       <!-- Bento Hero Grid -->
       <div class="bento-hero-grid">
         <div class="bento-card-main">
-          <div class="organic-tag">🌱 100% Direct Farm-Gate Trade • Zero Middlemen</div>
+          <div class="organic-tag">🌱 100% Direct Farm-Gate Trade • Zero Intermediary Commission</div>
           <h1 class="bento-title">Fair Prices for <em>Growers</em>.<br>Fresh Produce for <em>Families</em>.</h1>
           <p class="bento-desc">
-            Bypassing 3–4 layers of middlemen markups to ensure Indian farmers receive up to 50% higher profits while consumers and restaurants enjoy premium, farm-fresh harvests at transparent wholesale rates.
+            Bypassing 3–4 layers of middlemen markups to ensure Indian farmers receive up to 50% higher profits while consumers, bulk buyers, and restaurants enjoy premium, farm-fresh harvests at wholesale transparent rates.
           </p>
 
           <div class="bento-actions">
             <button class="btn btn-forest" data-view-target="buy-view">🛒 Explore Farm Harvests</button>
             <button class="btn btn-terracotta" data-view-target="sell-view">👨‍🌾 List My Produce</button>
-            <button class="btn btn-outline" onclick="scrollToCalculator()">⚡ Price Calculator</button>
+            <button class="btn btn-outline" onclick="scrollToElement('price-calc-anchor')">⚡ Price Calculator</button>
+            <button class="btn btn-outline" onclick="scrollToElement('group-buying-anchor')">🤝 Group Buying</button>
           </div>
         </div>
 
@@ -64,7 +82,7 @@
           
           <div class="floating-bento-card">
             <div style="display:flex; align-items:center; gap:0.75rem;">
-              <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=100&auto=format&fit=crop&q=80" style="width:42px; height:42px; border-radius:50%; object-fit:cover; border:2px solid #10b981;">
+              <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=100&auto=format&fit=crop&q=80" style="width:44px; height:44px; border-radius:50%; object-fit:cover; border:2px solid #10b981;">
               <div>
                 <div style="font-weight:900; color:var(--forest-900); font-size:0.92rem;">Balwinder Singh • Punjab</div>
                 <div style="font-size:0.75rem; color:var(--text-muted);">Traded 50 Quintals Sharbati Wheat today</div>
@@ -95,63 +113,298 @@
         </div>
       </div>
 
-      <!-- Category Photo Grid -->
+      <!-- 8-CATEGORY PHOTO GRID -->
       <div class="section-head-wrap">
-        <h2 class="section-head-title">Explore Farm Produce by Category</h2>
-        <p class="section-head-sub">Source directly from verified village farm clusters across India</p>
+        <h2 class="section-head-title">Explore 8 Farm Produce Categories</h2>
+        <p class="section-head-sub">Source directly from verified village farm clusters and organic growers across India</p>
       </div>
 
       <div class="category-photo-grid">
+        <!-- Cat 1 -->
         <div class="cat-bento-card" onclick="filterByCategory('Grains')">
-          <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&auto=format&fit=crop&q=80" alt="Grains" class="cat-bento-img">
+          <div class="cat-bento-img-wrap">
+            <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&auto=format&fit=crop&q=80" alt="Grains" class="cat-bento-img">
+            <span class="cat-count-badge">3 Batches</span>
+          </div>
           <div class="cat-bento-info">
             <div class="cat-bento-name">🌾 Grains & Millets</div>
-            <div class="cat-bento-tag">Wheat, Sona Masoori, Basmati</div>
+            <div class="cat-bento-tag">Sharbati Wheat, Sona Masoori, 1121 Basmati</div>
           </div>
         </div>
 
+        <!-- Cat 2 -->
         <div class="cat-bento-card" onclick="filterByCategory('Vegetables')">
-          <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=600&auto=format&fit=crop&q=80" alt="Vegetables" class="cat-bento-img">
+          <div class="cat-bento-img-wrap">
+            <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=600&auto=format&fit=crop&q=80" alt="Vegetables" class="cat-bento-img">
+            <span class="cat-count-badge">3 Batches</span>
+          </div>
           <div class="cat-bento-info">
-            <div class="cat-bento-name">🍅 Fresh Vegetables</div>
-            <div class="cat-bento-tag">Tomatoes, Onions, Potatoes</div>
+            <div class="cat-bento-name">🍅 Fresh Farm Vegetables</div>
+            <div class="cat-bento-tag">Hybrid Tomatoes, Red Onions, Agra Potatoes</div>
           </div>
         </div>
 
+        <!-- Cat 3 -->
         <div class="cat-bento-card" onclick="filterByCategory('Pulses')">
-          <img src="https://images.unsplash.com/photo-1585994192701-f1a505c8574a?w=600&auto=format&fit=crop&q=80" alt="Pulses" class="cat-bento-img">
+          <div class="cat-bento-img-wrap">
+            <img src="https://images.unsplash.com/photo-1585994192701-f1a505c8574a?w=600&auto=format&fit=crop&q=80" alt="Pulses" class="cat-bento-img">
+            <span class="cat-count-badge">1 Batch</span>
+          </div>
           <div class="cat-bento-info">
-            <div class="cat-bento-name">🫘 Organic Pulses</div>
-            <div class="cat-bento-tag">GI Toor Dal, Moong, Chana</div>
+            <div class="cat-bento-name">🫘 Organic Pulses & Dals</div>
+            <div class="cat-bento-tag">GI Gulbarga Toor Dal, Moong, Chana</div>
           </div>
         </div>
 
+        <!-- Cat 4 -->
         <div class="cat-bento-card" onclick="filterByCategory('Spices')">
-          <img src="https://images.unsplash.com/photo-1588252303782-cb80119abd6d?w=600&auto=format&fit=crop&q=80" alt="Spices" class="cat-bento-img">
+          <div class="cat-bento-img-wrap">
+            <img src="https://images.unsplash.com/photo-1588252303782-cb80119abd6d?w=600&auto=format&fit=crop&q=80" alt="Spices" class="cat-bento-img">
+            <span class="cat-count-badge">2 Batches</span>
+          </div>
           <div class="cat-bento-info">
-            <div class="cat-bento-name">🌶️ Direct Spices</div>
-            <div class="cat-bento-tag">Guntur Teja Chillies, Turmeric</div>
+            <div class="cat-bento-name">🌶️ Direct Spices & Herbs</div>
+            <div class="cat-bento-tag">Guntur Teja Chillies, Lakadong Turmeric</div>
           </div>
         </div>
 
+        <!-- Cat 5 -->
         <div class="cat-bento-card" onclick="filterByCategory('Fruits')">
-          <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?w=600&auto=format&fit=crop&q=80" alt="Fruits" class="cat-bento-img">
+          <div class="cat-bento-img-wrap">
+            <img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=600&auto=format&fit=crop&q=80" alt="Fruits" class="cat-bento-img">
+            <span class="cat-count-badge">1 Batch</span>
+          </div>
           <div class="cat-bento-info">
-            <div class="cat-bento-name">🥭 Orchard Fruits</div>
-            <div class="cat-bento-tag">Alphonso Mangoes, Papaya</div>
+            <div class="cat-bento-name">🍎 Orchard Fruits</div>
+            <div class="cat-bento-tag">Crisp Kashmiri Red Apples, Alphonso Mangoes</div>
           </div>
         </div>
 
-        <div class="cat-bento-card" onclick="filterByCategory('all')">
-          <img src="https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?w=600&auto=format&fit=crop&q=80" alt="Seeds" class="cat-bento-img">
+        <!-- Cat 6 -->
+        <div class="cat-bento-card" onclick="filterByCategory('Oils')">
+          <div class="cat-bento-img-wrap">
+            <img src="https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?w=600&auto=format&fit=crop&q=80" alt="Oils" class="cat-bento-img">
+            <span class="cat-count-badge">1 Batch</span>
+          </div>
           <div class="cat-bento-info">
-            <div class="cat-bento-name">🌻 Seeds & Mustard</div>
-            <div class="cat-bento-tag">Mustard, Sesame, Groundnut</div>
+            <div class="cat-bento-name">🛢️ Cold-Pressed Oils</div>
+            <div class="cat-bento-tag">Wood-Pressed Yellow Mustard & Groundnut Oil</div>
+          </div>
+        </div>
+
+        <!-- Cat 7 -->
+        <div class="cat-bento-card" onclick="filterByCategory('Dairy')">
+          <div class="cat-bento-img-wrap">
+            <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=600&auto=format&fit=crop&q=80" alt="Honey" class="cat-bento-img">
+            <span class="cat-count-badge">1 Batch</span>
+          </div>
+          <div class="cat-bento-info">
+            <div class="cat-bento-name">🍯 Raw Forest Honey & Jaggery</div>
+            <div class="cat-bento-tag">Unfiltered Wild Honey, A2 Vedic Bilona Ghee</div>
+          </div>
+        </div>
+
+        <!-- Cat 8 -->
+        <div class="cat-bento-card" onclick="filterByCategory('Herbs')">
+          <div class="cat-bento-img-wrap">
+            <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=600&auto=format&fit=crop&q=80" alt="Herbs" class="cat-bento-img">
+            <span class="cat-count-badge">1 Batch</span>
+          </div>
+          <div class="cat-bento-info">
+            <div class="cat-bento-name">🌿 Ayurvedic Herbs</div>
+            <div class="cat-bento-tag">Pure Ashwagandha Root, Moringa Powder</div>
           </div>
         </div>
       </div>
 
-      <!-- 3-Step "How KisanConnect Works" with Photos -->
+      <!-- FEATURE: COMMUNITY GROUP BUYING POOL -->
+      <div id="group-buying-anchor" class="group-buying-section">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+          <div>
+            <div class="organic-tag" style="background:#ffedd5; color:#c2410c;">🤝 Neighborhood Group Buying</div>
+            <h3 style="font-family:var(--font-serif); font-size:1.8rem; font-weight:900; color:var(--forest-900); margin-top:0.4rem;">
+              Pool Orders with Neighbors for Extra 15% Bulk Discount
+            </h3>
+            <p style="color:var(--text-muted); font-size:0.95rem;">When your apartment society or colony hits the target batch weight, farmer unlocks free direct doorstep freight!</p>
+          </div>
+          <span class="organic-tag">3 Active Pools</span>
+        </div>
+
+        <div class="group-pool-grid">
+          <!-- Pool 1 -->
+          <div class="group-pool-card">
+            <div>
+              <div class="pool-header-row">
+                <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=200&auto=format&fit=crop&q=80" alt="Wheat" class="pool-crop-img">
+                <div>
+                  <strong style="font-size:1.05rem; color:var(--forest-900);">Organic Sharbati Wheat</strong>
+                  <div style="font-size:0.8rem; color:var(--text-muted);">📍 Indiranagar & Koramangala Hub</div>
+                </div>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:800;">
+                <span>Pool Progress:</span>
+                <span id="pool1-status" style="color:var(--forest-700);">750 / 1000 kg (75%)</span>
+              </div>
+              <div class="progress-track">
+                <div id="pool1-bar" class="progress-fill" style="width:75%;"></div>
+              </div>
+              <div style="font-size:0.8rem; color:var(--text-muted);">⚡ 250 kg remaining to unlock wholesale rate: <b>₹24/kg</b></div>
+            </div>
+            <button class="btn btn-forest" style="margin-top:1.25rem; width:100%; padding:0.65rem;" onclick="joinGroupPool('pool1', 'Organic Sharbati Wheat')">
+              + Pledge 25 kg to Pool
+            </button>
+          </div>
+
+          <!-- Pool 2 -->
+          <div class="group-pool-card">
+            <div>
+              <div class="pool-header-row">
+                <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=200&auto=format&fit=crop&q=80" alt="Tomatoes" class="pool-crop-img">
+                <div>
+                  <strong style="font-size:1.05rem; color:var(--forest-900);">Farm-Fresh Ripe Tomatoes</strong>
+                  <div style="font-size:0.8rem; color:var(--text-muted);">📍 Whitefield & HSR Layout Hub</div>
+                </div>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:800;">
+                <span>Pool Progress:</span>
+                <span id="pool2-status" style="color:var(--forest-700);">420 / 500 kg (84%)</span>
+              </div>
+              <div class="progress-track">
+                <div id="pool2-bar" class="progress-fill" style="width:84%;"></div>
+              </div>
+              <div style="font-size:0.8rem; color:var(--text-muted);">⚡ 80 kg remaining to unlock wholesale rate: <b>₹18/kg</b></div>
+            </div>
+            <button class="btn btn-forest" style="margin-top:1.25rem; width:100%; padding:0.65rem;" onclick="joinGroupPool('pool2', 'Farm-Fresh Tomatoes')">
+              + Pledge 10 kg to Pool
+            </button>
+          </div>
+
+          <!-- Pool 3 -->
+          <div class="group-pool-card">
+            <div>
+              <div class="pool-header-row">
+                <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=200&auto=format&fit=crop&q=80" alt="Rice" class="pool-crop-img">
+                <div>
+                  <strong style="font-size:1.05rem; color:var(--forest-900);">Aged Sona Masoori Raw Rice</strong>
+                  <div style="font-size:0.8rem; color:var(--text-muted);">📍 Mumbai & Pune Residential Societies</div>
+                </div>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:800;">
+                <span>Pool Progress:</span>
+                <span id="pool3-status" style="color:var(--forest-700);">890 / 1200 kg (74%)</span>
+              </div>
+              <div class="progress-track">
+                <div id="pool3-bar" class="progress-fill" style="width:74%;"></div>
+              </div>
+              <div style="font-size:0.8rem; color:var(--text-muted);">⚡ 310 kg remaining to unlock wholesale rate: <b>₹38/kg</b></div>
+            </div>
+            <button class="btn btn-forest" style="margin-top:1.25rem; width:100%; padding:0.65rem;" onclick="joinGroupPool('pool3', 'Sona Masoori Rice')">
+              + Pledge 50 kg to Pool
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURE: ROUTE & TRANSIT ESTIMATOR -->
+      <div class="route-calc-box">
+        <div class="route-calc-grid">
+          <div>
+            <div class="organic-tag">🚚 Farm-Gate to Doorstep Transit Estimator</div>
+            <h3 style="font-family:var(--font-serif); font-size:1.8rem; font-weight:900; color:var(--forest-900); margin:0.75rem 0 0.5rem;">
+              Calculate Direct Transit Distance & Freshness Speed
+            </h3>
+            <p style="color:var(--text-muted); font-size:0.95rem;">
+              Select your delivery destination to see how quickly harvest dispatch reaches your city directly without warehouse holding delays:
+            </p>
+
+            <div style="margin-top:1.25rem; display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+              <div>
+                <label style="font-size:0.85rem; font-weight:800; color:var(--forest-900); display:block; margin-bottom:0.35rem;">Farm Origin:</label>
+                <select id="route-origin-select" class="form-control" onchange="calculateRoute()">
+                  <option value="Nashik">Nashik Farm Cluster (MH)</option>
+                  <option value="Ludhiana">Ludhiana Grain Belt (PB)</option>
+                  <option value="Mandya" selected>Mandya Cauvery Basin (KA)</option>
+                  <option value="Guntur">Guntur Spice Region (AP)</option>
+                  <option value="Agra">Agra Potato Region (UP)</option>
+                </select>
+              </div>
+
+              <div>
+                <label style="font-size:0.85rem; font-weight:800; color:var(--forest-900); display:block; margin-bottom:0.35rem;">Your Destination City:</label>
+                <select id="route-dest-select" class="form-control" onchange="calculateRoute()">
+                  <option value="Bengaluru" selected>Bengaluru, Karnataka</option>
+                  <option value="Mumbai">Mumbai, Maharashtra</option>
+                  <option value="Delhi">Delhi NCR</option>
+                  <option value="Hyderabad">Hyderabad, Telangana</option>
+                  <option value="Chennai">Chennai, Tamil Nadu</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="route-results-pill">
+              <div>
+                <div style="font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--text-muted);">Direct Distance</div>
+                <div class="route-metric-val" id="route-distance-val">98 km</div>
+                <div style="font-size:0.75rem; color:var(--forest-700); font-weight:700;">Direct Highway</div>
+              </div>
+
+              <div>
+                <div style="font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--text-muted);">Harvest Dispatch</div>
+                <div class="route-metric-val" id="route-time-val" style="color:var(--terracotta-600);">~2.5 Hrs</div>
+                <div style="font-size:0.75rem; color:var(--forest-700); font-weight:700;">Farm-Fresh Speed</div>
+              </div>
+
+              <div>
+                <div style="font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--text-muted);">Cold Storage Days Saved</div>
+                <div class="route-metric-val" id="route-spoilage-val" style="color:#059669;">14 Days</div>
+                <div style="font-size:0.75rem; color:var(--forest-700); font-weight:700;">Zero Spoilage</div>
+              </div>
+            </div>
+
+            <div style="text-align:center; margin-top:1.25rem;">
+              <button class="btn btn-forest" style="padding:0.65rem 1.6rem; font-size:0.88rem;" data-view-target="buy-view">
+                📍 Browse Harvests from this Route
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURE: SEASONAL HARVEST CALENDAR -->
+      <div class="section-head-wrap">
+        <h2 class="section-head-title">Seasonal Crop Harvest Calendar</h2>
+        <p class="section-head-sub">Plan your household and commercial procurement by peak harvest cycles</p>
+      </div>
+
+      <div class="harvest-cal-grid">
+        <div class="cal-card">
+          <span class="organic-tag" style="background:#dcfce7; color:#15803d; font-size:0.72rem; margin-bottom:0.5rem;">PEAK HARVEST NOW (SEPTEMBER)</span>
+          <h4 style="font-family:var(--font-serif); font-size:1.15rem; color:var(--forest-900); margin:0.3rem 0;">🍅 Tomatoes & Hybrid Vegetables</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted);">Fresh harvest from Nashik, Pune & Kolar belts. Peak quality, crisp skin, lowest seasonal farm rates.</p>
+        </div>
+
+        <div class="cal-card">
+          <span class="organic-tag" style="background:#dcfce7; color:#15803d; font-size:0.72rem; margin-bottom:0.5rem;">PEAK HARVEST NOW (SEPTEMBER)</span>
+          <h4 style="font-family:var(--font-serif); font-size:1.15rem; color:var(--forest-900); margin:0.3rem 0;">🌾 Early Kharif Paddy & Rice</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted);">Cauvery basin Sona Masoori paddy cutting begins. Direct field dispatch available in 40Q batches.</p>
+        </div>
+
+        <div class="cal-card upcoming">
+          <span class="organic-tag" style="background:#fef3c7; color:#b45309; font-size:0.72rem; margin-bottom:0.5rem;">UPCOMING (OCTOBER / NOVEMBER)</span>
+          <h4 style="font-family:var(--font-serif); font-size:1.15rem; color:var(--forest-900); margin:0.3rem 0;">🌾 1121 Extra-Long Basmati</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted);">Punjab & Haryana aromatic paddy harvest. Pre-book batches to secure direct farm-gate rate.</p>
+        </div>
+
+        <div class="cal-card upcoming">
+          <span class="organic-tag" style="background:#fef3c7; color:#b45309; font-size:0.72rem; margin-bottom:0.5rem;">UPCOMING (WINTER CROP)</span>
+          <h4 style="font-family:var(--font-serif); font-size:1.15rem; color:var(--forest-900); margin:0.3rem 0;">🌻 Yellow Mustard & Wheat</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted);">Rabi sowing completed. Cold-weather harvest with certified high-oil extraction yield.</p>
+        </div>
+      </div>
+
+      <!-- 3-STEP "HOW KISANCONNECT WORKS" -->
       <div class="section-head-wrap">
         <h2 class="section-head-title">How KisanConnect Works</h2>
         <p class="section-head-sub">A zero-commission direct agricultural commerce pipeline in 3 simple steps</p>
@@ -192,7 +445,7 @@
         </div>
       </div>
 
-      <!-- Live Interactive Price Calculator Showcase -->
+      <!-- LIVE INTERACTIVE PRICE CALCULATOR SHOWCASE -->
       <div id="price-calc-anchor" class="calc-showcase-box">
         <div class="calc-grid">
           <div>
@@ -214,6 +467,7 @@
                 <option value="Fresh Table Potatoes">Fresh Table Potatoes (per kg)</option>
                 <option value="Guntur Red Chillies (Dry)">Guntur Red Chillies (Dry) (per kg)</option>
                 <option value="Organic Toor Dal (Pigeon Pea)">Organic Toor Dal (Pigeon Pea) (per kg)</option>
+                <option value="Raw Wild Forest Honey">Raw Wild Forest Honey (per kg)</option>
               </select>
             </div>
           </div>
@@ -248,7 +502,7 @@
         </div>
       </div>
 
-      <!-- Testimonials Section with Real Photos -->
+      <!-- TESTIMONIALS SECTION -->
       <div class="section-head-wrap">
         <h2 class="section-head-title">Trusted by Growers & Consumers</h2>
         <p class="section-head-sub">Real stories from the direct farm-to-table cooperative</p>
@@ -309,18 +563,21 @@
 
           <div class="form-group">
             <label>Search Crop or District</label>
-            <input type="text" id="filter-search" class="form-control" placeholder="e.g. Wheat, Tomatoes, Nashik...">
+            <input type="text" id="filter-search" class="form-control" placeholder="e.g. Wheat, Tomatoes, Nashik, Honey...">
           </div>
 
           <div class="form-group">
             <label>Crop Category</label>
             <select id="filter-category" class="form-control">
-              <option value="all">All Categories</option>
-              <option value="Grains">Grains (Wheat, Rice)</option>
-              <option value="Vegetables">Vegetables (Tomatoes, Onions, Potatoes)</option>
-              <option value="Pulses">Pulses & Dals</option>
-              <option value="Spices">Spices & Chillies</option>
-              <option value="Fruits">Fruits & Mangoes</option>
+              <option value="all">All Categories (8)</option>
+              <option value="Grains">🌾 Grains & Millets</option>
+              <option value="Vegetables">🍅 Fresh Vegetables</option>
+              <option value="Pulses">🫘 Organic Pulses & Dals</option>
+              <option value="Spices">🌶️ Spices & Herbs</option>
+              <option value="Fruits">🍎 Orchard Fruits</option>
+              <option value="Oils">🛢️ Cold-Pressed Oils</option>
+              <option value="Dairy">🍯 Raw Honey & Farm Dairy</option>
+              <option value="Herbs">🌿 Ayurvedic Herbs</option>
             </select>
           </div>
 
@@ -340,7 +597,7 @@
 
         <!-- Right: Bento Produce Listings -->
         <div>
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; flex-wrap:wrap; gap:0.5rem;">
             <div>
               <h2 style="font-family:var(--font-serif); font-size:1.5rem; font-weight:900; color:var(--forest-900);" id="listings-count-label">Direct Farm Harvests</h2>
               <p style="font-size:0.85rem; color:var(--text-muted);">Comparing Direct Farmer Price vs Mandi Wholesale & Retail Supermarket Rates</p>
@@ -380,11 +637,14 @@
             <div class="form-group">
               <label>Category</label>
               <select id="sell-category" class="form-control" required>
-                <option value="Vegetables">Vegetables</option>
-                <option value="Grains">Grains & Cereals</option>
-                <option value="Pulses">Pulses & Dals</option>
-                <option value="Spices">Spices</option>
-                <option value="Fruits">Fruits</option>
+                <option value="Vegetables">🍅 Vegetables</option>
+                <option value="Grains">🌾 Grains & Millets</option>
+                <option value="Pulses">🫘 Pulses & Dals</option>
+                <option value="Spices">🌶️ Spices & Herbs</option>
+                <option value="Fruits">🍎 Fruits</option>
+                <option value="Oils">🛢️ Oils & Seeds</option>
+                <option value="Dairy">🍯 Honey & Dairy</option>
+                <option value="Herbs">🌿 Herbs</option>
               </select>
             </div>
             <div class="form-group">
@@ -404,13 +664,14 @@
                 <option value="kg">Kilograms (kg)</option>
                 <option value="Quintals">Quintals</option>
                 <option value="Tonnes">Tonnes</option>
+                <option value="Litres">Litres</option>
               </select>
             </div>
           </div>
 
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
             <div class="form-group">
-              <label>Direct Price per kg (₹)</label>
+              <label>Direct Price per kg/unit (₹)</label>
               <input type="number" id="sell-price" class="form-control" placeholder="e.g. 25" required>
             </div>
             <div class="form-group">
@@ -448,15 +709,15 @@
 
       <div class="bento-stats-row" style="margin-bottom:2rem;">
         <div class="bento-stat-card">
-          <div class="bento-stat-num" id="dash-total-farmers">23</div>
+          <div class="bento-stat-num" id="dash-total-farmers">28</div>
           <div class="bento-stat-lbl">Active Farmers</div>
         </div>
         <div class="bento-stat-card">
-          <div class="bento-stat-num" id="dash-total-buyers">420+</div>
+          <div class="bento-stat-num" id="dash-total-buyers">650+</div>
           <div class="bento-stat-lbl">Direct Buyers</div>
         </div>
         <div class="bento-stat-card">
-          <div class="bento-stat-num" id="dash-markup-eliminated">₹6.2 L</div>
+          <div class="bento-stat-num" id="dash-markup-eliminated">₹12.4 L</div>
           <div class="bento-stat-lbl">Middleman Cuts Saved</div>
         </div>
         <div class="bento-stat-card">
@@ -519,6 +780,6 @@
     <span>Notification message</span>
   </div>
 
-  <script src="app.js?v=5.0"></script>
+  <script src="app.js?v=6.0"></script>
 </body>
 </html>
