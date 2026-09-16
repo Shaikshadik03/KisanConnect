@@ -1,6 +1,6 @@
 /**
  * KisanConnect Application Logic, Multilingual Engine & AI Voice Agent
- * Self-contained: No external JSON fetch required! Works directly on double-click or server.
+ * Full 4-Pillar Support: IoT Irrigation, Perimeter Guard, AI Crop Doctor, D2C Marketplace
  */
 
 // ==========================================================================
@@ -9,53 +9,16 @@
 const TRANSLATIONS = {
   en: {
     mandi_ticker_lbl: "⚡ LIVE MANDI BENCHMARK",
-    brand_sub: "Direct Farm-Gate Agricultural Network",
     nav_home: "Home",
-    nav_market: "Marketplace",
-    nav_farmer: "Farmer Portal",
+    nav_market: "🛒 D2C Market",
+    nav_farmer: "👨‍🌾 Farmer Portal",
     nav_analytics: "📊 Analytics",
     btn_voice_agent: "Kisan AI Voice",
-    hero_tag: "🌱 100% Direct Farm-Gate Trade • Zero Intermediary Commission",
-    hero_title: "Fair Prices for <em>Growers</em>.<br>Fresh Produce for <em>Families</em>.",
-    hero_desc: "Bypassing 3–4 layers of middlemen markups to ensure Indian farmers receive up to 50% higher profits while consumers, bulk buyers, and restaurants enjoy premium, farm-fresh harvests at transparent wholesale rates.",
-    btn_explore: "🛒 Explore Farm Harvests",
-    btn_sell: "👨‍🌾 List My Produce",
-    btn_calc: "⚡ Price Calculator",
+    hero_tag: "🌱 4-Pillar Smart Agriculture Ecosystem • Zero Intermediary Commission",
+    hero_title: "Fair Prices for <em>Growers</em>.<br>Smart Protection for <em>Farms</em>.",
+    hero_desc: "An end-to-end platform bridging IoT automated irrigation, PIR perimeter security, AI plant disease diagnostics with drone dispersion, and a transparent direct-to-consumer (D2C) marketplace.",
+    btn_explore: "🛒 Explore D2C Market",
     btn_speak: "Voice Help",
-    verified_farm: "✓ Verified Farm",
-    stat_commission: "Intermediary Commission",
-    stat_gain: "Average Extra Farmer Earnings",
-    stat_savings: "Direct Consumer Savings",
-    stat_transparency: "Live Mandi Price Transparency",
-    cat_heading: "Explore 8 Farm Produce Categories",
-    cat_sub: "Source directly from verified village farm clusters and organic growers across India",
-    cat_grains: "🌾 Grains & Millets",
-    cat_vegetables: "🍅 Fresh Farm Vegetables",
-    cat_pulses: "🫘 Organic Pulses & Dals",
-    cat_spices: "🌶️ Direct Spices & Herbs",
-    cat_fruits: "🍎 Orchard Fruits",
-    cat_oils: "🛢️ Cold-Pressed Oils",
-    cat_honey: "🍯 Raw Forest Honey & Dairy",
-    cat_herbs: "🌿 Ayurvedic Herbs",
-    group_tag: "🤝 Neighborhood Group Buying",
-    group_title: "Pool Orders with Neighbors for Extra 15% Bulk Discount",
-    group_desc: "When your apartment society or colony hits the target batch weight, farmer unlocks free direct doorstep freight!",
-    route_tag: "🚚 Farm-Gate to Doorstep Transit Estimator",
-    route_title: "Calculate Direct Transit Distance & Freshness Speed",
-    route_desc: "Select your delivery destination to see how quickly harvest dispatch reaches your city directly without warehouse holding delays:",
-    cal_title: "Seasonal Crop Harvest Calendar",
-    cal_sub: "Plan your household and commercial procurement by peak harvest cycles",
-    how_title: "How KisanConnect Works",
-    how_sub: "A zero-commission direct agricultural commerce pipeline in 3 simple steps",
-    step1_title: "Farmer Lists Batch Directly",
-    step1_desc: "Growers post crop photos, available quantity (kg/quintal), village location, and expected fair price per kg in under 60 seconds.",
-    step2_title: "Middleman-Bypass Pricing",
-    step2_desc: "Our engine compares live Mandi wholesale rates against retail supermarket prices to highlight direct savings for both sides.",
-    step3_title: "Direct Connection & Delivery",
-    step3_desc: "Buyers connect directly via 1-click Phone or WhatsApp to arrange bulk farm-gate pickup or shared community delivery.",
-    calc_title: "See the Real Economic Impact",
-    testi_title: "Trusted by Growers & Consumers",
-    testi_sub: "Real stories from the direct farm-to-table cooperative",
     filter_title: "🔍 Filter Harvests",
     filter_search_lbl: "Search Crop or District",
     filter_cat_lbl: "Crop Category",
@@ -80,53 +43,16 @@ const TRANSLATIONS = {
   },
   hi: {
     mandi_ticker_lbl: "⚡ लाइव मंडी भाव अपडेट",
-    brand_sub: "सीधा किसान से उपभोक्ता कृषि नेटवर्क",
     nav_home: "होम",
-    nav_market: "मंडी बाजार",
-    nav_farmer: "किसान पोर्टल",
+    nav_market: "🛒 सीधा बाज़ार",
+    nav_farmer: "👨‍🌾 किसान पोर्टल",
     nav_analytics: "📊 प्रभाव रिपोर्ट",
     btn_voice_agent: "किसान आवाज़ सहायक",
-    hero_tag: "🌱 100% सीधा खेत से व्यापार • शून्य बिचौलिया कमीशन",
-    hero_title: "किसानों को मिले <em>उचित दाम</em>.<br>उपभोक्ताओं को मिले <em>ताज़ा अनाज</em>.",
-    hero_desc: "3-4 बिचौलियों की परत को हटाकर भारतीय किसानों को 50% अधिक मुनाफा और उपभोक्ताओं को ताज़ा फसल थोक भाव पर उपलब्ध कराना।",
-    btn_explore: "🛒 ताज़ा फसलें देखें",
-    btn_sell: "👨‍🌾 अपनी फसल लिस्ट करें",
-    btn_calc: "⚡ भाव कैलकुलेटर",
+    hero_tag: "🌱 4-स्तंभ स्मार्ट कृषि इकोसिस्टम • शून्य बिचौलिया कमीशन",
+    hero_title: "किसानों को मिले <em>उचित दाम</em>.<br>खेतों को मिले <em>स्मार्ट सुरक्षा</em>.",
+    hero_desc: "IoT ऑटो-सिंचाई, बाउंड्री सुरक्षा, AI पत्ता रोग जांच व ड्रोन छिड़काव, और सीधा उपभोक्ता बाज़ार का सम्पूर्ण समाधान।",
+    btn_explore: "🛒 फसलें देखें",
     btn_speak: "बोलकर मदद लें",
-    verified_farm: "✓ सत्यापित किसान",
-    stat_commission: "बिचौलिया कमीशन",
-    stat_gain: "किसान का अतिरिक्त मुनाफा",
-    stat_savings: "उपभोक्ता की सीधी बचत",
-    stat_transparency: "लाइव मंडी पारदर्शिता",
-    cat_heading: "8 मुख्य कृषि श्रेणियों में फसलें देखें",
-    cat_sub: "भारत भर के सत्यापित गांवों और जैविक किसानों से सीधे खरीदें",
-    cat_grains: "🌾 अनाज एवं बाजरा",
-    cat_vegetables: "🍅 ताज़ा हरी सब्ज़ियाँ",
-    cat_pulses: "🫘 जैविक दालें",
-    cat_spices: "🌶️ शुद्ध मसाले",
-    cat_fruits: "🍎 बाग़ीचे के फल",
-    cat_oils: "🛢️ कच्ची घानी तेल",
-    cat_honey: "🍯 प्राकृतिक शहद व घी",
-    cat_herbs: "🌿 आयुर्वेदिक जड़ी-बूटियाँ",
-    group_tag: "🤝 सामूहिक मोहल्ला खरीद",
-    group_title: "पड़ोसियों के साथ मिलकर खरीदें और 15% अतिरिक्त छूट पाएं",
-    group_desc: "जब आपकी कॉलोनी या सोसायटी का ऑर्डर लक्ष्य पूरा होता है, किसान सीधे मुफ़्त डिलीवरी भेजता है!",
-    route_tag: "🚚 खेत से घर तक दूरी एवं ताज़गी कैलकुलेटर",
-    route_title: "सीधी दूरी और डिलीवरी समय जांचें",
-    route_desc: "अपने शहर का चयन करें और देखें कि बिना किसी कोल्ड स्टोरेज देरी के ताज़ा फसल कितने समय में पहुंचेगी:",
-    cal_title: "मौसमी फसल कटाई कैलेंडर",
-    cal_sub: "फसल के मुख्य मौसम के अनुसार अपनी खरीद की योजना बनाएं",
-    how_title: "किसान कनेक्ट कैसे काम करता है?",
-    how_sub: "3 आसान चरणों में शून्य कमीशन सीधा व्यापार",
-    step1_title: "किसान फसल लिस्ट करें",
-    step1_desc: "किसान फोटो, मात्रा, गांव का नाम और उचित मूल्य 60 सेकंड में जोड़ें।",
-    step2_title: "बिचौलिया रहित तुलनात्मक मूल्य",
-    step2_desc: "हमारा सिस्टम मंडी भाव और सुपरमार्केट भाव की तुलना करके दोनों पक्षों का लाभ दिखाता है।",
-    step3_title: "सीधा संपर्क व खेत से डिलीवरी",
-    step3_desc: "खरीदार 1-क्लिक फ़ोन या व्हाट्सएप से संपर्क करके सीधे खेत से माल मंगाते हैं।",
-    calc_title: "वास्तविक आर्थिक बचत देखें",
-    testi_title: "किसानों और खरीदारों का भरोसा",
-    testi_sub: "सीधे खेत से थाली तक के वास्तविक अनुभव",
     filter_title: "🔍 फसल खोजें",
     filter_search_lbl: "फसल या जिला खोजें",
     filter_cat_lbl: "फसल श्रेणी",
@@ -148,75 +74,6 @@ const TRANSLATIONS = {
     btn_submit_listing: "✅ फसल लिस्टिंग प्रकाशित करें",
     dash_title: "📊 कृषि आर्थिक प्रभाव और बचत रिपोर्ट",
     fab_voice_text: "किसान मित्र आवाज़ सहायक"
-  },
-  pa: {
-    mandi_ticker_lbl: "⚡ ਲਾਈਵ ਮੰਡੀ ਭਾਅ ਅੱਪਡੇਟ",
-    brand_sub: "ਸਿੱਧਾ ਖੇਤ ਤੋਂ ਖਰੀਦਦਾਰ ਨੈੱਟਵਰਕ",
-    nav_home: "ਮੁੱਖ ਪੰਨਾ",
-    nav_market: "ਮੰਡੀ ਬਜ਼ਾਰ",
-    nav_farmer: "ਕਿਸਾਨ ਪੋਰਟਲ",
-    nav_analytics: "📊 ਰਿਪੋਰਟ",
-    btn_voice_agent: "ਕਿਸਾਨ ਆਵਾਜ਼ ਮਿੱਤਰ",
-    hero_tag: "🌱 100% ਸਿੱਧਾ ਖੇਤ ਵਪਾਰ • ਜ਼ੀਰੋ ਕਮਿਸ਼ਨ",
-    hero_title: "ਕਿਸਾਨਾਂ ਲਈ <em>ਸਹੀ ਮੁੱਲ</em>.<br>ਪਰਿਵਾਰਾਂ ਲਈ <em>ਤਾਜ਼ੀ ਫਸਲ</em>.",
-    hero_desc: "ਵਿਚੋਲਿਆਂ ਨੂੰ ਹਟਾ ਕੇ ਕਿਸਾਨਾਂ ਨੂੰ 50% ਵੱਧ ਮੁਨਾਫਾ ਅਤੇ ਗਾਹਕਾਂ ਨੂੰ ਤਾਜ਼ਾ ਅਨਾਜ ਥੋਕ ਭਾਅ 'ਤੇ ਦੇਣਾ।",
-    btn_explore: "🛒 ਫਸਲਾਂ ਦੇਖੋ",
-    btn_sell: "👨‍🌾 ਫਸਲ ਲਿਸਟ ਕਰੋ",
-    btn_calc: "⚡ ਮੁੱਲ ਕੈਲਕੁਲੇਟਰ",
-    btn_speak: "ਆਵਾਜ਼ ਮਦਦ",
-    verified_farm: "✓ ਤਸਦੀਕਸ਼ੁਦਾ ਖੇਤ",
-    stat_commission: "ਵਿਚੋਲਾ ਕਮਿਸ਼ਨ",
-    stat_gain: "ਕਿਸਾਨ ਦਾ ਵਾਧੂ ਮੁਨਾਫ਼ਾ",
-    stat_savings: "ਗ੍ਰਾਹਕ ਦੀ ਬੱਚਤ",
-    stat_transparency: "ਲਾਈਵ ਮੰਡੀ ਪਾਰਦਰਸ਼ਤਾ"
-  },
-  te: {
-    mandi_ticker_lbl: "⚡ ప్రత్యక్ష మార్కెట్ ధరలు",
-    brand_sub: "రైతు నుండి నేరుగా వినియోగదారులకు",
-    nav_home: "హోమ్",
-    nav_market: "మార్కెట్",
-    nav_farmer: "రైతు పోర్టల్",
-    nav_analytics: "📊 విశ్లేషణ",
-    btn_voice_agent: "కిసాన్ వాయిస్ ఏజెంట్",
-    hero_tag: "🌱 100% నేరుగా పొలం నుండి అమ్మకం • జీరో కమిషన్",
-    hero_title: "రైతులకు <em>న్యాయమైన ధర</em>.<br>కుటుంబాలకు <em>తాజా పంట</em>.",
-    hero_desc: "దళారుల ప్రమేయం లేకుండా రైతులకు 50% అధిక ఆదాయం, వినియోగదారులకు సరసమైన ధరలు.",
-    btn_explore: "🛒 పంటలను చూడండి",
-    btn_sell: "👨‍🌾 పంటను నమోదు చేయండి",
-    btn_calc: "⚡ ధర కాలిక్యులేటర్",
-    btn_speak: "వాయిస్ సహాయం"
-  },
-  kn: {
-    mandi_ticker_lbl: "⚡ ನೇರ ಮಾರುಕಟ್ಟೆ ದರಗಳು",
-    brand_sub: "ರೈತರಿಂದ ನೇರ ಗ್ರಾಹಕ ಜಾಲ",
-    nav_home: "ಮುಖಪುಟ",
-    nav_market: "ಮಾರುಕಟ್ಟೆ",
-    nav_farmer: "ರೈತ ಪೋರ್ಟಲ್",
-    nav_analytics: "📊 ವರದಿ",
-    btn_voice_agent: "ಕಿಸಾನ್ ಧ್ವನಿ ಸಹಾಯಕ",
-    hero_tag: "🌱 100% ನೇರ ಕೃಷಿ ವ್ಯಾಪಾರ • ಶೂನ್ಯ ಕಮಿಷನ್",
-    hero_title: "ರೈತರಿಗೆ <em>ಉತ್ತಮ ಬೆಲೆ</em>.<br>ಕುಟುಂಬಗಳಿಗೆ <em>ತಾಜಾ ಬೆಳೆ</em>.",
-    hero_desc: "ಮಧ್ಯವರ್ತಿಗಳಿಲ್ಲದೆ ರೈತರಿಗೆ 50% ಹೆಚ್ಚು ಲಾಭ ಮತ್ತು ಗ್ರಾಹಕರಿಗೆ ನ್ಯಾಯಯುತ ಬೆಲೆ.",
-    btn_explore: "🛒 ಬೆಳೆಗಳನ್ನು ನೋಡಿ",
-    btn_sell: "👨‍🌾 ಬೆಳೆ ನೋಂದಾಯಿಸಿ",
-    btn_calc: "⚡ ಬೆಲೆ ಕ್ಯಾಲ್ಕುಲೇಟರ್",
-    btn_speak: "ಧ್ವನಿ ಸಹಾಯ"
-  },
-  mr: {
-    mandi_ticker_lbl: "⚡ थेट बाजार भाव अपडेट",
-    brand_sub: "शेतकरी ते थेट ग्राहक कृषी नेटवर्क",
-    nav_home: "मुख्य पृष्ठ",
-    nav_market: "बाजारपेठ",
-    nav_farmer: "शेतकरी पोर्टल",
-    nav_analytics: "📊 अहवाल",
-    btn_voice_agent: "किसान व्हॉईस मित्र",
-    hero_tag: "🌱 100% थेट शेतातून खरेदी • शून्य दलाली",
-    hero_title: "शेतकऱ्यांना <em>योग्य भाव</em>.<br>ग्राहकांना <em>ताजा शेતमाल</em>.",
-    hero_desc: "दलालांशिवाय शेतकऱ्यांना 50% जास्त नफा आणि ग्राहकांना परवडणाऱ्या भावात ताजा माल.",
-    btn_explore: "🛒 शेतमाल पहा",
-    btn_sell: "👨‍🌾 शेतमाल नोंदवा",
-    btn_calc: "⚡ भाव कॅल्क्युलेटर",
-    btn_speak: "व्हॉईस मदत"
   }
 };
 
@@ -240,7 +97,211 @@ function changeLanguage(lang) {
 }
 
 // ==========================================================================
-// 2. 12+ DIVERSE FARM PRODUCE LISTINGS WITH HIGH-RES PHOTOS
+// 2. MODULE A: IoT SOIL MOISTURE & DRY WATERING AUTOMATION
+// ==========================================================================
+function simulateSoilMoisture(val) {
+  const moisture = parseInt(val);
+  const mValEl = document.getElementById("iot-moisture-val");
+  const mStatusEl = document.getElementById("iot-moisture-status");
+  const pValEl = document.getElementById("iot-pump-val");
+  const pBadgeEl = document.getElementById("iot-pump-badge");
+  const jsonFeed = document.getElementById("iot-json-feed");
+  const readout = document.getElementById("slider-moisture-readout");
+
+  if (readout) readout.textContent = `${moisture}%`;
+  if (mValEl) mValEl.textContent = `${moisture}%`;
+
+  let pumpActive = false;
+  let statusText = "Optimum Hydration";
+  let statusBg = "#dcfce7";
+  let statusColor = "#15803d";
+
+  if (moisture < 30) {
+    pumpActive = true;
+    statusText = "⚠️ Critically Dry - Irrigation Triggered";
+    statusBg = "#fee2e2";
+    statusColor = "#991b1b";
+  } else if (moisture > 65) {
+    statusText = "💧 High Saturation";
+    statusBg = "#dbeafe";
+    statusColor = "#1e40af";
+  }
+
+  if (mStatusEl) {
+    mStatusEl.textContent = statusText;
+    mStatusEl.style.background = statusBg;
+    mStatusEl.style.color = statusColor;
+  }
+
+  if (pValEl && pBadgeEl) {
+    if (pumpActive) {
+      pValEl.textContent = "ACTIVE (ON)";
+      pValEl.style.color = "#dc2626";
+      pBadgeEl.textContent = "Relay Active - Pumping Water";
+      pBadgeEl.style.background = "#fee2e2";
+      pBadgeEl.style.color = "#991b1b";
+    } else {
+      pValEl.textContent = "OFF";
+      pValEl.style.color = "#64748b";
+      pBadgeEl.textContent = "Standby Mode";
+      pBadgeEl.style.background = "#f1f5f9";
+      pBadgeEl.style.color = "#475569";
+    }
+  }
+
+  if (jsonFeed) {
+    jsonFeed.textContent = JSON.stringify({
+      node_id: "ESP32-SOIL-PB01",
+      farm_id: "FARM-PB-042",
+      sector: "SECTOR-NORTH-WHEAT",
+      moisture_pct: moisture,
+      raw_adc: Math.round(3200 - (moisture * 18)),
+      pump_relay: pumpActive,
+      threshold_low: 30.0,
+      threshold_high: 65.0,
+      status: pumpActive ? "IRRIGATION_IN_PROGRESS" : "HEALTHY_ROOT_ZONE"
+    }, null, 2);
+  }
+}
+
+// ==========================================================================
+// 3. MODULE B: CROP PROTECTION & PERIMETER SECURITY
+// ==========================================================================
+function triggerIntrusionAlert(threatType) {
+  const overlay = document.getElementById("sec-alert-overlay");
+  const camBadge = document.getElementById("sec-cam-badge");
+  const eventList = document.getElementById("sec-event-list");
+  const camImg = document.getElementById("sec-cam-img");
+
+  if (overlay) {
+    overlay.style.display = "flex";
+    overlay.innerHTML = `🚨 INTRUSION ALERT: ${threatType.replace('_', ' ')}!<br><span style="font-size:0.9rem; font-weight:600;">Strobe LED Flashing & 110dB Siren Triggered</span>`;
+  }
+
+  if (camBadge) {
+    camBadge.textContent = `🔴 ALERT: ${threatType}`;
+    camBadge.style.background = "#fee2e2";
+    camBadge.style.color = "#991b1b";
+  }
+
+  if (camImg) {
+    camImg.style.filter = "brightness(1.2) contrast(1.2) hue-rotate(-20deg)";
+  }
+
+  const now = new Date().toLocaleTimeString();
+  if (eventList) {
+    const newEvent = document.createElement("div");
+    newEvent.style.cssText = "background:#fee2e2; border-left:4px solid #dc2626; padding:0.85rem; border-radius:8px; font-size:0.85rem; animation:fadeIn 0.3s ease;";
+    newEvent.innerHTML = `
+      <strong style="color:#991b1b;">🚨 ${threatType.replace('_', ' ')} Detected:</strong>
+      PIR Motion confirmed at Zone East fence. Strobe & siren fired. SMS dispatched to farmer.
+      <div style="font-size:0.72rem; color:#7f1d1d; margin-top:0.2rem;">Just now at ${now} • ESP32-CAM Snapshot Logged</div>
+    `;
+    eventList.insertBefore(newEvent, eventList.firstChild);
+  }
+
+  showToast(`🚨 Security Alert: ${threatType.replace('_', ' ')} detected on perimeter fence!`);
+
+  setTimeout(() => {
+    if (overlay) overlay.style.display = "none";
+    if (camBadge) {
+      camBadge.textContent = "🟢 Perimeter Armed & Clear";
+      camBadge.style.background = "#dcfce7";
+      camBadge.style.color = "#15803d";
+    }
+    if (camImg) camImg.style.filter = "none";
+  }, 4000);
+}
+
+// ==========================================================================
+// 4. MODULE C: AI PLANT PATHOLOGY & DRONE FERTILIZATION
+// ==========================================================================
+const AI_DIAGNOSES = {
+  Tomato_Early_Blight: {
+    name: "Tomato Early Blight (Alternaria solani)",
+    score: "94.8%",
+    severity: "High Severity Pathology",
+    severityBg: "#fee2e2",
+    severityColor: "#991b1b",
+    organic: "Neem oil spray (5ml/L) + Trichoderma viride bio-fungicide.",
+    chemical: "Mancozeb 75% WP @ 2g/L or Azoxystrobin 23% SC @ 1ml/L.",
+    fertilizer: "Spray Potassium Phosphite (0.2%) to strengthen leaf cell wall resilience.",
+    drone: "Dosage calculated: 45 ml/sq.m @ 2.5 m/s flight speed",
+    img: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=400&auto=format&fit=crop&q=85"
+  },
+  Wheat_Yellow_Rust: {
+    name: "Wheat Stripe / Yellow Rust (Puccinia striiformis)",
+    score: "96.2%",
+    severity: "Critical Fungal Pathology",
+    severityBg: "#fef3c7",
+    severityColor: "#b45309",
+    organic: "Fermented buttermilk (50ml/L) + Cow urine bio-spray.",
+    chemical: "Propiconazole 25% EC (Tilt) @ 1ml/L of water.",
+    fertilizer: "Zinc Sulphate 33% (0.5%) + Urea foliar spray (1%).",
+    drone: "Dosage calculated: 35 ml/sq.m @ 3.0 m/s flight speed",
+    img: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=400&auto=format&fit=crop&q=85"
+  },
+  Rice_Bacterial_Blight: {
+    name: "Rice Bacterial Leaf Blight (Xanthomonas oryzae)",
+    score: "91.5%",
+    severity: "Severe Bacterial Infection",
+    severityBg: "#fee2e2",
+    severityColor: "#991b1b",
+    organic: "Pseudomonas fluorescens (10g/L) canopy spray.",
+    chemical: "Streptocycline (1g/10L) + Copper Oxychloride (25g/10L).",
+    fertilizer: "Muriate of Potash (MOP) @ 15kg/acre to arrest lesion spread.",
+    drone: "Dosage calculated: 50 ml/sq.m @ 2.2 m/s flight speed",
+    img: "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&auto=format&fit=crop&q=85"
+  },
+  Crop_Healthy: {
+    name: "Healthy Plant Canopy (Optimum Chlorophyll)",
+    score: "98.9%",
+    severity: "Normal / Healthy",
+    severityBg: "#dcfce7",
+    severityColor: "#15803d",
+    organic: "Maintenance Jeevamrutha or Panchagavya foliar application.",
+    chemical: "None required.",
+    fertilizer: "Balanced NPK 19:19:19 booster @ 3g/L.",
+    drone: "Zero chemical required. Drone in standby mode.",
+    img: "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=400&auto=format&fit=crop&q=85"
+  }
+};
+
+function runAiDiagnosis(key) {
+  const data = AI_DIAGNOSES[key];
+  if (!data) return;
+
+  const preview = document.getElementById("ai-scan-preview");
+  const nameEl = document.getElementById("ai-disease-name");
+  const scoreEl = document.getElementById("ai-confidence-score");
+  const sevEl = document.getElementById("ai-severity-badge");
+  const orgEl = document.getElementById("ai-organic-remedy");
+  const chemEl = document.getElementById("ai-chemical-remedy");
+  const fertEl = document.getElementById("ai-fertilizer-dosage");
+  const droneEl = document.getElementById("ai-drone-status");
+
+  if (preview) preview.src = data.img;
+  if (nameEl) nameEl.textContent = data.name;
+  if (scoreEl) scoreEl.textContent = data.score;
+  if (sevEl) {
+    sevEl.textContent = data.severity;
+    sevEl.style.background = data.severityBg;
+    sevEl.style.color = data.severityColor;
+  }
+  if (orgEl) orgEl.textContent = data.organic;
+  if (chemEl) chemEl.textContent = data.chemical;
+  if (fertEl) fertEl.textContent = data.fertilizer;
+  if (droneEl) droneEl.textContent = data.drone;
+
+  showToast(`🔬 AI Pathology Scan Complete: ${data.name.split('(')[0]}`);
+}
+
+function dispatchDroneSpray() {
+  showToast("🛸 Precision Agriculture UAV Dispatched! Initiating GPS-guided micro-misting...");
+}
+
+// ==========================================================================
+// 5. MODULE D: 12+ DIVERSE PRODUCE LISTINGS
 // ==========================================================================
 const DEFAULT_LISTINGS = [
   {
@@ -461,7 +522,6 @@ const DEFAULT_LISTINGS = [
   }
 ];
 
-// Mandi Wholesale and Retail Benchmarks
 const MARKET_BENCHMARKS = {
   "Organic Sharbati Wheat": { mandiWholesale: 21, retailMarket: 42 },
   "Fresh Red Tomatoes": { mandiWholesale: 14, retailMarket: 38 },
@@ -487,13 +547,11 @@ document.addEventListener("DOMContentLoaded", () => {
   setupNavigation();
   setupFilters();
   setupSellForm();
-  updatePriceCalculator();
-  calculateRoute();
   renderListings();
 });
 
 function loadListings() {
-  const localSaved = localStorage.getItem("kisanconnect_listings_v7");
+  const localSaved = localStorage.getItem("kisanconnect_listings_v8");
   if (localSaved) {
     try {
       listings = JSON.parse(localSaved);
@@ -503,7 +561,7 @@ function loadListings() {
     }
   }
   listings = [...DEFAULT_LISTINGS];
-  localStorage.setItem("kisanconnect_listings_v7", JSON.stringify(listings));
+  localStorage.setItem("kisanconnect_listings_v8", JSON.stringify(listings));
 }
 
 function setupNavigation() {
@@ -549,15 +607,8 @@ function filterByCategory(cat) {
   renderListings();
 }
 
-function scrollToElement(elemId) {
-  const el = document.getElementById(elemId);
-  if (el) {
-    el.scrollIntoView({ behavior: "smooth" });
-  }
-}
-
 // ==========================================================================
-// 3. AI FARMER VOICE AGENT ("KISAN MITRA / किसान मित्र")
+// 6. AI VOICE AGENT ("KISAN MITRA / किसान मित्र")
 // ==========================================================================
 let isListening = false;
 let recognition = null;
@@ -573,7 +624,6 @@ function startVoiceListening() {
   const wave = document.getElementById("voice-waveform");
   const statusText = document.getElementById("voice-status-text");
 
-  // Check browser SpeechRecognition support
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
   if (SpeechRecognition) {
@@ -612,7 +662,6 @@ function startVoiceListening() {
       stopVoiceAnimation();
     }
   } else {
-    // Simulated Voice Mode if SpeechRecognition not permitted
     if (micBtn) micBtn.classList.add("listening");
     if (wave) wave.classList.add("active");
     if (statusText) statusText.textContent = "Listening... (Simulating Voice AI)";
@@ -642,26 +691,24 @@ function processVoiceQuery(query) {
 
   let responseText = "";
 
-  if (qLower.includes("wheat") || qLower.includes("गेहूँ") || qLower.includes("kanak")) {
+  if (qLower.includes("wheat") || qLower.includes("गेहूँ")) {
     responseText = "🌾 Sharbati Wheat is currently trading at ₹28/kg directly from Balwinder Singh (Ludhiana), saving buyers 33% compared to retail!";
-  } else if (qLower.includes("tomato") || qLower.includes("टमाटर") || qLower.includes("tamatar")) {
-    responseText = "🍅 Fresh Hybrid Tomatoes are ₹22/kg direct from Santosh Patil (Nashik). Over 2,500 kg available for direct farm pickup!";
-  } else if (qLower.includes("rice") || qLower.includes("चावल") || qLower.includes("chawal") || qLower.includes("basmati")) {
-    responseText = "🍚 Sona Masoori Raw Rice is ₹44/kg from Mandya, and 1121 Basmati Paddy is ₹75/kg from Karnal with zero middleman deductions.";
-  } else if (qLower.includes("sell") || qLower.includes("बेचें") || qLower.includes("list")) {
-    responseText = "👨‍🌾 To sell your produce, go to the 'Farmer Portal' tab, enter crop quantity and price, and publish your direct listing in 60 seconds!";
-    switchView("sell-view");
+  } else if (qLower.includes("moisture") || qLower.includes("soil") || qLower.includes("पानी")) {
+    responseText = "💧 Sector-North Wheat soil moisture is at 42% (Optimum root-zone condition). Automatic pump relay is currently in standby.";
+    switchView("iot-view");
+  } else if (qLower.includes("disease") || qLower.includes("blight") || qLower.includes("रोग") || qLower.includes("पत्ता")) {
+    responseText = "🔬 Opening AI Leaf Doctor. Tomato Early Blight detected with 94.8% confidence. Recommended remedy: Neem oil spray + Potassium Phosphite.";
+    switchView("ai-doc-view");
   } else if (qLower.includes("helpline") || qLower.includes("नंबर") || qLower.includes("help") || qLower.includes("call")) {
     responseText = "📞 Toll-Free National Kisan Call Center: 1800-180-1551. Available 6 AM to 10 PM in 22 regional Indian languages!";
   } else {
-    responseText = `🌾 You asked: "${query}". KisanConnect has 12+ direct farm batches available with live price transparency and zero commission.`;
+    responseText = `🌾 You asked: "${query}". KisanConnect Smart Agriculture platform has all 4 IoT, AI, Security, and D2C modules active.`;
   }
 
   if (outputBubble) {
     outputBubble.innerHTML = `<strong>🗣️ You:</strong> "${query}"<br><br><strong>🤖 Kisan Mitra:</strong> ${responseText}`;
   }
 
-  // Voice Speech Synthesis Output (TTS)
   if ("speechSynthesis" in window) {
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(responseText);
@@ -672,111 +719,8 @@ function processVoiceQuery(query) {
 }
 
 // ==========================================================================
-// 4. INTERACTIVE PRICE COMPARISON CALCULATOR
+// 7. D2C MARKETPLACE RENDERING & LOGIC
 // ==========================================================================
-function updatePriceCalculator() {
-  const cropSelect = document.getElementById("calc-crop-select");
-  if (!cropSelect) return;
-
-  const cropName = cropSelect.value;
-  const benchmark = MARKET_BENCHMARKS[cropName] || { mandiWholesale: 20, retailMarket: 40 };
-
-  const matchedListing = listings.find(l => l.crop === cropName) || { pricePerKg: Math.round((benchmark.mandiWholesale + benchmark.retailMarket) / 2) };
-  const directPrice = matchedListing.pricePerKg;
-
-  const mandiEl = document.getElementById("calc-mandi-price");
-  const kisanEl = document.getElementById("calc-kisan-price");
-  const retailEl = document.getElementById("calc-retail-price");
-  const gainEl = document.getElementById("calc-farmer-gain");
-  const savingsEl = document.getElementById("calc-buyer-savings");
-
-  if (mandiEl) mandiEl.textContent = `₹${benchmark.mandiWholesale}/kg`;
-  if (kisanEl) kisanEl.textContent = `₹${directPrice}/kg`;
-  if (retailEl) retailEl.textContent = `₹${benchmark.retailMarket}/kg`;
-
-  const farmerGainPct = Math.round(((directPrice - benchmark.mandiWholesale) / benchmark.mandiWholesale) * 100);
-  const buyerSavingsPct = Math.round(((benchmark.retailMarket - directPrice) / benchmark.retailMarket) * 100);
-
-  if (gainEl) gainEl.textContent = `+${farmerGainPct}% Extra Farmer Profit`;
-  if (savingsEl) savingsEl.textContent = `Buyer Saves ${buyerSavingsPct}%`;
-}
-
-// ==========================================================================
-// 5. ROUTE & FRESHNESS TRANSIT CALCULATOR
-// ==========================================================================
-function calculateRoute() {
-  const origin = document.getElementById("route-origin-select")?.value || "Mandya";
-  const dest = document.getElementById("route-dest-select")?.value || "Bengaluru";
-
-  const routeMap = {
-    "Mandya-Bengaluru": { dist: "98 km", time: "~2.5 Hrs", savedDays: "12 Days" },
-    "Mandya-Mumbai": { dist: "980 km", time: "~18 Hrs", savedDays: "15 Days" },
-    "Mandya-Delhi": { dist: "2,150 km", time: "~38 Hrs", savedDays: "20 Days" },
-    "Mandya-Hyderabad": { dist: "670 km", time: "~11 Hrs", savedDays: "14 Days" },
-    "Mandya-Chennai": { dist: "410 km", time: "~7.5 Hrs", savedDays: "14 Days" },
-
-    "Nashik-Mumbai": { dist: "165 km", time: "~3.5 Hrs", savedDays: "10 Days" },
-    "Nashik-Bengaluru": { dist: "1,010 km", time: "~19 Hrs", savedDays: "16 Days" },
-    "Nashik-Delhi": { dist: "1,220 km", time: "~22 Hrs", savedDays: "18 Days" },
-    "Nashik-Hyderabad": { dist: "710 km", time: "~13 Hrs", savedDays: "14 Days" },
-    "Nashik-Chennai": { dist: "1,240 km", time: "~24 Hrs", savedDays: "16 Days" },
-
-    "Ludhiana-Delhi": { dist: "310 km", time: "~5.5 Hrs", savedDays: "12 Days" },
-    "Ludhiana-Mumbai": { dist: "1,690 km", time: "~29 Hrs", savedDays: "18 Days" },
-    "Ludhiana-Bengaluru": { dist: "2,460 km", time: "~42 Hrs", savedDays: "22 Days" },
-    "Ludhiana-Hyderabad": { dist: "1,880 km", time: "~33 Hrs", savedDays: "20 Days" },
-    "Ludhiana-Chennai": { dist: "2,520 km", time: "~44 Hrs", savedDays: "22 Days" },
-
-    "Guntur-Hyderabad": { dist: "270 km", time: "~5.0 Hrs", savedDays: "12 Days" },
-    "Guntur-Chennai": { dist: "385 km", time: "~7.0 Hrs", savedDays: "14 Days" },
-    "Guntur-Bengaluru": { dist: "590 km", time: "~10.5 Hrs", savedDays: "14 Days" },
-    "Guntur-Mumbai": { dist: "970 km", time: "~17 Hrs", savedDays: "16 Days" },
-    "Guntur-Delhi": { dist: "1,780 km", time: "~31 Hrs", savedDays: "20 Days" },
-
-    "Agra-Delhi": { dist: "210 km", time: "~3.5 Hrs", savedDays: "10 Days" },
-    "Agra-Mumbai": { dist: "1,200 km", time: "~21 Hrs", savedDays: "16 Days" },
-    "Agra-Bengaluru": { dist: "1,940 km", time: "~34 Hrs", savedDays: "20 Days" },
-    "Agra-Hyderabad": { dist: "1,350 km", time: "~23 Hrs", savedDays: "18 Days" },
-    "Agra-Chennai": { dist: "1,990 km", time: "~35 Hrs", savedDays: "20 Days" }
-  };
-
-  const key = `${origin}-${dest}`;
-  const data = routeMap[key] || { dist: "450 km", time: "~8 Hrs", savedDays: "14 Days" };
-
-  const distEl = document.getElementById("route-distance-val");
-  const timeEl = document.getElementById("route-time-val");
-  const spoilEl = document.getElementById("route-spoilage-val");
-
-  if (distEl) distEl.textContent = data.dist;
-  if (timeEl) timeEl.textContent = data.time;
-  if (spoilEl) spoilEl.textContent = data.savedDays;
-}
-
-// ==========================================================================
-// 6. COMMUNITY GROUP BUYING PLEDGE
-// ==========================================================================
-const poolState = {
-  pool1: { current: 750, target: 1000, pledgeStep: 25, unit: "kg" },
-  pool2: { current: 420, target: 500, pledgeStep: 10, unit: "kg" },
-  pool3: { current: 890, target: 1200, pledgeStep: 50, unit: "kg" }
-};
-
-function joinGroupPool(poolId, cropName) {
-  const pool = poolState[poolId];
-  if (!pool) return;
-
-  pool.current = Math.min(pool.target, pool.current + pool.pledgeStep);
-  const pct = Math.round((pool.current / pool.target) * 100);
-
-  const statusEl = document.getElementById(`${poolId}-status`);
-  const barEl = document.getElementById(`${poolId}-bar`);
-
-  if (statusEl) statusEl.textContent = `${pool.current} / ${pool.target} ${pool.unit} (${pct}%)`;
-  if (barEl) barEl.style.width = `${pct}%`;
-
-  showToast(`🎉 You pledged ${pool.pledgeStep} ${pool.unit} to the ${cropName} pool!`);
-}
-
 function setupFilters() {
   const searchInput = document.getElementById("filter-search");
   const catFilter = document.getElementById("filter-category");
@@ -816,18 +760,6 @@ function renderListings() {
     countLabel.textContent = `Showing ${filtered.length} Direct Farm Harvests`;
   }
 
-  if (filtered.length === 0) {
-    container.innerHTML = `
-      <div style="background:#ffffff; border:1.5px solid var(--border-organic); border-radius:var(--radius-bento); padding:3.5rem 2rem; text-align:center;">
-        <div style="font-size:3rem; margin-bottom:1rem;">🌾</div>
-        <h3 style="font-family:var(--font-serif); font-size:1.4rem; color:var(--forest-900);">No Harvests Found</h3>
-        <p style="color:var(--text-muted); margin-top:0.5rem;">Try clearing your search filters or select "All Categories".</p>
-        <button class="btn btn-forest" style="margin-top:1.25rem;" onclick="filterByCategory('all')">View All Harvests</button>
-      </div>
-    `;
-    return;
-  }
-
   container.innerHTML = filtered.map(item => {
     const benchmark = MARKET_BENCHMARKS[item.crop] || {
       mandiWholesale: Math.round(item.pricePerKg * 0.7),
@@ -865,7 +797,6 @@ function renderListings() {
               </div>
             </div>
 
-            <!-- Price Comparison Contrast -->
             <div class="price-contrast-box">
               <div>
                 <span style="font-size:0.72rem; font-weight:800; text-transform:uppercase; color:#92400e;">Mandi Trader Rate</span>
@@ -928,7 +859,7 @@ function setupSellForm() {
     };
 
     listings.unshift(newListing);
-    localStorage.setItem("kisanconnect_listings_v7", JSON.stringify(listings));
+    localStorage.setItem("kisanconnect_listings_v8", JSON.stringify(listings));
     form.reset();
     showToast(`🎉 Produce listing published for ${newListing.crop}!`);
     switchView("buy-view");
