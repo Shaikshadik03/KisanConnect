@@ -3,249 +3,300 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KisanConnect — End-to-End Smart Agriculture & D2C Ecosystem</title>
+  <title>KisanConnect — Fair Trade Agriculture & Precision Field Defense</title>
 
   <!-- Google Fonts & Chart.js CDN -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=8.0">
+  <!-- Custom Stylesheet with cache-busting version -->
+  <link rel="stylesheet" href="style.css?v=9.0">
 </head>
 <body>
 
-  <!-- 1. LIVE MANDI PRICE TICKER BAR -->
-  <div class="mandi-ticker-wrap">
-    <div class="mandi-ticker-label" data-i18n="mandi_ticker_lbl">⚡ LIVE MANDI BENCHMARK</div>
-    <div class="mandi-ticker-track">
-      <span>🌾 <b>Sharbati Wheat:</b> ₹2,800/Q <strong class="mandi-up">(+2.4%)</strong></span>
-      <span>🍅 <b>Nashik Tomatoes:</b> ₹2,200/Q <strong class="mandi-up">(+5.1%)</strong></span>
-      <span>🍚 <b>Sona Masoori Rice:</b> ₹4,400/Q <strong class="mandi-up">(+1.8%)</strong></span>
-      <span>🧅 <b>Lasalgaon Onions:</b> ₹2,400/Q <strong class="mandi-down">(-1.2%)</strong></span>
-      <span>🥔 <b>Agra Potatoes:</b> ₹1,800/Q <strong class="mandi-up">(+0.9%)</strong></span>
-      <span>🌶️ <b>Guntur Chillies:</b> ₹16,000/Q <strong class="mandi-up">(+4.2%)</strong></span>
-      <span>🫘 <b>Gulbarga Toor Dal:</b> ₹11,000/Q <strong class="mandi-up">(+3.0%)</strong></span>
-      <span>🌾 <b>Basmati 1121:</b> ₹7,500/Q <strong class="mandi-up">(+1.5%)</strong></span>
-      <span>🍯 <b>Raw Forest Honey:</b> ₹480/kg <strong class="mandi-up">(+6.0%)</strong></span>
-      <span>🌻 <b>Yellow Mustard Oil:</b> ₹175/L <strong class="mandi-down">(-0.5%)</strong></span>
-    </div>
-  </div>
+  <!-- ==========================================================================
+       COORDINATED APPLICATION HEADER: APMC TICKER + MAIN NAVIGATION
+       Solves the layout collision by binding both elements into one sticky flow.
+       ========================================================================== -->
+  <header class="app-header">
+    <!-- 1. LIVE APMC MANDI BENCHMARK COMMODITIES TICKER -->
+    <div class="mandi-ticker-bar">
+      <div class="mandi-ticker-badge">
+        <span class="pulse-indicator"></span>
+        <span data-i18n="mandi_ticker_lbl">APMC e-NAM LIVE</span>
+      </div>
+      <div class="mandi-ticker-viewport">
+        <div class="mandi-ticker-track">
+          <!-- Benchmark Set 1 -->
+          <div class="mandi-ticker-item">🌾 <b>Sharbati Wheat:</b> <span class="mandi-price-num">₹2,800/Q</span> <span class="mandi-up">(+2.4%)</span></div>
+          <div class="mandi-ticker-item">🍅 <b>Nashik Tomatoes:</b> <span class="mandi-price-num">₹2,200/Q</span> <span class="mandi-up">(+5.1%)</span></div>
+          <div class="mandi-ticker-item">🍚 <b>Sona Masoori:</b> <span class="mandi-price-num">₹4,400/Q</span> <span class="mandi-up">(+1.8%)</span></div>
+          <div class="mandi-ticker-item">🧅 <b>Lasalgaon Onions:</b> <span class="mandi-price-num">₹2,400/Q</span> <span class="mandi-down">(-1.2%)</span></div>
+          <div class="mandi-ticker-item">🥔 <b>Agra Potatoes:</b> <span class="mandi-price-num">₹1,800/Q</span> <span class="mandi-up">(+0.9%)</span></div>
+          <div class="mandi-ticker-item">🌶️ <b>Guntur Chillies:</b> <span class="mandi-price-num">₹16,000/Q</span> <span class="mandi-up">(+4.2%)</span></div>
+          <div class="mandi-ticker-item">🫘 <b>Gulbarga Toor:</b> <span class="mandi-price-num">₹11,000/Q</span> <span class="mandi-up">(+3.0%)</span></div>
+          <div class="mandi-ticker-item">🌾 <b>Basmati 1121:</b> <span class="mandi-price-num">₹7,500/Q</span> <span class="mandi-up">(+1.5%)</span></div>
+          <div class="mandi-ticker-item">🍯 <b>Raw Forest Honey:</b> <span class="mandi-price-num">₹480/kg</span> <span class="mandi-up">(+6.0%)</span></div>
+          <div class="mandi-ticker-item">🌻 <b>Mustard Oil:</b> <span class="mandi-price-num">₹175/L</span> <span class="mandi-down">(-0.5%)</span></div>
 
-  <!-- 2. NAVBAR WITH 4 PILLAR TABS & MULTILINGUAL SWITCHER -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="brand" data-view-target="landing-view">
-        <div class="brand-icon">🌾</div>
-        <div>
-          <h1>KisanConnect</h1>
-          <div class="brand-sub">Smart Agriculture & D2C Ecosystem</div>
+          <!-- Benchmark Set 2 (Continuous marquee loop) -->
+          <div class="mandi-ticker-item">🌾 <b>Sharbati Wheat:</b> <span class="mandi-price-num">₹2,800/Q</span> <span class="mandi-up">(+2.4%)</span></div>
+          <div class="mandi-ticker-item">🍅 <b>Nashik Tomatoes:</b> <span class="mandi-price-num">₹2,200/Q</span> <span class="mandi-up">(+5.1%)</span></div>
+          <div class="mandi-ticker-item">🍚 <b>Sona Masoori:</b> <span class="mandi-price-num">₹4,400/Q</span> <span class="mandi-up">(+1.8%)</span></div>
+          <div class="mandi-ticker-item">🧅 <b>Lasalgaon Onions:</b> <span class="mandi-price-num">₹2,400/Q</span> <span class="mandi-down">(-1.2%)</span></div>
+          <div class="mandi-ticker-item">🥔 <b>Agra Potatoes:</b> <span class="mandi-price-num">₹1,800/Q</span> <span class="mandi-up">(+0.9%)</span></div>
+          <div class="mandi-ticker-item">🌶️ <b>Guntur Chillies:</b> <span class="mandi-price-num">₹16,000/Q</span> <span class="mandi-up">(+4.2%)</span></div>
+          <div class="mandi-ticker-item">🫘 <b>Gulbarga Toor:</b> <span class="mandi-price-num">₹11,000/Q</span> <span class="mandi-up">(+3.0%)</span></div>
+          <div class="mandi-ticker-item">🌾 <b>Basmati 1121:</b> <span class="mandi-price-num">₹7,500/Q</span> <span class="mandi-up">(+1.5%)</span></div>
+          <div class="mandi-ticker-item">🍯 <b>Raw Forest Honey:</b> <span class="mandi-price-num">₹480/kg</span> <span class="mandi-up">(+6.0%)</span></div>
+          <div class="mandi-ticker-item">🌻 <b>Mustard Oil:</b> <span class="mandi-price-num">₹175/L</span> <span class="mandi-down">(-0.5%)</span></div>
         </div>
       </div>
-
-      <ul class="nav-links">
-        <li><button class="nav-btn active" data-view="landing-view" data-i18n="nav_home">Home</button></li>
-        <li><button class="nav-btn" data-view="buy-view" data-i18n="nav_market">🛒 D2C Market</button></li>
-        <li><button class="nav-btn" data-view="iot-view">💧 IoT Irrigation</button></li>
-        <li><button class="nav-btn" data-view="security-view">🛡️ Crop Guard</button></li>
-        <li><button class="nav-btn" data-view="ai-doc-view">🔬 AI Leaf Doctor</button></li>
-        <li><button class="nav-btn" data-view="sell-view" data-i18n="nav_farmer">👨‍🌾 Farmer Portal</button></li>
-        <li><button class="nav-btn" data-view="dashboard-view" data-i18n="nav_analytics">📊 Analytics</button></li>
-      </ul>
-
-      <!-- Language Selector & AI Voice Trigger -->
-      <div style="display:flex; align-items:center; gap:0.6rem;">
-        <div class="lang-selector-wrap">
-          <span style="font-size:1.1rem;">🌐</span>
-          <select id="lang-select" class="lang-select" onchange="changeLanguage(this.value)">
-            <option value="en">English (EN)</option>
-            <option value="hi">हिन्दी (Hindi)</option>
-            <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
-            <option value="te">తెలుగు (Telugu)</option>
-            <option value="kn">ಕನ್ನಡ (Kannada)</option>
-            <option value="mr">मराठी (Marathi)</option>
-          </select>
-        </div>
-
-        <button class="voice-nav-trigger" onclick="toggleVoiceModal()">
-          🎙️ <span data-i18n="btn_voice_agent">Kisan AI Voice</span>
-        </button>
-      </div>
     </div>
-  </nav>
 
-  <!-- MAIN CONTAINER -->
+    <!-- 2. MAIN COOPERATIVE NAVIGATION BAR -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <!-- Brand Emblem -->
+        <a class="brand" data-view-target="landing-view">
+          <div class="brand-emblem">🌾</div>
+          <div>
+            <div class="brand-title">KisanConnect</div>
+            <div class="brand-subtitle">Fair Trade Agriculture & IoT Field Defense</div>
+          </div>
+        </a>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+          <li><button class="nav-btn active" data-view="landing-view" data-i18n="nav_home">Overview</button></li>
+          <li><button class="nav-btn" data-view="buy-view" data-i18n="nav_market">🛒 Direct Market</button></li>
+          <li><button class="nav-btn" data-view="iot-view">💧 Soil Automation</button></li>
+          <li><button class="nav-btn" data-view="security-view">🛡️ Crop Sentinel</button></li>
+          <li><button class="nav-btn" data-view="ai-doc-view">🔬 AI Pathology</button></li>
+          <li><button class="nav-btn" data-view="sell-view" data-i18n="nav_farmer">👨‍🌾 Farmer Portal</button></li>
+          <li><button class="nav-btn" data-view="dashboard-view" data-i18n="nav_analytics">📊 Economic Impact</button></li>
+        </ul>
+
+        <!-- Vernacular Language & Voice Actions -->
+        <div class="nav-actions">
+          <div class="lang-selector-control">
+            <span style="font-size:0.95rem; margin-right:4px;">🌐</span>
+            <select id="lang-select" class="lang-select" onchange="changeLanguage(this.value)">
+              <option value="en">English (EN)</option>
+              <option value="hi">हिन्दी (Hindi)</option>
+              <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+              <option value="te">తెలుగు (Telugu)</option>
+              <option value="kn">ಕನ್ನಡ (Kannada)</option>
+              <option value="mr">मराठी (Marathi)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN VIEWPORT CONTAINER
+       ========================================================================== -->
   <main>
 
-    <!-- VIEW 1: BENTO HERO & SYSTEM OVERVIEW -->
+    <!-- VIEW 1: COOPERATIVE OVERVIEW & 4 PILLAR ARCHITECTURE -->
     <section id="landing-view" class="view-section active">
       
-      <!-- Hero Grid -->
-      <div class="bento-hero-grid">
-        <div class="bento-card-main">
-          <div class="organic-tag" data-i18n="hero_tag">🌱 4-Pillar Smart Agriculture Ecosystem • Zero Intermediary Commission</div>
-          <h1 class="bento-title" data-i18n="hero_title">Fair Prices for <em>Growers</em>.<br>Smart Protection for <em>Farms</em>.</h1>
-          <p class="bento-desc" data-i18n="hero_desc">
-            An end-to-end platform bridging IoT automated irrigation, PIR perimeter security, AI plant disease diagnostics with drone dispersion, and a transparent direct-to-consumer (D2C) marketplace.
+      <!-- Hero Editorial Panel -->
+      <div class="hero-editorial-panel">
+        <div class="hero-content">
+          <div class="hero-eyebrow" data-i18n="hero_tag">
+            🌱 Fair Trade Agriculture Infrastructure — Zero Intermediary Commission
+          </div>
+
+          <h1 class="hero-headline" data-i18n="hero_title">
+            Fair Prices for <em>Growers</em>.<br>
+            Precision Defense for <em>Fields</em>.
+          </h1>
+
+          <p class="hero-description" data-i18n="hero_desc">
+            An integrated socio-technical platform connecting automated root-zone irrigation, perimeter security sentinels, AI plant pathology with drone micro-dispersion, and a transparent direct-to-consumer exchange.
           </p>
 
-          <div class="bento-actions">
-            <button class="btn btn-forest" data-view-target="buy-view" data-i18n="btn_explore">🛒 Explore D2C Market</button>
-            <button class="btn btn-terracotta" data-view-target="iot-view">💧 IoT Soil Telemetry</button>
-            <button class="btn btn-outline" data-view-target="ai-doc-view">🔬 AI Leaf Scanner</button>
-            <button class="btn btn-outline" onclick="toggleVoiceModal()">🎙️ <span data-i18n="btn_speak">Voice Help</span></button>
+          <div class="hero-actions-cluster">
+            <button class="btn btn-primary" data-view-target="buy-view" data-i18n="btn_explore">
+              🛒 Explore Direct Harvests
+            </button>
+            <button class="btn btn-outline" data-view-target="iot-view">
+              💧 IoT Soil Telemetry
+            </button>
+            <button class="btn btn-outline" data-view-target="ai-doc-view">
+              🔬 AI Pathology Doctor
+            </button>
+            <button class="btn btn-outline" onclick="toggleVoiceModal()">
+              🎙️ <span data-i18n="btn_speak">Voice Assistant</span>
+            </button>
           </div>
         </div>
 
-        <div class="bento-hero-photo-wrap">
-          <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?w=800&auto=format&fit=crop&q=85" alt="Smart Farm" class="bento-hero-img">
+        <!-- Hero Field Photography Frame with Docked Telemetry Status -->
+        <div class="hero-media-frame">
+          <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?w=800&auto=format&fit=crop&q=85" alt="Smart Agriculture Field" class="hero-media-img">
           
-          <div class="floating-bento-card">
-            <div style="display:flex; align-items:center; gap:0.75rem;">
-              <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=100&auto=format&fit=crop&q=85" style="width:44px; height:44px; border-radius:50%; object-fit:cover; border:2px solid #10b981;">
+          <div class="hero-docked-telemetry">
+            <div class="docked-farmer-bio">
+              <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=100&auto=format&fit=crop&q=85" alt="Balwinder Singh" class="docked-avatar">
               <div>
-                <div style="font-weight:900; color:var(--forest-900); font-size:0.92rem;">Balwinder Singh • Punjab</div>
-                <div style="font-size:0.75rem; color:var(--text-muted);">IoT Soil: 48% Optimum • Zero Middlemen</div>
+                <div class="docked-name">Balwinder Singh · Ludhiana, Punjab</div>
+                <div class="docked-meta">Node ESP32-PB01 · Soil Moisture: 48% Optimum</div>
               </div>
             </div>
-            <span style="background:var(--forest-100); color:var(--forest-900); font-weight:800; font-size:0.75rem; padding:0.25rem 0.65rem; border-radius:999px;">✓ All 4 Modules Active</span>
+            <span class="docked-badge">✓ Telemetry Verified</span>
           </div>
         </div>
       </div>
 
-      <!-- 4 ARCHITECTURAL PILLARS SHOWCASE -->
-      <div class="section-head-wrap">
-        <h2 class="section-head-title">4 Core Technological Pillars</h2>
-        <p class="section-head-sub">Comprehensive protection from dry soil up to direct digital consumer sale</p>
+      <!-- 4 Core Pillars Architecture Showcase -->
+      <div class="section-title-wrap">
+        <h2 class="section-headline">Four Core Operational Pillars</h2>
+        <p class="section-subtext">Architected to protect crop yield in the field and secure equitable value at the market gate</p>
       </div>
 
-      <div class="category-photo-grid">
-        <div class="cat-bento-card" onclick="switchView('iot-view')">
-          <div class="cat-bento-img-wrap">
-            <img src="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?w=600&auto=format&fit=crop&q=85" alt="IoT Irrigation" class="cat-bento-img">
-            <span class="cat-count-badge">MODULE A</span>
+      <div class="pillars-architecture-matrix">
+        <!-- Module A -->
+        <div class="pillar-arch-card" onclick="switchView('iot-view')">
+          <div class="pillar-arch-media">
+            <img src="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?w=600&auto=format&fit=crop&q=85" alt="IoT Irrigation" class="pillar-arch-img">
+            <span class="pillar-arch-badge">MODULE A</span>
           </div>
-          <div class="cat-bento-info">
-            <div class="cat-bento-name">💧 Soil & Dry Watering Automation</div>
-            <div class="cat-bento-tag">ESP32 Capacitive Telemetry & Auto-Pump Relay</div>
-          </div>
-        </div>
-
-        <div class="cat-bento-card" onclick="switchView('security-view')">
-          <div class="cat-bento-img-wrap">
-            <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=600&auto=format&fit=crop&q=85" alt="Perimeter Security" class="cat-bento-img">
-            <span class="cat-count-badge">MODULE B</span>
-          </div>
-          <div class="cat-bento-info">
-            <div class="cat-bento-name">🛡️ Crop Protection & Intrusion Guard</div>
-            <div class="cat-bento-tag">PIR Motion Sensors, Strobe Deterrents & Alerts</div>
+          <div class="pillar-arch-body">
+            <h3 class="pillar-arch-name">Soil & Dry Watering Automation</h3>
+            <p class="pillar-arch-summary">Capacitive soil sensors and ESP32 microcontrollers continuously reading moisture and triggering automated relay pumps under drought thresholds.</p>
+            <span class="pillar-arch-link">Open Telemetry Console →</span>
           </div>
         </div>
 
-        <div class="cat-bento-card" onclick="switchView('ai-doc-view')">
-          <div class="cat-bento-img-wrap">
-            <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=600&auto=format&fit=crop&q=85" alt="AI Pathology" class="cat-bento-img">
-            <span class="cat-count-badge">MODULE C</span>
+        <!-- Module B -->
+        <div class="pillar-arch-card" onclick="switchView('security-view')">
+          <div class="pillar-arch-media">
+            <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=600&auto=format&fit=crop&q=85" alt="Crop Protection" class="pillar-arch-img">
+            <span class="pillar-arch-badge">MODULE B</span>
           </div>
-          <div class="cat-bento-info">
-            <div class="cat-bento-name">🔬 AI Disease Detection & Fertilizer</div>
-            <div class="cat-bento-tag">OpenCV / PyTorch Vision & Precision Drone Spray</div>
+          <div class="pillar-arch-body">
+            <h3 class="pillar-arch-name">Crop Protection & Perimeter Sentinel</h3>
+            <p class="pillar-arch-summary">PIR motion sensors and nocturnal ESP32-CAM modules detecting trespassers, stray cattle, and wild boars with automated strobe alarms and phone alerts.</p>
+            <span class="pillar-arch-link">View Perimeter Monitor →</span>
           </div>
         </div>
 
-        <div class="cat-bento-card" onclick="switchView('buy-view')">
-          <div class="cat-bento-img-wrap">
-            <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=600&auto=format&fit=crop&q=85" alt="D2C Marketplace" class="cat-bento-img">
-            <span class="cat-count-badge">MODULE D</span>
+        <!-- Module C -->
+        <div class="pillar-arch-card" onclick="switchView('ai-doc-view')">
+          <div class="pillar-arch-media">
+            <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=600&auto=format&fit=crop&q=85" alt="AI Pathology" class="pillar-arch-img">
+            <span class="pillar-arch-badge">MODULE C</span>
           </div>
-          <div class="cat-bento-info">
-            <div class="cat-bento-name">🛒 Direct-to-Consumer (D2C) Market</div>
-            <div class="cat-bento-tag">0% Commission, Group Buying & Live Mandi Benchmarks</div>
+          <div class="pillar-arch-body">
+            <h3 class="pillar-arch-name">AI Pathology & Drone Dispersion</h3>
+            <p class="pillar-arch-summary">Deep learning classification diagnosing fungal and bacterial leaf diseases, formulating organic remedies, and generating GPS flight plans for precision drone misting.</p>
+            <span class="pillar-arch-link">Launch Diagnostic Lab →</span>
+          </div>
+        </div>
+
+        <!-- Module D -->
+        <div class="pillar-arch-card" onclick="switchView('buy-view')">
+          <div class="pillar-arch-media">
+            <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=600&auto=format&fit=crop&q=85" alt="Direct Market" class="pillar-arch-img">
+            <span class="pillar-arch-badge">MODULE D</span>
+          </div>
+          <div class="pillar-arch-body">
+            <h3 class="pillar-arch-name">Direct-to-Consumer Marketplace</h3>
+            <p class="pillar-arch-summary">Zero commission farmgate exchange connecting farmers with consumers, neighborhood group-buying pools, and restaurants against live APMC benchmarks.</p>
+            <span class="pillar-arch-link">Browse Fresh Harvests →</span>
           </div>
         </div>
       </div>
 
-      <!-- Bento Stats Row -->
-      <div class="bento-stats-row">
-        <div class="bento-stat-card">
-          <div class="bento-stat-num">0%</div>
-          <div class="bento-stat-lbl">Intermediary Commission</div>
+      <!-- Economic Impact Ledger -->
+      <div class="economic-ledger-strip">
+        <div class="ledger-cell">
+          <div class="ledger-num">0%</div>
+          <div class="ledger-label">Intermediary Deduction</div>
         </div>
-        <div class="bento-stat-card">
-          <div class="bento-stat-num">+44.8%</div>
-          <div class="bento-stat-lbl">Average Extra Farmer Earnings</div>
+        <div class="ledger-cell">
+          <div class="ledger-num">+44.8%</div>
+          <div class="ledger-label">Average Farmer Earnings Increase</div>
         </div>
-        <div class="bento-stat-card">
-          <div class="bento-stat-num">~38%</div>
-          <div class="bento-stat-lbl">Irrigation Water Conserved (IoT)</div>
+        <div class="ledger-cell">
+          <div class="ledger-num">~38%</div>
+          <div class="ledger-label">Irrigation Water Conserved (IoT)</div>
         </div>
-        <div class="bento-stat-card">
-          <div class="bento-stat-num">96.4%</div>
-          <div class="bento-stat-lbl">AI Pathology Diagnostic Accuracy</div>
+        <div class="ledger-cell">
+          <div class="ledger-num">96.4%</div>
+          <div class="ledger-label">Pathology Classification Accuracy</div>
         </div>
       </div>
 
     </section>
 
-    <!-- VIEW 2: MODULE A - IoT SOIL & DRY WATERING AUTOMATION -->
+    <!-- VIEW 2: MODULE A — SOIL & IRRIGATION TELEMETRY CONSOLE -->
     <section id="iot-view" class="view-section">
-      <div style="margin-bottom:2rem;">
-        <span class="organic-tag">💧 Module A • Hardware Telemetry & Automation</span>
-        <h2 style="font-family:var(--font-serif); font-size:2.2rem; font-weight:900; color:var(--forest-900); margin-top:0.4rem;">
-          IoT Soil Moisture & Automated Irrigation Control
-        </h2>
-        <p style="color:var(--text-muted);">Real-time telemetry stream from ESP32 capacitive root-zone sensors triggering automated relay pumps.</p>
+      <div class="section-title-wrap">
+        <span class="badge-tag green">Module A · Root-Zone Hardware Telemetry</span>
+        <h2 class="section-headline" style="margin-top:0.4rem;">IoT Soil Hydration & Automated Irrigation Engine</h2>
+        <p class="section-subtext">Continuous telemetry stream from ESP32 capacitive root-zone sensors triggering automated relay pumps beneath crop drought thresholds.</p>
       </div>
 
-      <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:2rem; margin-bottom:2.5rem;">
-        <!-- Live Sensor Gauges Card -->
-        <div class="bento-card-main" style="padding:2.25rem;">
-          <h3 style="font-family:var(--font-serif); font-size:1.4rem; color:var(--forest-900); margin-bottom:1.25rem;">
-            📊 Live Sensor Telemetry: Sector-North (Wheat)
-          </h3>
+      <div class="console-split-layout">
+        <!-- Telemetry Gauges Card -->
+        <div class="telemetry-card">
+          <div class="telemetry-header">
+            <h3 class="telemetry-title">Sector-North (Wheat) · Sensor Node PB-01</h3>
+            <span class="badge-tag green">LoRa Mesh Connected</span>
+          </div>
 
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.25rem; text-align:center; margin-bottom:1.5rem;">
-            <div style="background:var(--cream-bg); padding:1.25rem; border-radius:var(--radius-md); border:1px solid var(--border-organic);">
-              <div style="font-size:0.75rem; font-weight:800; color:var(--text-muted);">VOLUMETRIC MOISTURE</div>
-              <div id="iot-moisture-val" style="font-family:var(--font-serif); font-size:2.4rem; font-weight:900; color:var(--forest-900); margin:0.3rem 0;">42%</div>
-              <span id="iot-moisture-status" class="organic-tag" style="background:#dcfce7; color:#15803d; font-size:0.72rem;">Optimum Hydration</span>
+          <div class="sensor-readout-grid">
+            <div class="sensor-cell">
+              <div class="sensor-cell-label">VOLUMETRIC MOISTURE</div>
+              <div id="iot-moisture-val" class="sensor-cell-value">42%</div>
+              <span id="iot-moisture-status" class="badge-tag green">Optimum Hydration</span>
             </div>
 
-            <div style="background:var(--cream-bg); padding:1.25rem; border-radius:var(--radius-md); border:1px solid var(--border-organic);">
-              <div style="font-size:0.75rem; font-weight:800; color:var(--text-muted);">SOIL TEMPERATURE</div>
-              <div style="font-family:var(--font-serif); font-size:2.4rem; font-weight:900; color:var(--amber-600); margin:0.3rem 0;">26.4°C</div>
-              <span style="font-size:0.72rem; color:var(--text-muted); font-weight:700;">DHT22 Ambience</span>
+            <div class="sensor-cell">
+              <div class="sensor-cell-label">ROOT-ZONE TEMPERATURE</div>
+              <div class="sensor-cell-value" style="color:var(--market-amber);">26.4°C</div>
+              <span class="badge-tag amber">DHT22 Calibrated</span>
             </div>
 
-            <div style="background:var(--cream-bg); padding:1.25rem; border-radius:var(--radius-md); border:1px solid var(--border-organic);">
-              <div style="font-size:0.75rem; font-weight:800; color:var(--text-muted);">RELAY PUMP STATE</div>
-              <div id="iot-pump-val" style="font-family:var(--font-serif); font-size:2.4rem; font-weight:900; color:#64748b; margin:0.3rem 0;">OFF</div>
-              <span id="iot-pump-badge" class="organic-tag" style="background:#f1f5f9; color:#475569; font-size:0.72rem;">Standby Mode</span>
+            <div class="sensor-cell">
+              <div class="sensor-cell-label">RELAY PUMP STATE</div>
+              <div id="iot-pump-val" class="sensor-cell-value" style="color:var(--ink-muted);">OFF</div>
+              <span id="iot-pump-badge" class="badge-tag slate">Standby Mode</span>
             </div>
           </div>
 
-          <!-- Moisture Adjustment Slider Simulator -->
-          <div style="background:#ffffff; border:1.5px solid var(--border-organic); border-radius:var(--radius-md); padding:1.25rem;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-              <strong style="font-size:0.9rem; color:var(--forest-900);">🎛️ Test Soil Dryness Simulation:</strong>
-              <span id="slider-moisture-readout" style="font-weight:800; color:var(--forest-900);">42%</span>
+          <!-- Interactive Dryness Simulator Slider -->
+          <div class="sensor-slider-panel">
+            <div class="slider-label-row">
+              <strong>🎛️ Field Moisture Stress Simulation:</strong>
+              <span id="slider-moisture-readout" class="slider-readout">42%</span>
             </div>
-            <input type="range" id="moisture-slider" min="10" max="90" value="42" style="width:100%; cursor:pointer;" oninput="simulateSoilMoisture(this.value)">
-            <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--text-muted); margin-top:0.3rem;">
-              <span>🔴 10% (Critically Dry - Auto Pump ON)</span>
-              <span>🟡 30% Threshold</span>
-              <span>🟢 65% (Optimal - Auto Pump OFF)</span>
+            <input type="range" id="moisture-slider" min="10" max="90" value="42" oninput="simulateSoilMoisture(this.value)">
+            <div class="slider-markers">
+              <span>🔴 10% (Critical Drought - Auto Pump ON)</span>
+              <span>🟡 30% Activation Threshold</span>
+              <span>🟢 65% (Field Capacity - Auto Pump OFF)</span>
             </div>
           </div>
         </div>
 
-        <!-- Microcontroller Telemetry Payload Card -->
-        <div class="bento-card-main" style="padding:2.25rem; background:var(--forest-950); color:#a7f3d0;">
-          <h3 style="font-family:var(--font-serif); font-size:1.3rem; color:#ffffff; margin-bottom:1rem;">
-            📡 ESP32 JSON Telemetry Feed
-          </h3>
-          <pre id="iot-json-feed" style="background:#02140b; border:1px solid rgba(167,243,208,0.2); border-radius:12px; padding:1rem; font-family:monospace; font-size:0.78rem; line-height:1.5; color:#86efac; overflow-x:auto;">
+        <!-- ESP32 Terminal Output -->
+        <div class="terminal-card">
+          <div class="terminal-topbar">
+            <div class="terminal-title">
+              <span class="pulse-indicator"></span>
+              ESP32 Telemetry Dispatch Frame
+            </div>
+            <span style="font-family:var(--font-mono); font-size:0.7rem; color:#72E39F;">Baud: 115200</span>
+          </div>
+          <pre id="iot-json-feed" class="terminal-code">
 {
   "node_id": "ESP32-SOIL-PB01",
   "farm_id": "FARM-PB-042",
@@ -258,149 +309,156 @@
   "status": "HEALTHY_ROOT_ZONE"
 }
           </pre>
-          <div style="margin-top:1rem; display:flex; gap:0.5rem;">
-            <button class="btn btn-forest" style="flex:1; padding:0.6rem; font-size:0.85rem;" onclick="simulateSoilMoisture(22)">
-              ⚡ Simulate Dry Shock (22%)
+          <div class="terminal-actions">
+            <button class="btn btn-primary" style="flex:1; font-size:0.82rem; padding:0.5rem;" onclick="simulateSoilMoisture(22)">
+              ⚡ Trigger Dry Shock (22%)
             </button>
-            <button class="btn btn-outline" style="flex:1; padding:0.6rem; font-size:0.85rem;" onclick="simulateSoilMoisture(70)">
-              💧 Simulate Rain/Saturation (70%)
+            <button class="btn btn-outline" style="flex:1; font-size:0.82rem; padding:0.5rem; color:#FFFFFF; border-color:rgba(255,255,255,0.2); background:rgba(255,255,255,0.05);" onclick="simulateSoilMoisture(70)">
+              💧 Trigger Saturation (70%)
             </button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- VIEW 3: MODULE B - CROP PROTECTION & PERIMETER INTRUSION GUARD -->
+    <!-- VIEW 3: MODULE B — CROP PROTECTION & PERIMETER SENTINEL -->
     <section id="security-view" class="view-section">
-      <div style="margin-bottom:2rem;">
-        <span class="organic-tag" style="background:#fee2e2; color:#991b1b;">🛡️ Module B • Crop Protection & Wildlife Guard</span>
-        <h2 style="font-family:var(--font-serif); font-size:2.2rem; font-weight:900; color:var(--forest-900); margin-top:0.4rem;">
-          Perimeter Intrusion Detection & Animal Deterrent System
-        </h2>
-        <p style="color:var(--text-muted);">PIR motion sensors and ESP32-CAM modules catching thieves, wild boars, and stray cattle in real-time.</p>
+      <div class="section-title-wrap">
+        <span class="badge-tag alert">Module B · Field Security & Wildlife Deterrent</span>
+        <h2 class="section-headline" style="margin-top:0.4rem;">Perimeter Sentinel & Intrusion Deterrent Monitor</h2>
+        <p class="section-subtext">HC-SR501 PIR motion sensors paired with nocturnal ESP32-CAM nodes, 110dB acoustic sirens, and high-intensity strobe deterrents.</p>
       </div>
 
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-bottom:2.5rem;">
-        <!-- Live Security Camera Feed Simulation -->
-        <div class="bento-card-main" style="padding:2rem;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
-            <h3 style="font-family:var(--font-serif); font-size:1.3rem; color:var(--forest-900);">📸 ESP32-CAM Live Perimeter Stream</h3>
-            <span id="sec-cam-badge" class="organic-tag" style="background:#dcfce7; color:#15803d; font-size:0.75rem;">🟢 Perimeter Secure</span>
+      <div class="sentinel-view-grid">
+        <!-- Live Camera Feed Simulation -->
+        <div class="telemetry-card">
+          <div class="telemetry-header">
+            <h3 class="telemetry-title">📸 ESP32-CAM Perimeter Zone Stream</h3>
+            <span id="sec-cam-badge" class="badge-tag green">🟢 Perimeter Secure</span>
           </div>
 
-          <div style="position:relative; border-radius:var(--radius-md); overflow:hidden; height:260px; background:#0f172a;">
-            <img id="sec-cam-img" src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=600&auto=format&fit=crop&q=85" style="width:100%; height:100%; object-fit:cover; transition:filter 0.3s ease;">
-            <div id="sec-alert-overlay" style="position:absolute; inset:0; background:rgba(220,38,38,0.4); display:none; align-items:center; justify-content:center; color:white; font-size:1.5rem; font-weight:900; text-align:center;">
-              🚨 INTRUDER DETECTED!<br><span style="font-size:0.9rem; font-weight:600;">Strobe & 110dB Audio Siren Triggered</span>
+          <div class="sentinel-cam-feed">
+            <img id="sec-cam-img" src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=600&auto=format&fit=crop&q=85" alt="Perimeter View" class="sentinel-cam-img">
+            
+            <div class="sentinel-crosshair-overlay">
+              <span class="sentinel-feed-tag">CAM-01 · EAST FENCE</span>
+              <span class="sentinel-feed-tag">REC ● 1080p</span>
+            </div>
+
+            <div id="sec-alert-overlay" class="sentinel-alert-overlay">
+              <div style="font-size:1.8rem;">🚨 INTRUSION DETECTED!</div>
+              <div style="font-size:0.92rem; font-weight:600; margin-top:0.3rem;">Strobe Flashing · 110dB Siren Triggered · SMS Sent</div>
             </div>
           </div>
 
-          <div style="margin-top:1.25rem; display:flex; gap:0.75rem;">
-            <button class="btn btn-terracotta" style="flex:1; padding:0.7rem;" onclick="triggerIntrusionAlert('WILD_BOAR')">
-              🐗 Simulate Wild Animal Intrusion
+          <div style="display:flex; gap:0.75rem; margin-top:1.25rem;">
+            <button class="btn btn-secondary" style="flex:1;" onclick="triggerIntrusionAlert('WILD_BOAR')">
+              🐗 Simulate Wild Boar Intrusion
             </button>
-            <button class="btn btn-forest" style="flex:1; padding:0.7rem;" onclick="triggerIntrusionAlert('HUMAN_INTRUDER')">
-              🚷 Simulate Thief / Trespasser
+            <button class="btn btn-alert" style="flex:1;" onclick="triggerIntrusionAlert('HUMAN_INTRUDER')">
+              🚷 Simulate Night Trespasser
             </button>
           </div>
         </div>
 
-        <!-- Real-Time Intrusion Event Log -->
-        <div class="bento-card-main" style="padding:2rem;">
-          <h3 style="font-family:var(--font-serif); font-size:1.3rem; color:var(--forest-900); margin-bottom:1rem;">
-            📋 Security Event Log & Deterrent Actions
-          </h3>
+        <!-- Security Incident Ledger -->
+        <div class="telemetry-card">
+          <div class="telemetry-header">
+            <h3 class="telemetry-title">📋 Incident Ledger & Deterrent Log</h3>
+            <span class="badge-tag slate">Live Log Stream</span>
+          </div>
 
-          <div id="sec-event-list" style="display:flex; flex-direction:column; gap:0.75rem; max-height:280px; overflow-y:auto;">
-            <div style="background:var(--cream-bg); border-left:4px solid #10b981; padding:0.85rem; border-radius:8px; font-size:0.85rem;">
-              <strong style="color:var(--forest-900);">✅ Zone East Fence Line:</strong> Perimeter armed & clear. Strobe idle.
-              <div style="font-size:0.72rem; color:var(--text-muted); margin-top:0.2rem;">Today, 11:42 AM • LoRa Mesh Active</div>
+          <div id="sec-event-list" class="sentinel-log-list">
+            <div class="sentinel-log-item">
+              <strong style="color:var(--agri-green);">✅ Zone East Fence Line:</strong> Perimeter armed and clear. Strobe unit in standby.
+              <div class="sentinel-log-meta">Today, 11:42 AM · LoRa Mesh Heartbeat OK</div>
             </div>
-            <div style="background:var(--cream-bg); border-left:4px solid #f59e0b; padding:0.85rem; border-radius:8px; font-size:0.85rem;">
-              <strong style="color:#b45309;">⚠️ Zone North Orchard:</strong> Stray cattle detected. Deterrent buzzer pulsed for 3s.
-              <div style="font-size:0.72rem; color:var(--text-muted); margin-top:0.2rem;">Yesterday, 04:15 PM • Animal dispersed safely</div>
+            <div class="sentinel-log-item alert">
+              <strong style="color:var(--alert-crimson);">⚠️ Zone North Orchard:</strong> Stray cattle motion confirmed. Deterrent buzzer pulsed 3.0s.
+              <div class="sentinel-log-meta">Yesterday, 04:15 PM · Animal dispersed safely · No crop damage</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- VIEW 4: MODULE C - AI CROP DISEASE SCANNER & DRONE SPRAY -->
+    <!-- VIEW 4: MODULE C — AI PLANT PATHOLOGY & DRONE DISPERSION -->
     <section id="ai-doc-view" class="view-section">
-      <div style="margin-bottom:2rem;">
-        <span class="organic-tag" style="background:#dbeafe; color:#1e40af;">🔬 Module C • Computer Vision & Auto-Fertilization</span>
-        <h2 style="font-family:var(--font-serif); font-size:2.2rem; font-weight:900; color:var(--forest-900); margin-top:0.4rem;">
-          AI Plant Pathology Diagnostic & Precision Drone Misting
-        </h2>
-        <p style="color:var(--text-muted);">Instant leaf pathology classification powered by OpenCV & deep learning with automated fertilizer dosage calculation.</p>
+      <div class="section-title-wrap">
+        <span class="badge-tag green">Module C · Computer Vision & Autonomous Aerial Misting</span>
+        <h2 class="section-headline" style="margin-top:0.4rem;">AI Plant Pathology Lab & Precision Drone Dispersion</h2>
+        <p class="section-subtext">Deep learning classification with CLAHE contrast enhancement for instantaneous leaf diagnostic scoring and autonomous UAV dosage calculation.</p>
       </div>
 
-      <div style="display:grid; grid-template-columns:1fr 1.2fr; gap:2rem; margin-bottom:2.5rem;">
-        <!-- Leaf Scanner Input Card -->
-        <div class="bento-card-main" style="padding:2rem;">
-          <h3 style="font-family:var(--font-serif); font-size:1.3rem; color:var(--forest-900); margin-bottom:1rem;">
-            📷 Select Sample Leaf to Diagnose:
-          </h3>
+      <div class="pathology-lab-layout">
+        <!-- Leaf Specimen Selector -->
+        <div class="telemetry-card">
+          <div class="telemetry-header">
+            <h3 class="telemetry-title">🔬 Select Field Specimen</h3>
+            <span class="badge-tag green">CLAHE 224x224 RGB</span>
+          </div>
 
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:1.25rem;">
-            <button class="btn btn-outline" style="padding:0.6rem; font-size:0.82rem;" onclick="runAiDiagnosis('Tomato_Early_Blight')">
-              🍅 Tomato Blight
+          <div class="specimen-selector-grid">
+            <button class="specimen-btn" onclick="runAiDiagnosis('Tomato_Early_Blight')">
+              🍅 Tomato Early Blight
             </button>
-            <button class="btn btn-outline" style="padding:0.6rem; font-size:0.82rem;" onclick="runAiDiagnosis('Wheat_Yellow_Rust')">
+            <button class="specimen-btn" onclick="runAiDiagnosis('Wheat_Yellow_Rust')">
               🌾 Wheat Yellow Rust
             </button>
-            <button class="btn btn-outline" style="padding:0.6rem; font-size:0.82rem;" onclick="runAiDiagnosis('Rice_Bacterial_Blight')">
+            <button class="specimen-btn" onclick="runAiDiagnosis('Rice_Bacterial_Blight')">
               🍚 Rice Bacterial Blight
             </button>
-            <button class="btn btn-outline" style="padding:0.6rem; font-size:0.82rem;" onclick="runAiDiagnosis('Crop_Healthy')">
+            <button class="specimen-btn" onclick="runAiDiagnosis('Crop_Healthy')">
               🌿 Healthy Canopy
             </button>
           </div>
 
-          <div style="border:2px dashed var(--border-organic); border-radius:var(--radius-md); padding:1.5rem; text-align:center; background:var(--cream-bg);">
-            <img id="ai-scan-preview" src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=400&auto=format&fit=crop&q=85" style="width:100%; height:160px; object-fit:cover; border-radius:10px; margin-bottom:0.75rem;">
-            <div style="font-size:0.82rem; color:var(--text-muted);">Resolution: 224x224 RGB • CLAHE Contrast Enhanced</div>
+          <div class="specimen-viewport">
+            <img id="ai-scan-preview" src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=400&auto=format&fit=crop&q=85" alt="Leaf Specimen" class="specimen-img">
+            <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--ink-muted);">Input: Normalized RGB Tensor · ResNet-50 Feature Extractor</div>
           </div>
         </div>
 
-        <!-- AI Diagnosis & Drone Dispatch Result Card -->
-        <div class="bento-card-main" style="padding:2rem;" id="ai-results-card">
+        <!-- Pathology Diagnostic & Prescription Panel -->
+        <div class="telemetry-card" id="ai-results-card">
           <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1rem;">
             <div>
-              <span id="ai-severity-badge" class="organic-tag" style="background:#fee2e2; color:#991b1b;">High Severity Pathology</span>
-              <h3 id="ai-disease-name" style="font-family:var(--font-serif); font-size:1.6rem; color:var(--forest-900); margin-top:0.4rem;">
+              <span id="ai-severity-badge" class="badge-tag alert">High Severity Pathology</span>
+              <h3 id="ai-disease-name" style="font-family:var(--font-serif); font-size:1.5rem; font-weight:700; color:var(--ink-primary); margin-top:0.35rem;">
                 Tomato Early Blight (Alternaria solani)
               </h3>
             </div>
             <div style="text-align:right;">
-              <div id="ai-confidence-score" style="font-family:var(--font-serif); font-size:1.8rem; font-weight:900; color:var(--forest-900);">94.8%</div>
-              <div style="font-size:0.72rem; color:var(--text-muted); font-weight:700;">Confidence Score</div>
+              <div id="ai-confidence-score" style="font-family:var(--font-mono); font-size:1.8rem; font-weight:700; color:var(--agri-green);">94.8%</div>
+              <div style="font-size:0.72rem; font-weight:600; color:var(--ink-muted);">Confidence Index</div>
             </div>
           </div>
 
-          <!-- Prescription Details -->
-          <div style="background:var(--cream-bg); border-radius:var(--radius-md); padding:1.25rem; border:1px solid var(--border-organic); margin-bottom:1.25rem;">
-            <div style="margin-bottom:0.6rem;">
-              <strong style="color:var(--forest-900); font-size:0.85rem;">🌱 Organic Bio-Remedy:</strong>
-              <div id="ai-organic-remedy" style="font-size:0.85rem; color:#475569;">Neem oil spray (5ml/L) + Trichoderma viride bio-fungicide.</div>
+          <!-- Dual Treatment Protocol -->
+          <div class="prescription-table">
+            <div class="prescription-row">
+              <strong>🌱 Organic Bio-Remedy:</strong>
+              <div id="ai-organic-remedy">Neem oil spray (5ml/L) + Trichoderma viride bio-fungicide foliar application.</div>
             </div>
-            <div style="margin-bottom:0.6rem;">
-              <strong style="color:var(--forest-900); font-size:0.85rem;">🧪 Chemical Prescription:</strong>
-              <div id="ai-chemical-remedy" style="font-size:0.85rem; color:#475569;">Mancozeb 75% WP @ 2g/L or Azoxystrobin 23% SC @ 1ml/L.</div>
+            <div class="prescription-row">
+              <strong>🧪 Chemical Fallback Prescription:</strong>
+              <div id="ai-chemical-remedy">Mancozeb 75% WP @ 2g/L or Azoxystrobin 23% SC @ 1ml/L.</div>
             </div>
-            <div>
-              <strong style="color:var(--forest-900); font-size:0.85rem;">💊 Nutrient & Fertilizer Booster:</strong>
-              <div id="ai-fertilizer-dosage" style="font-size:0.85rem; color:#475569;">Spray Potassium Phosphite (0.2%) to strengthen leaf cell wall resilience.</div>
+            <div class="prescription-row">
+              <strong>💊 Foliar Nutrient Fortification:</strong>
+              <div id="ai-fertilizer-dosage">Spray Potassium Phosphite (0.2%) to strengthen leaf epidermal cell walls.</div>
             </div>
           </div>
 
-          <!-- Drone Auto-Fertilization Action -->
-          <div style="display:flex; justify-content:space-between; align-items:center; background:#f0fdf4; border:1.5px solid #86efac; border-radius:var(--radius-md); padding:1rem 1.25rem;">
+          <!-- Precision Drone Misting Action -->
+          <div class="drone-dispatch-box">
             <div>
-              <strong style="color:var(--forest-900); font-size:0.9rem;">🛸 Autonomous Precision Drone:</strong>
-              <div id="ai-drone-status" style="font-size:0.8rem; color:var(--forest-700);">Dosage calculated: 45 ml/sq.m @ 2.5 m/s flight speed</div>
+              <strong style="font-size:0.88rem; color:var(--ink-primary); display:block;">🛸 Precision Agriculture UAV Controller:</strong>
+              <div id="ai-drone-status" style="font-family:var(--font-mono); font-size:0.78rem; color:var(--agri-green); margin-top:0.2rem;">
+                Dosage: 45 ml/sq.m @ 2.5 m/s flight speed · Waypoint Ready
+              </div>
             </div>
-            <button class="btn btn-forest" style="padding:0.6rem 1.2rem; font-size:0.85rem;" onclick="dispatchDroneSpray()">
+            <button class="btn btn-primary" style="padding:0.55rem 1.15rem; font-size:0.84rem;" onclick="dispatchDroneSpray()">
               🚀 Trigger Drone Spray
             </button>
           </div>
@@ -408,15 +466,15 @@
       </div>
     </section>
 
-    <!-- VIEW 5: MODULE D - DIRECT-TO-CONSUMER (D2C) MARKETPLACE -->
+    <!-- VIEW 5: MODULE D — DIRECT-TO-CONSUMER (D2C) MARKETPLACE -->
     <section id="buy-view" class="view-section">
-      <div class="bento-market-split">
+      <div class="marketplace-ledger-layout">
 
-        <!-- Left: Filters Panel -->
-        <div class="bento-filter-card">
-          <h2 style="font-family:var(--font-serif); font-size:1.35rem; font-weight:900; margin-bottom:1.25rem; color:var(--forest-900);" data-i18n="filter_title">
+        <!-- Filters Sidebar -->
+        <aside class="market-filter-sidebar">
+          <h3 style="font-family:var(--font-serif); font-size:1.25rem; font-weight:700; margin-bottom:1.25rem; color:var(--ink-primary);" data-i18n="filter_title">
             🔍 Filter Harvests
-          </h2>
+          </h3>
 
           <div class="form-group">
             <label data-i18n="filter_search_lbl">Search Crop or District</label>
@@ -447,23 +505,27 @@
             </select>
           </div>
 
-          <button class="btn btn-forest" style="width:100%; margin-top:0.5rem;" onclick="renderListings()" data-i18n="btn_apply_filter">
-            ⚡ Apply Filters
+          <button class="btn btn-primary" style="width:100%; margin-top:0.5rem;" onclick="renderListings()" data-i18n="btn_apply_filter">
+            Apply Filters
           </button>
-        </div>
+        </aside>
 
-        <!-- Right: Bento Produce Listings -->
+        <!-- Produce Listings Stack -->
         <div>
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; flex-wrap:wrap; gap:0.5rem;">
             <div>
-              <h2 style="font-family:var(--font-serif); font-size:1.5rem; font-weight:900; color:var(--forest-900);" id="listings-count-label">Direct Farm Harvests</h2>
-              <p style="font-size:0.85rem; color:var(--text-muted);">Comparing Direct Farmer Price vs Mandi Wholesale & Retail Supermarket Rates</p>
+              <h2 style="font-family:var(--font-serif); font-size:1.6rem; font-weight:700; color:var(--ink-primary);" id="listings-count-label">
+                Direct Farm Harvests
+              </h2>
+              <p style="font-size:0.86rem; color:var(--ink-muted); margin-top:0.2rem;">
+                Real-time 3-way price comparison: Farm-Gate Direct vs Mandi Wholesale Benchmark vs Retail Supermarket
+              </p>
             </div>
-            <span class="organic-tag" style="margin:0;">Middleman Bypassed</span>
+            <span class="badge-tag green">0% Intermediary Deduction</span>
           </div>
 
           <div id="produce-listings-container" class="produce-bento-grid">
-            <!-- Populated dynamically by app.js -->
+            <!-- Rendered dynamically by app.js -->
           </div>
         </div>
 
@@ -472,10 +534,15 @@
 
     <!-- VIEW 6: FARMER LISTING PORTAL -->
     <section id="sell-view" class="view-section">
-      <div class="bento-card-main" style="max-width:760px; margin:0 auto;">
+      <div class="bento-card-main" style="max-width:780px; margin:0 auto;">
         <div style="text-align:center; margin-bottom:2rem;">
-          <h2 style="font-family:var(--font-serif); font-size:2rem; font-weight:900; color:var(--forest-900);" data-i18n="sell_title">👨‍🌾 List Your Harvest Direct to Buyers</h2>
-          <p style="color:var(--text-muted); font-size:0.95rem;" data-i18n="sell_sub">Fair farm-gate prices • Zero deductions • Instant buyer inquiries</p>
+          <span class="badge-tag green">Grower Direct Terminal</span>
+          <h2 style="font-family:var(--font-serif); font-size:2rem; font-weight:700; color:var(--ink-primary); margin-top:0.4rem;" data-i18n="sell_title">
+            List Your Harvest Direct to Buyers
+          </h2>
+          <p style="color:var(--ink-muted); font-size:0.92rem; margin-top:0.3rem;" data-i18n="sell_sub">
+            Fair farmgate rates · Zero intermediary commissions · Instant buyer connections
+          </p>
         </div>
 
         <form id="farmer-listing-form">
@@ -528,96 +595,107 @@
 
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
             <div class="form-group">
-              <label data-i18n="form_price">Direct Price per kg/unit (₹)</label>
+              <label data-i18n="form_price">Direct Farm Price per Unit (₹)</label>
               <input type="number" id="sell-price" class="form-control" placeholder="e.g. 25" required>
             </div>
             <div class="form-group">
               <label data-i18n="form_date">Harvest Date</label>
-              <input type="date" id="sell-date" class="form-control" required value="2026-09-16">
+              <input type="date" id="sell-date" class="form-control" required value="2026-09-17">
             </div>
           </div>
 
           <div class="form-group">
-            <label data-i18n="form_phone">WhatsApp / Phone Number</label>
+            <label data-i18n="form_phone">WhatsApp / Contact Number</label>
             <input type="tel" id="sell-phone" class="form-control" placeholder="+91 98765 43210" required>
           </div>
 
-          <div class="form-group" style="display:flex; align-items:center; gap:0.5rem;">
-            <input type="checkbox" id="sell-organic" style="width:18px; height:18px;" checked>
-            <label for="sell-organic" style="margin:0; font-size:0.9rem; font-weight:700;" data-i18n="form_organic">🌱 100% Certified Organic Produce</label>
+          <div class="form-group" style="display:flex; align-items:center; gap:0.5rem; margin:1rem 0;">
+            <input type="checkbox" id="sell-organic" style="width:18px; height:18px; accent-color:var(--agri-green);" checked>
+            <label for="sell-organic" style="margin:0; font-size:0.88rem; font-weight:600; cursor:pointer;" data-i18n="form_organic">
+              🌱 100% Certified Organic / Natural Farming Practice
+            </label>
           </div>
 
           <div class="form-group">
-            <label data-i18n="form_desc">Produce Notes & Farm Location</label>
-            <textarea id="sell-desc" class="form-control" rows="3" placeholder="Describe quality, freshness, and farm location..."></textarea>
+            <label data-i18n="form_desc">Harvest Details & Quality Grade</label>
+            <textarea id="sell-desc" class="form-control" rows="3" placeholder="Describe variety, freshness, farm location, and transport availability..."></textarea>
           </div>
 
-          <button type="submit" class="btn btn-forest" style="width:100%; padding:1rem;" data-i18n="btn_submit_listing">✅ Publish Direct Farm Listing</button>
+          <button type="submit" class="btn btn-primary" style="width:100%; padding:0.85rem; font-size:0.95rem;" data-i18n="btn_submit_listing">
+            ✅ Publish Direct Farm Listing
+          </button>
         </form>
       </div>
     </section>
 
     <!-- VIEW 7: IMPACT & ANALYTICS DASHBOARD -->
     <section id="dashboard-view" class="view-section">
-      <div style="margin-bottom:2rem;">
-        <h2 style="font-family:var(--font-serif); font-size:2rem; font-weight:900; color:var(--forest-900);" data-i18n="dash_title">📊 Agricultural Impact & Savings Analytics</h2>
-        <p style="color:var(--text-muted);">Measuring direct economic gains created by cutting out intermediary markups</p>
+      <div class="section-title-wrap">
+        <span class="badge-tag green">Macro Cooperative Census</span>
+        <h2 class="section-headline" style="margin-top:0.4rem;" data-i18n="dash_title">Agricultural Economic Impact & Savings Analytics</h2>
+        <p class="section-subtext">Quantifying capital reclaimed by eliminating intermediary wholesale deductions</p>
       </div>
 
-      <div class="bento-stats-row" style="margin-bottom:2rem;">
-        <div class="bento-stat-card">
-          <div class="bento-stat-num" id="dash-total-farmers">28</div>
-          <div class="bento-stat-lbl">Active Farmers</div>
+      <div class="economic-ledger-strip" style="margin-bottom:2rem;">
+        <div class="ledger-cell">
+          <div class="ledger-num" id="dash-total-farmers">28</div>
+          <div class="ledger-label">Verified Farmers Active</div>
         </div>
-        <div class="bento-stat-card">
-          <div class="bento-stat-num" id="dash-total-buyers">650+</div>
-          <div class="bento-stat-lbl">Direct Buyers</div>
+        <div class="ledger-cell">
+          <div class="ledger-num" id="dash-total-buyers">650+</div>
+          <div class="ledger-label">Direct Buyers Connected</div>
         </div>
-        <div class="bento-stat-card">
-          <div class="bento-stat-num" id="dash-markup-eliminated">₹12.4 L</div>
-          <div class="bento-stat-lbl">Middleman Cuts Saved</div>
+        <div class="ledger-cell">
+          <div class="ledger-num" id="dash-markup-eliminated">₹12.4 L</div>
+          <div class="ledger-label">Middleman Markup Reclaimed</div>
         </div>
-        <div class="bento-stat-card">
-          <div class="bento-stat-num" id="dash-avg-gain">+44.8%</div>
-          <div class="bento-stat-lbl">Farmer Income Rise</div>
+        <div class="ledger-cell">
+          <div class="ledger-num" id="dash-avg-gain">+44.8%</div>
+          <div class="ledger-label">Average Farmer Income Delta</div>
         </div>
       </div>
 
-      <div style="display:grid; grid-template-columns:1.3fr 1fr; gap:1.75rem;">
-        <div class="bento-card-main" style="padding:2rem;">
-          <h3 style="font-family:var(--font-serif); font-size:1.25rem; font-weight:900; color:var(--forest-900); margin-bottom:1rem;">📦 Volume Traded by Crop (Quintals)</h3>
-          <canvas id="cropVolumeChart" height="180"></canvas>
+      <div style="display:grid; grid-template-columns:1.25fr 1fr; gap:1.75rem;">
+        <div class="telemetry-card">
+          <div class="telemetry-header">
+            <h3 class="telemetry-title">📦 Direct Volume Traded by Crop (Quintals)</h3>
+          </div>
+          <canvas id="cropVolumeChart" height="190"></canvas>
         </div>
 
-        <div class="bento-card-main" style="padding:2rem;">
-          <h3 style="font-family:var(--font-serif); font-size:1.25rem; font-weight:900; color:var(--forest-900); margin-bottom:1rem;">💰 Direct vs Mandi Revenue (₹)</h3>
-          <canvas id="earningsComparisonChart" height="180"></canvas>
+        <div class="telemetry-card">
+          <div class="telemetry-header">
+            <h3 class="telemetry-title">💰 Direct Farmer Revenue vs Traditional Mandi Route (₹)</h3>
+          </div>
+          <canvas id="earningsComparisonChart" height="190"></canvas>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- FLOATING AI VOICE AGENT BUTTON (KISAN MITRA) -->
+  <!-- ==========================================================================
+       KISAN MITRA AI VOICE AGENT FLOATING BUTTON & INTERACTIVE MODAL
+       ========================================================================== -->
   <button class="voice-fab" onclick="toggleVoiceModal()">
-    <div class="voice-fab-icon">🎙️</div>
-    <span data-i18n="fab_voice_text">Kisan Mitra AI Voice</span>
+    <span style="font-size:1.15rem;">🎙️</span>
+    <span data-i18n="fab_voice_text">Kisan Mitra Voice</span>
   </button>
 
-  <!-- VOICE AGENT INTERACTIVE MODAL -->
   <div id="voice-modal" class="voice-modal-overlay">
     <div class="voice-modal-box">
       <button class="modal-close" onclick="toggleVoiceModal()">✕</button>
       
       <div class="voice-status-badge">
-        <span style="font-size:0.9rem;">🟢</span> <span id="voice-status-text">Kisan Mitra AI Assistant Ready</span>
+        <span class="pulse-indicator"></span>
+        <span id="voice-status-text">Kisan Mitra AI Assistant Ready</span>
       </div>
 
-      <h3 style="font-family:var(--font-serif); font-size:1.5rem; font-weight:900; color:var(--forest-900);">
+      <h3 style="font-family:var(--font-serif); font-size:1.5rem; font-weight:700; color:var(--ink-primary);">
         🎙️ Kisan Mitra Voice Agent (किसान मित्र)
       </h3>
-      <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.25rem;">
-        Tap the microphone below and speak in any language, or click the quick voice chips!
+      <p style="font-size:0.86rem; color:var(--ink-muted); margin-top:0.3rem;">
+        Tap the microphone below and speak naturally in any regional language, or tap the prompt chips below.
       </p>
 
       <div id="voice-mic-btn" class="voice-mic-main" onclick="startVoiceListening()">
@@ -633,17 +711,17 @@
       </div>
 
       <div class="voice-output-bubble" id="voice-output-bubble">
-        <strong>👋 Kisan Mitra:</strong> "Namaste! How can I help you today? Ask me about Mandi prices, soil moisture, leaf disease diagnosis, or selling crops."
+        <strong>👋 Kisan Mitra:</strong> "Namaste! How can I assist you today? Ask me about Mandi benchmark prices, soil hydration, leaf disease diagnosis, or listing your harvest."
       </div>
 
-      <div style="font-size:0.75rem; font-weight:800; color:var(--forest-900); text-transform:uppercase; margin-top:0.5rem;">
-        ⚡ Tap to Speak Quick Questions:
+      <div style="font-family:var(--font-mono); font-size:0.72rem; font-weight:700; color:var(--ink-muted); text-transform:uppercase; margin-top:0.75rem;">
+        ⚡ Common Farmer Voice Queries:
       </div>
       <div class="voice-chips-row">
         <button class="voice-chip" onclick="processVoiceQuery('What is today wheat mandi price?')">🌾 Wheat Mandi Rate</button>
         <button class="voice-chip" onclick="processVoiceQuery('How is my soil moisture?')">💧 Check Soil Moisture</button>
         <button class="voice-chip" onclick="processVoiceQuery('Diagnose tomato blight leaf')">🔬 Scan Tomato Blight</button>
-        <button class="voice-chip" onclick="processVoiceQuery('Toll Free Kisan Helpline Number')">📞 Helpline 1800-180-1551</button>
+        <button class="voice-chip" onclick="processVoiceQuery('Toll Free Kisan Helpline Number')">📞 Kisan Helpline 1800-180-1551</button>
       </div>
     </div>
   </div>
@@ -653,40 +731,40 @@
     <div class="modal-box">
       <button class="modal-close" onclick="closeContactModal()">✕</button>
       <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1.25rem;">
-        <img id="modal-farmer-img" src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=150&auto=format&fit=crop&q=85" style="width:62px; height:62px; border-radius:50%; object-fit:cover; border:2px solid var(--forest-700);">
+        <img id="modal-farmer-img" src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=150&auto=format&fit=crop&q=85" alt="Farmer" style="width:54px; height:54px; border-radius:50%; object-fit:cover; border:2px solid var(--agri-green);">
         <div>
-          <h3 id="modal-farmer-name" style="font-family:var(--font-serif); font-size:1.35rem; font-weight:900; color:var(--forest-900);">Farmer Name</h3>
-          <p id="modal-crop-name" style="color:var(--terracotta-600); font-weight:800; font-size:0.92rem;">Crop Name</p>
+          <h3 id="modal-farmer-name" style="font-family:var(--font-serif); font-size:1.35rem; font-weight:700; color:var(--ink-primary);">Farmer Name</h3>
+          <p id="modal-crop-name" style="color:var(--agri-green); font-weight:700; font-size:0.9rem;">Crop Name</p>
         </div>
       </div>
       
-      <div style="background:var(--cream-bg); padding:1rem 1.25rem; border-radius:14px; margin-bottom:1.25rem; border:1px solid var(--border-organic);">
+      <div style="background:var(--canvas); padding:1rem 1.25rem; border-radius:var(--radius-sm); margin-bottom:1.25rem; border:1px solid var(--border-subtle);">
         <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
-          <span style="color:var(--text-muted); font-size:0.85rem;">Direct Farm Price:</span>
-          <strong id="modal-price" style="color:var(--forest-900); font-size:1.15rem;">₹28/kg</strong>
+          <span style="color:var(--ink-muted); font-size:0.84rem;">Direct Farm Gate Price:</span>
+          <strong id="modal-price" style="color:var(--agri-green); font-size:1.15rem; font-family:var(--font-mono);">₹28/kg</strong>
         </div>
         <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
-          <span style="color:var(--text-muted); font-size:0.85rem;">Farm Location:</span>
-          <strong id="modal-location">Ludhiana, Punjab</strong>
+          <span style="color:var(--ink-muted); font-size:0.84rem;">Origin Location:</span>
+          <strong id="modal-location" style="font-size:0.9rem;">Ludhiana, Punjab</strong>
         </div>
         <div style="display:flex; justify-content:space-between;">
-          <span style="color:var(--text-muted); font-size:0.85rem;">Direct Contact:</span>
-          <strong id="modal-phone">+91 98765 12340</strong>
+          <span style="color:var(--ink-muted); font-size:0.84rem;">Verified Phone:</span>
+          <strong id="modal-phone" style="font-family:var(--font-mono); font-size:0.9rem;">+91 98765 12340</strong>
         </div>
       </div>
 
       <div style="display: flex; gap: 0.75rem;">
-        <button class="btn btn-forest" style="flex:1;" onclick="showToast('Calling farmer directly...'); closeContactModal();">📞 Call Farmer</button>
-        <button class="btn btn-terracotta" style="flex:1;" onclick="showToast('Opening WhatsApp order chat...'); closeContactModal();">💬 WhatsApp</button>
+        <button class="btn btn-primary" style="flex:1;" onclick="showToast('Connecting direct call with grower...'); closeContactModal();">📞 Call Farmer</button>
+        <button class="btn btn-secondary" style="flex:1;" onclick="showToast('Opening WhatsApp order inquiry...'); closeContactModal();">💬 WhatsApp</button>
       </div>
     </div>
   </div>
 
-  <!-- Toast Notification -->
+  <!-- Toast Notification Container -->
   <div id="toast-notification" class="toast-msg">
     <span>Notification message</span>
   </div>
 
-  <script src="app.js?v=8.0"></script>
+  <script src="app.js?v=9.0"></script>
 </body>
 </html>

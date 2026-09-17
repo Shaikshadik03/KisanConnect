@@ -588,7 +588,7 @@ function switchView(viewId) {
   const activeSection = document.getElementById(viewId);
   if (activeSection) {
     activeSection.classList.add("active");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo(0, 0);
   }
 
   if (viewId === "buy-view") {
@@ -776,7 +776,7 @@ function renderListings() {
       <div class="bento-produce-card">
         <div class="produce-img-wrap">
           <img src="${item.cropImage || 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&auto=format&fit=crop&q=85'}" alt="${item.crop}" class="produce-photo">
-          ${item.organic ? '<span class="organic-badge-overlay">🌱 100% Certified Organic</span>' : '<span class="organic-badge-overlay" style="background:rgba(20,83,45,0.85);">🚜 Farm-Fresh Batch</span>'}
+          ${item.organic ? '<span class="organic-badge-overlay">🌱 100% Certified Organic</span>' : '<span class="organic-badge-overlay" style="background:rgba(15,32,23,0.88); color:#A9D4BC;">🚜 Direct Farm Harvest</span>'}
         </div>
 
         <div class="produce-body">
@@ -784,46 +784,46 @@ function renderListings() {
             <div class="crop-header">
               <div>
                 <h3 class="crop-title">${item.crop}</h3>
-                <div style="display:flex; align-items:center; gap:0.6rem; margin-top:0.4rem;">
+                <div style="display:flex; align-items:center; gap:0.5rem; margin-top:0.35rem;">
                   <img src="${item.farmerAvatar || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=85'}" class="farmer-avatar-img">
-                  <span style="font-weight:700; font-size:0.88rem; color:var(--forest-900);">👨‍🌾 ${item.farmerName}</span>
-                  <span style="color:#5c6855; font-size:0.85rem;">• 📍 ${item.location} (~${item.distanceKm || 12} km away)</span>
+                  <span style="font-weight:700; font-size:0.86rem; color:var(--ink-primary);">${item.farmerName}</span>
+                  <span style="color:var(--ink-muted); font-size:0.82rem;">— ${item.location} (${item.distanceKm || 12} km)</span>
                 </div>
               </div>
 
               <div style="text-align:right;">
                 <div class="price-tag-big">₹${item.pricePerKg}</div>
-                <div style="font-size:0.75rem; color:#5c6855; font-weight:700;">Direct / ${item.unit || 'kg'}</div>
+                <div style="font-size:0.75rem; color:var(--ink-muted); font-weight:600;">Direct Gate / ${item.unit || 'kg'}</div>
               </div>
             </div>
 
             <div class="price-contrast-box">
               <div>
-                <span style="font-size:0.72rem; font-weight:800; text-transform:uppercase; color:#92400e;">Mandi Trader Rate</span>
-                <div style="font-size:1.05rem; font-weight:800; color:#991b1b; text-decoration:line-through;">₹${mandiPrice}/${item.unit || 'kg'}</div>
+                <span style="font-family:var(--font-mono); font-size:0.68rem; font-weight:700; text-transform:uppercase; color:var(--market-amber); display:block;">APMC Mandi Rate</span>
+                <div style="font-family:var(--font-mono); font-size:1.05rem; font-weight:700; color:var(--alert-crimson); text-decoration:line-through; font-variant-numeric:tabular-nums;">₹${mandiPrice}/${item.unit || 'kg'}</div>
               </div>
 
               <div>
-                <span style="font-size:0.72rem; font-weight:800; text-transform:uppercase; color:#5c6855;">Supermarket Retail</span>
-                <div style="font-size:1.05rem; font-weight:800; color:#5c6855;">₹${retailPrice}/${item.unit || 'kg'}</div>
+                <span style="font-family:var(--font-mono); font-size:0.68rem; font-weight:700; text-transform:uppercase; color:var(--ink-muted); display:block;">Supermarket Retail</span>
+                <div style="font-family:var(--font-mono); font-size:1.05rem; font-weight:700; color:var(--ink-secondary); font-variant-numeric:tabular-nums;">₹${retailPrice}/${item.unit || 'kg'}</div>
               </div>
 
               <div class="contrast-badge">
-                You Save ${consumerSavingsPct}% • Farmer +${farmerGainPct}% More
+                Direct Savings: ${consumerSavingsPct}% · Farmer Reclaims +${farmerGainPct}%
               </div>
             </div>
 
-            <p style="font-size:0.9rem; color:#475569; margin: 0.5rem 0;">${item.description}</p>
+            <p style="font-size:0.88rem; color:var(--ink-secondary); margin: 0.5rem 0; line-height:1.5;">${item.description}</p>
           </div>
 
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.75rem; flex-wrap:wrap; gap:0.5rem;">
-            <span style="font-size:0.82rem; color:#5c6855; font-weight:700;">📦 ${item.quantity} available • Harvested ${item.harvestDate}</span>
-            <div style="display:flex; gap:0.75rem;">
-              <button class="btn btn-forest" style="padding:0.5rem 1.3rem; font-size:0.85rem;" onclick="openContactModal('${item.farmerName}', '${item.crop}', '${item.pricePerKg}', '${item.phone}', '${item.location}', '${item.farmerAvatar}')">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.75rem; flex-wrap:wrap; gap:0.5rem; padding-top:0.75rem; border-top:1px solid var(--border-subtle);">
+            <span style="font-size:0.8rem; color:var(--ink-muted); font-weight:600;">📦 ${item.quantity} available · Harvested ${item.harvestDate}</span>
+            <div style="display:flex; gap:0.65rem;">
+              <button class="btn btn-outline" style="padding:0.45rem 1rem; font-size:0.82rem;" onclick="openContactModal('${item.farmerName}', '${item.crop}', '${item.pricePerKg}', '${item.phone}', '${item.location}', '${item.farmerAvatar}')">
                 📞 Connect to Farmer
               </button>
-              <button class="btn btn-terracotta" style="padding:0.5rem 1.3rem; font-size:0.85rem;" onclick="showToast('Produce added to direct farm order!')">
-                🛒 Buy Direct
+              <button class="btn btn-primary" style="padding:0.45rem 1rem; font-size:0.82rem;" onclick="showToast('Produce batch reserved for direct delivery!')">
+                🛒 Buy Direct Batch
               </button>
             </div>
           </div>
@@ -944,3 +944,20 @@ function showToast(msg) {
     toast.style.display = "none";
   }, 3500);
 }
+
+// Explicit global exposure for HTML event handlers and testing
+window.changeLanguage = changeLanguage;
+window.simulateSoilMoisture = simulateSoilMoisture;
+window.triggerIntrusionAlert = triggerIntrusionAlert;
+window.runAiDiagnosis = runAiDiagnosis;
+window.dispatchDroneSpray = dispatchDroneSpray;
+window.switchView = switchView;
+window.filterByCategory = filterByCategory;
+window.toggleVoiceModal = toggleVoiceModal;
+window.startVoiceListening = startVoiceListening;
+window.processVoiceQuery = processVoiceQuery;
+window.renderListings = renderListings;
+window.openContactModal = openContactModal;
+window.closeContactModal = closeContactModal;
+window.showToast = showToast;
+
